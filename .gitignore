@@ -1,0 +1,6 @@
+# ipynb files to ignore
+.ipynb_checkpoints/
+
+# Outputs
+*.pvd
+*.vtu
