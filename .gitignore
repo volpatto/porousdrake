@@ -1,6 +1,9 @@
-# ipynb files to ignore
-.ipynb_checkpoints/
-
 # Outputs
 *.pvd
 *.vtu
+*.png
+
+# Folders
+.ipynb_checkpoints/
+.idea/
+outputs/
