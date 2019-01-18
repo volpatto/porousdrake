@@ -1,9 +1,8 @@
 from firedrake import *
-import numpy as np
-import random
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False
+    plt.close('all')
 except:
     warning("Matplotlib not imported")
 
@@ -28,9 +27,16 @@ U = FunctionSpace(mesh, hdiv_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = U * V
 
+# Trial and test functions
+sigma, u = TrialFunctions(W)
+tau, v = TestFunctions(W)
+solution = Function(W)
+
+# Mesh entities
 n = FacetNormal(mesh)
 x, y = SpatialCoordinate(mesh)
 
+# Source term
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(V).interpolate(p_exact)
 sol_exact.rename('Exact pressure', 'label')
@@ -42,9 +48,11 @@ f = Function(V).interpolate(source_expr)
 plot(sol_exact)
 plt.axis('off')
 
-sigma, u = TrialFunctions(W)
-tau, v = TestFunctions(W)
-solution = Function(W)
+# Model parameters
+k = Constant(1.0)
+mu = Constant(1.0)
+rho = Constant(0.0)
+g = Constant((0.0, 0.0))
 
 # Boundaries: Left (1), Right (2), Bottom(3), Top (4)
 vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
@@ -57,9 +65,11 @@ bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
 bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
 bcs = [bc1, bc2, bc3, bc4]
 
-a = (dot(sigma, tau) - div(tau) * u + v * div(sigma)) * dx
-a += 0.5 * inner(sigma + grad(u), - tau + grad(v)) * dx
-L = f * v * dx - Constant(0.0) * dot(tau, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+# Mixed classical terms
+a = (dot(sigma, (mu / k) * tau) - div(tau) * u + v * div(sigma)) * dx
+L = f * v * dx - dot(rho * g, tau) * dx - p_boundaries * dot(tau, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+# Stabilizing terms
+a += 0.5 * inner((k / mu) * ((mu / k) * sigma + grad(u)), - (mu / k) * tau + grad(v)) * dx
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
