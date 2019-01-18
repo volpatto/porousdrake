@@ -70,6 +70,7 @@ a = (dot(sigma, (mu / k) * tau) - div(tau) * u + v * div(sigma)) * dx
 L = f * v * dx - dot(rho * g, tau) * dx - p_boundaries * dot(tau, n) * (ds(1) + ds(2) + ds(3) + ds(4))
 # Stabilizing terms
 a += 0.5 * inner((k / mu) * ((mu / k) * sigma + grad(u)), - (mu / k) * tau + grad(v)) * dx
+L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * tau + grad(v)) * dx
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
