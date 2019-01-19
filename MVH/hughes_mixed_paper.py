@@ -6,7 +6,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-nx, ny = 100, 100
+nx, ny = 20, 20
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
 mesh = UnitSquareMesh(nx, ny, quadrilateral=quadrilateral)

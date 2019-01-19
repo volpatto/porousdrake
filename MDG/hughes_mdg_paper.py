@@ -20,8 +20,8 @@ plot(mesh)
 plt.axis('off')
 
 degree = 1
-U = VectorFunctionSpace(mesh, "DG", degree + 1)
-V = FunctionSpace(mesh, pressure_family, degree)
+U = VectorFunctionSpace(mesh, "DG", degree)
+V = FunctionSpace(mesh, pressure_family, degree + 1)
 W = MixedFunctionSpace([U, V])
 
 v, p = TrialFunctions(W)
@@ -56,6 +56,13 @@ v_projected = sigma_e
 # An alternative for the BC
 # v_projected = project(as_vector([vx, vy]), W[0])
 
+# Alternative BC which imposes BCs strongly. Comment if Nitsche's method will be employed.
+bc1 = DirichletBC(W[0], as_vector([vx, 0.0]), 1)
+bc2 = DirichletBC(W[0], as_vector([vx, 0.0]), 2)
+bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
+bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
+bcs = [bc1, bc2, bc3, bc4]
+
 # Stabilizing parameters
 h = CellDiameter(mesh)
 h_avg = (h('+') + h('-')) / 2.
@@ -66,14 +73,15 @@ a = dot(w, (mu / k) * v) * dx - \
     div(w) * p * dx + \
     q * div(v) * dx + \
     jump(w, n) * avg(p) * dS - \
-    avg(q) * jump(v, n) * dS + \
-    (dot(w, n) * p - dot(v, n) * q) * (ds(1) + ds(2) + ds(3) + ds(4))
-L = f * q * dx - dot(rho * g, w) * dx - p_boundaries * dot(w, n) * (ds(1) + ds(2) + ds(3) + ds(4)) - \
-    dot(v_projected, n) * q * (ds(1) + ds(2) + ds(3) + ds(4))
+    avg(q) * jump(v, n) * dS
+L = f * q * dx - dot(rho * g, w) * dx - p_boundaries * dot(w, n) * (ds(1) + ds(2) + ds(3) + ds(4))
 # Stabilizing terms
 a += 0.5 * dot(-(mu / k) * w + grad(q), (k / mu) * ((mu / k) * v + grad(p))) * dx + \
     (beta / h_avg) * avg(k / mu) * dot(jump(q, n), jump(p, n)) * dS
 L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * w + grad(q)) * dx
+# Nitsche's method terms (weakly imposing BC)
+# a += (dot(w, n) * p - dot(v, n) * q) * (ds(1) + ds(2) + ds(3) + ds(4))
+# L += -dot(v_projected, n) * q * (ds(1) + ds(2) + ds(3) + ds(4))
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
@@ -85,7 +93,8 @@ solver_parameters = {
     'ksp_monitor': False
 }
 
-solve(a == L, solution, solver_parameters=solver_parameters)
+# solve(a == L, solution, solver_parameters=solver_parameters)
+solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
 sigma_h, u_h = solution.split()
 sigma_h.rename('Velocity', 'label')
 u_h.rename('Pressure', 'label')

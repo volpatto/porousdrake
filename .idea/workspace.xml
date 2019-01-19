@@ -4,6 +4,7 @@
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +66,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+                <state relative-caret-position="23">
+                  <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -75,19 +76,19 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_paper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
-                  <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="20" />
+                <state relative-caret-position="368">
+                  <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1932">
+                <state relative-caret-position="-966">
                   <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
@@ -161,7 +162,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hughes_mdg_paper">
+  <component name="RunManager" selected="Python.hughes_mixed_paper">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -207,9 +208,6 @@
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MVH" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -227,8 +225,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hughes_mdg_paper" />
         <item itemvalue="Python.hughes_mixed_paper" />
+        <item itemvalue="Python.hughes_mdg_paper" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +243,7 @@
       <workItem from="1545354288666" duration="1886000" />
       <workItem from="1545356200147" duration="1324000" />
       <workItem from="1547764183116" duration="6649000" />
-      <workItem from="1547780608440" duration="8474000" />
+      <workItem from="1547780608440" duration="11402000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -282,11 +280,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547873719088</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add MDG Hughes minor changes">
+      <created>1547910499283</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547910499283</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18333000" />
+    <option name="totallyTimeSpent" value="21261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
@@ -329,7 +334,8 @@
     <MESSAGE value="Add forgotten rhs stabilizing term to Mixed Hughes" />
     <MESSAGE value="Add first version of Hughes mixed discontinuous Galerkin" />
     <MESSAGE value="Add minor changes to improve stability" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add minor changes to improve stability" />
+    <MESSAGE value="Add MDG Hughes minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MDG Hughes minor changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -376,16 +382,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_paper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1932">
+        <state relative-caret-position="-966">
           <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
@@ -393,10 +392,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_paper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="72" column="67" lean-forward="true" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="71" column="61" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+        <state relative-caret-position="23">
+          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
         </state>
       </provider>
     </entry>
