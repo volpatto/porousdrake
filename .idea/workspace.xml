@@ -4,7 +4,6 @@
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +65,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="23">
-                  <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+                <state relative-caret-position="207">
+                  <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -79,8 +78,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_paper.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="368">
-                  <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+                <state relative-caret-position="-1354">
+                  <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -162,7 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hughes_mixed_paper">
+  <component name="RunManager" selected="Python.hughes_mdg_paper">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -225,8 +224,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hughes_mixed_paper" />
         <item itemvalue="Python.hughes_mdg_paper" />
+        <item itemvalue="Python.hughes_mixed_paper" />
       </list>
     </recent_temporary>
   </component>
@@ -243,7 +242,7 @@
       <workItem from="1545354288666" duration="1886000" />
       <workItem from="1545356200147" duration="1324000" />
       <workItem from="1547764183116" duration="6649000" />
-      <workItem from="1547780608440" duration="11402000" />
+      <workItem from="1547780608440" duration="12852000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -287,11 +286,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547910499283</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add MDG Hughes BC strongly imposing instead Nitsche's method">
+      <created>1547929860726</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547929860726</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21261000" />
+    <option name="totallyTimeSpent" value="22711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
@@ -335,7 +341,8 @@
     <MESSAGE value="Add first version of Hughes mixed discontinuous Galerkin" />
     <MESSAGE value="Add minor changes to improve stability" />
     <MESSAGE value="Add MDG Hughes minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add MDG Hughes minor changes" />
+    <MESSAGE value="Add MDG Hughes BC strongly imposing instead Nitsche's method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add MDG Hughes BC strongly imposing instead Nitsche's method" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -401,8 +408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+        <state relative-caret-position="207">
+          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
         </state>
       </provider>
     </entry>
