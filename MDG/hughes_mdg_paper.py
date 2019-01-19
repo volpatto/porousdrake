@@ -20,7 +20,7 @@ plot(mesh)
 plt.axis('off')
 
 degree = 1
-U = VectorFunctionSpace(mesh, "DG", degree)
+U = VectorFunctionSpace(mesh, "DG", degree + 1)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = MixedFunctionSpace([U, V])
 
@@ -59,7 +59,7 @@ v_projected = sigma_e
 # Stabilizing parameters
 h = CellDiameter(mesh)
 h_avg = (h('+') + h('-')) / 2.
-beta = Constant(1.0)
+beta = Constant(0.0)
 
 # Regular DG terms
 a = dot(w, (mu / k) * v) * dx - \
@@ -71,7 +71,7 @@ a = dot(w, (mu / k) * v) * dx - \
 L = f * q * dx - dot(rho * g, w) * dx - p_boundaries * dot(w, n) * (ds(1) + ds(2) + ds(3) + ds(4)) - \
     dot(v_projected, n) * q * (ds(1) + ds(2)) - dot(v_projected, n) * q * (ds(3) + ds(4))
 # Stabilizing terms
-a += 0.5 * dot(- (mu / k) * w + grad(q), (k / mu) * ((mu / k) * v + grad(p))) * dx + \
+a += 0.5 * dot(-(mu / k) * w + grad(q), (k / mu) * ((mu / k) * v + grad(p))) * dx + \
     (beta / h_avg) * avg(k / mu) * dot(jump(q, n), jump(p, n)) * dS
 L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * w + grad(q)) * dx
 
