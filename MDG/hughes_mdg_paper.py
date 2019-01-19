@@ -69,7 +69,7 @@ a = dot(w, (mu / k) * v) * dx - \
     avg(q) * jump(v, n) * dS + \
     (dot(w, n) * p - dot(v, n) * q) * (ds(1) + ds(2) + ds(3) + ds(4))
 L = f * q * dx - dot(rho * g, w) * dx - p_boundaries * dot(w, n) * (ds(1) + ds(2) + ds(3) + ds(4)) - \
-    dot(v_projected, n) * q * (ds(1) + ds(2)) - dot(v_projected, n) * q * (ds(3) + ds(4))
+    dot(v_projected, n) * q * (ds(1) + ds(2) + ds(3) + ds(4))
 # Stabilizing terms
 a += 0.5 * dot(-(mu / k) * w + grad(q), (k / mu) * ((mu / k) * v + grad(p))) * dx + \
     (beta / h_avg) * avg(k / mu) * dot(jump(q, n), jump(p, n)) * dS
