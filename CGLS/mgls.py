@@ -22,7 +22,7 @@ else:
 degree = 1
 pressure_family = 'CG'
 U = FunctionSpace(mesh, velocity_family, degree)
-V = FunctionSpace(mesh, pressure_family, degree)
+V = FunctionSpace(mesh, pressure_family, degree + 1)
 W = U * V
 
 # Trial and test functions
@@ -63,13 +63,17 @@ bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
 bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
 bcs = [bc1, bc2, bc3, bc4]
 
+# Stabilizing parameters
+delta_1 = Constant(1. / 2.)
+delta_2 = Constant(1. / 2.)
+
 # Mixed classical terms
 a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
 L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * (ds(1) + ds(2) + ds(3) + ds(4))
 # Stabilizing terms
-a += -0.5 * inner((k / mu) * ((mu / k) * u + grad(p)), (mu / k) * v + grad(q)) * dx
-a += 0.5 * (mu / k) * div(u) * div(v) * dx
-L += 0.5 * (mu / k) * f * div(v) * dx
+a += delta_1 * inner((k / mu) * ((mu / k) * u + grad(p)), (mu / k) * v + grad(q)) * dx
+a += delta_2 * (mu / k) * div(u) * div(v) * dx
+L += delta_2 * (mu / k) * f * div(v) * dx
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
@@ -86,7 +90,7 @@ sigma_h, u_h = solution.split()
 sigma_h.rename('Velocity', 'label')
 u_h.rename('Pressure', 'label')
 
-output = File('cgls_hdiv_paper.pvd', project_output=True)
+output = File('mgls_paper.pvd', project_output=True)
 output.write(sigma_h, u_h, sol_exact, sigma_e)
 
 plot(sigma_h)
