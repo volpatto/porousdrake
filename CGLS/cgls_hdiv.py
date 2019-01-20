@@ -11,25 +11,26 @@ Lx, Ly = 1.0, 1.0
 quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
-if quadrilateral:
-    pressure_family = 'DQ'
-    velocity_family = 'DQ'
-else:
-    pressure_family = 'DG'
-    velocity_family = 'DG'
-
 plot(mesh)
 plt.axis('off')
 
-degree = 1
-U = VectorFunctionSpace(mesh, velocity_family, degree)
-V = FunctionSpace(mesh, pressure_family, degree + 1)
-W = MixedFunctionSpace([U, V])
+if quadrilateral:
+    velocity_family = 'RTCF'
+else:
+    velocity_family = 'BDM'
 
-v, p = TrialFunctions(W)
-w, q = TestFunctions(W)
+degree = 1
+pressure_family = 'CG'
+U = FunctionSpace(mesh, velocity_family, degree)
+V = FunctionSpace(mesh, pressure_family, degree)
+W = U * V
+
+# Trial and test functions
+u, p = TrialFunctions(W)
+v, q = TestFunctions(W)
 solution = Function(W)
 
+# Mesh entities
 n = FacetNormal(mesh)
 x, y = SpatialCoordinate(mesh)
 
@@ -39,7 +40,7 @@ mu = Constant(1.0)
 rho = Constant(0.0)
 g = Constant((0.0, 0.0))
 
-# Exact solution and projection
+# Exact solution and source term projection
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(V).interpolate(p_exact)
 sol_exact.rename('Exact pressure', 'label')
@@ -55,36 +56,20 @@ plt.axis('off')
 vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 vy = -2 * pi / Ly * sin(2 * pi * x / Lx) * cos(2 * pi * y / Ly)
 p_boundaries = Constant(0.0)
-v_projected = sigma_e
-# An alternative for the BC
-# v_projected = project(as_vector([vx, vy]), W[0])
 
-# Alternative BC which imposes BCs strongly. Comment if Nitsche's method will be employed.
 bc1 = DirichletBC(W[0], as_vector([vx, 0.0]), 1)
 bc2 = DirichletBC(W[0], as_vector([vx, 0.0]), 2)
 bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
 bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
 bcs = [bc1, bc2, bc3, bc4]
 
-# Stabilizing parameters
-h = CellDiameter(mesh)
-h_avg = (h('+') + h('-')) / 2.
-beta = Constant(0.0)
-
-# Regular DG terms
-a = dot(w, (mu / k) * v) * dx - \
-    div(w) * p * dx + \
-    q * div(v) * dx + \
-    jump(w, n) * avg(p) * dS - \
-    avg(q) * jump(v, n) * dS
-L = f * q * dx - dot(rho * g, w) * dx - p_boundaries * dot(w, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+# Mixed classical terms
+a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
+L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * (ds(1) + ds(2) + ds(3) + ds(4))
 # Stabilizing terms
-a += 0.5 * dot(-(mu / k) * w + grad(q), (k / mu) * ((mu / k) * v + grad(p))) * dx + \
-    (beta / h_avg) * avg(k / mu) * dot(jump(q, n), jump(p, n)) * dS
-L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * w + grad(q)) * dx
-# Nitsche's method terms (weakly imposing BC)
-# a += (dot(w, n) * p - dot(v, n) * q) * (ds(1) + ds(2) + ds(3) + ds(4))
-# L += -dot(v_projected, n) * q * (ds(1) + ds(2) + ds(3) + ds(4))
+a += -0.5 * inner((k / mu) * ((mu / k) * u + grad(p)), (mu / k) * v + grad(q)) * dx
+a += 0.5 * (mu / k) * div(u) * div(v) * dx
+L += 0.5 * (mu / k) * f * div(v) * dx
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
@@ -96,13 +81,12 @@ solver_parameters = {
     'ksp_monitor': False
 }
 
-# solve(a == L, solution, solver_parameters=solver_parameters)
 solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
 sigma_h, u_h = solution.split()
 sigma_h.rename('Velocity', 'label')
 u_h.rename('Pressure', 'label')
 
-output = File('hughes_paper_MDG.pvd', project_output=True)
+output = File('cgls_paper.pvd', project_output=True)
 output.write(sigma_h, u_h, sol_exact, sigma_e)
 
 plot(sigma_h)

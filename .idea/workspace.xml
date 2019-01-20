@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CGLS/cgls.py" afterDir="false" />
+    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="Add Correa-Loula CGLSHdiv methods (needs work)">
+      <change afterPath="$PROJECT_DIR$/CGLS/cgls_hdiv.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_cg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CGLS/cgls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CGLS/cgls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +28,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.40054795">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -51,11 +52,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1081">
-                  <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+                <state relative-caret-position="141">
+                  <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -63,11 +64,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="253">
-                  <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
+                  <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -88,8 +89,17 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CGLS/cgls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+                <state relative-caret-position="276">
+                  <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CGLS/cgls_hdiv.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="256">
+                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
                 </state>
               </provider>
             </entry>
@@ -141,12 +151,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" />
+        <option value="$PROJECT_DIR$/CGLS/cgls_hdiv.py" />
         <option value="$PROJECT_DIR$/CGLS/cgls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="984" />
+    <option name="x" value="49" />
     <option name="y" value="25" />
     <option name="width" value="936" />
     <option name="height" value="1055" />
@@ -200,6 +211,11 @@
       </console-settings>
     </option>
     <option name="myUseExistingConsole" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CGLS" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -255,6 +271,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="cgls_hdiv" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+      <module name="porousdrake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CGLS" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CGLS/cgls_hdiv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="hughes_mdg_paper" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -296,6 +331,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.cgls" />
+        <item itemvalue="Python.cgls_hdiv" />
         <item itemvalue="Python.hughes_mdg_paper" />
         <item itemvalue="Python.hughes_mixed_paper" />
       </list>
@@ -314,7 +350,7 @@
       <workItem from="1545354288666" duration="1886000" />
       <workItem from="1545356200147" duration="1324000" />
       <workItem from="1547764183116" duration="6649000" />
-      <workItem from="1547780608440" duration="15980000" />
+      <workItem from="1547780608440" duration="19563000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -372,17 +408,24 @@
       <option name="project" value="LOCAL" />
       <updated>1547936319449</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add Correa-Loula CGLS methods">
+      <created>1547951351948</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1547951351948</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25839000" />
+    <option name="totallyTimeSpent" value="29422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2547945" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25424656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -422,7 +465,8 @@
     <MESSAGE value="Add MDG Hughes minor changes" />
     <MESSAGE value="Add MDG Hughes BC strongly imposing instead Nitsche's method" />
     <MESSAGE value="Update MDG Hughes exact solution to considers the model parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MDG Hughes exact solution to considers the model parameters" />
+    <MESSAGE value="Add Correa-Loula CGLS methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Correa-Loula CGLS methods" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -459,16 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-966">
@@ -489,14 +523,31 @@
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CGLS/cgls_hdiv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CGLS/cgls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        <state relative-caret-position="276">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
