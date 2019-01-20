@@ -8,22 +8,15 @@ except:
 
 nx, ny = 20, 20
 Lx, Ly = 1.0, 1.0
-quadrilateral = True
+quadrilateral = False
 mesh = UnitSquareMesh(nx, ny, quadrilateral=quadrilateral)
-
-if quadrilateral:
-    hdiv_family = 'RTCF'
-    pressure_family = 'DQ'
-else:
-    hdiv_family = 'RT'
-    pressure_family = 'DG'
-
 plot(mesh)
 plt.axis('off')
 
 degree = 1
-# pressure_family = 'CG'
-U = FunctionSpace(mesh, hdiv_family, degree)
+velocity_family = 'CG'
+pressure_family = 'CG'
+U = VectorFunctionSpace(mesh, velocity_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = U * V
 
@@ -73,16 +66,15 @@ a += 0.5 * inner((k / mu) * ((mu / k) * sigma + grad(u)), - (mu / k) * tau + gra
 L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * tau + grad(v)) * dx
 
 solver_parameters = {
-    # 'ksp_type': 'tfqmr',
     'ksp_type': 'gmres',
-    'pc_type': 'bjacobi',
     'mat_type': 'aij',
     'ksp_rtol': 1e-3,
-    'ksp_max_it': 2000,
+    'ksp_max_it': 10000,
     'ksp_monitor': False
 }
 
 solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
+# solve(a == L, solution, bcs=bcs)
 sigma_h, u_h = solution.split()
 sigma_h.rename('Velocity', 'label')
 u_h.rename('Pressure', 'label')

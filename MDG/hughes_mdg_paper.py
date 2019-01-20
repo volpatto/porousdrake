@@ -10,20 +10,14 @@ nx, ny = 20, 20
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
-
-if quadrilateral:
-    pressure_family = 'DQ'
-    velocity_family = 'DQ'
-else:
-    pressure_family = 'DG'
-    velocity_family = 'DG'
-
 plot(mesh)
 plt.axis('off')
 
 degree = 1
+pressure_family = 'DG'
+velocity_family = 'DG'
 U = VectorFunctionSpace(mesh, velocity_family, degree)
-V = FunctionSpace(mesh, pressure_family, degree + 1)
+V = FunctionSpace(mesh, pressure_family, degree)
 W = MixedFunctionSpace([U, V])
 
 v, p = TrialFunctions(W)
@@ -87,7 +81,6 @@ L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * w + grad(q)) * dx
 # L += -dot(v_projected, n) * q * (ds(1) + ds(2) + ds(3) + ds(4))
 
 solver_parameters = {
-    # 'ksp_type': 'tfqmr',
     'ksp_type': 'gmres',
     'pc_type': 'bjacobi',
     'mat_type': 'aij',

@@ -69,7 +69,6 @@ a += 0.5 * inner((k / mu) * curl((mu / k) * u), curl((mu / k) * v)) * dx
 L += 0.5 * (mu / k) * f * div(v) * dx
 
 solver_parameters = {
-    # 'ksp_type': 'tfqmr',
     'ksp_type': 'gmres',
     'pc_type': 'bjacobi',
     'mat_type': 'aij',
