@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CGLS/cgls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CGLS/cgls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_cg.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_cg.py" afterDir="false" />
-    </list>
+    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +72,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CGLS/cgls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+                <state relative-caret-position="1725">
+                  <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -95,11 +90,14 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/LDG-H/ldgh.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-172">
-                  <caret line="368" lean-forward="true" selection-start-line="368" selection-end-line="368" />
+                <state relative-caret-position="483">
+                  <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+                  <folding>
+                    <element signature="e#2905#2928#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -142,6 +140,7 @@
       <find>sigma</find>
       <find>tau</find>
       <find>hdiv_family</find>
+      <find>sys</find>
     </findStrings>
     <replaceStrings>
       <replace>(k / mu)</replace>
@@ -161,10 +160,10 @@
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" />
         <option value="$PROJECT_DIR$/CGLS/mgls.py" />
         <option value="$PROJECT_DIR$/CGLS/cgls_hdiv.py" />
-        <option value="$PROJECT_DIR$/LDG-H/ldgh.py" />
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_cg.py" />
         <option value="$PROJECT_DIR$/CGLS/cgls.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" />
+        <option value="$PROJECT_DIR$/LDG-H/ldgh.py" />
       </list>
     </option>
   </component>
@@ -192,11 +191,6 @@
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
               <item name="CGLS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="LDG-H" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
@@ -246,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hughes_mixed_cg">
+  <component name="RunManager" selected="Python.ldgh">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -366,9 +360,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ldgh" />
         <item itemvalue="Python.hughes_mixed_cg" />
         <item itemvalue="Python.hughes_mdg_paper" />
-        <item itemvalue="Python.ldgh" />
         <item itemvalue="Python.cgls_hdiv" />
         <item itemvalue="Python.cgls" />
       </list>
@@ -387,7 +381,7 @@
       <workItem from="1545354288666" duration="1886000" />
       <workItem from="1545356200147" duration="1324000" />
       <workItem from="1547764183116" duration="6649000" />
-      <workItem from="1547780608440" duration="25300000" />
+      <workItem from="1547780608440" duration="27240000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -466,17 +460,24 @@
       <option name="project" value="LOCAL" />
       <updated>1547956074233</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix Hughes methods' function spaces to more appropriate ones">
+      <created>1548028375417</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1548028375417</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35159000" />
+    <option name="totallyTimeSpent" value="37099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25315067" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25260273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -519,7 +520,8 @@
     <MESSAGE value="Add Correa-Loula CGLS methods" />
     <MESSAGE value="Add Correa-Loula CGLSHdiv methods (needs work)" />
     <MESSAGE value="Add MGLS method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add MGLS method" />
+    <MESSAGE value="Fix Hughes methods' function spaces to more appropriate ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Hughes methods' function spaces to more appropriate ones" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -573,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDG-H/ldgh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="368" lean-forward="true" selection-start-line="368" selection-end-line="368" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-966">
@@ -604,17 +599,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CGLS/cgls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CGLS/cgls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LDG-H/ldgh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+          <folding>
+            <element signature="e#2905#2928#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
