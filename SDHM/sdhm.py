@@ -75,41 +75,42 @@ a += 0.5 * (mu / k) * div(u) * div(v) * dx
 a += 0.5 * inner((k / mu) * curl((mu / k) * u), curl((mu / k) * v)) * dx
 L += 0.5 * (mu / k) * f * div(v) * dx
 # Hybridization terms
-a += lambda_h('+') * dot(v, n) * dS + mu_h('+') * dot(u, n) * dS
-a += beta * (lambda_h - p) * (mu_h - q) * dS
+a += lambda_h('+') * jump(v, n) * dS + mu_h('+') * jump(u, n) * dS
+a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 
 F = a - L
 
-#  Solving
-PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
-params = {'snes_type': 'ksponly',
-          'mat_type': 'matfree',
-          'pmat_type': 'matfree',
-          'ksp_type': 'preonly',
-          'pc_type': 'python',
-          # Use the static condensation PC for hybridized problems
-          # and use a direct solve on the reduced system for u_hat
-          'pc_python_type': 'scpc.HybridSCPC',
-          'hybrid_sc': {'ksp_type': 'preonly',
-                        'pc_type': 'lu',
-                        'pc_factor_mat_solver_package': 'mumps'}}
-
-problem = NonlinearVariationalProblem(F, solution, bcs=bcs)
-solver = NonlinearVariationalSolver(problem, solver_parameters=params)
-# solver = NonlinearVariationalSolver(problem, solver_parameters=hybrid_params)
-solver.solve()
-
-# solver_parameters = {
-#     'ksp_type': 'gmres',
-#     'pc_type': 'bjacobi',
-#     'mat_type': 'aij',
-#     'ksp_rtol': 1e-3,
-#     'ksp_max_it': 2000,
-#     'ksp_monitor': False
-# }
+#  Solving SC below
+# PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
+# params = {'snes_type': 'ksponly',
+#           'mat_type': 'matfree',
+#           'pmat_type': 'matfree',
+#           'ksp_type': 'preonly',
+#           'pc_type': 'python',
+#           # Use the static condensation PC for hybridized problems
+#           # and use a direct solve on the reduced system for u_hat
+#           'pc_python_type': 'scpc.HybridSCPC',
+#           'hybrid_sc': {'ksp_type': 'preonly',
+#                         'pc_type': 'lu',
+#                         'pc_factor_mat_solver_package': 'mumps'}}
 #
-# # solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
-# solve(F == 0, solution, bcs=bcs)
+# problem = NonlinearVariationalProblem(F, solution, bcs=bc_multiplier)
+# solver = NonlinearVariationalSolver(problem, solver_parameters=params)
+# # solver = NonlinearVariationalSolver(problem, solver_parameters=hybrid_params)
+# solver.solve()
+
+# Solving without SC below
+solver_parameters = {
+    'ksp_type': 'gmres',
+    'pc_type': 'bjacobi',
+    'mat_type': 'aij',
+    'ksp_rtol': 1e-3,
+    'ksp_max_it': 2000,
+    'ksp_monitor': False
+}
+
+# solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
+solve(F == 0, solution, bcs=bcs)
 
 PETSc.Sys.Print("Solver finished.\n")
 
