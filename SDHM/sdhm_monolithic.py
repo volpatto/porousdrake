@@ -17,11 +17,12 @@ plot(mesh)
 plt.axis('off')
 
 degree = 1
-pressure_family = 'CG'
-velocity_family = 'CG'
+pressure_family = 'DG'
+velocity_family = 'DG'
+trace_family = 'HDiv Trace'
 U = VectorFunctionSpace(mesh, velocity_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
-T = FunctionSpace(mesh, "HDiv Trace", degree)
+T = FunctionSpace(mesh, trace_family, degree)
 W = U * V * T
 
 # Trial and test functions
@@ -55,13 +56,14 @@ plt.axis('off')
 vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 vy = -2 * pi / Ly * sin(2 * pi * x / Lx) * cos(2 * pi * y / Ly)
 p_boundaries = Constant(0.0)
+v_projected = sigma_e
 
 bc1 = DirichletBC(W[0], as_vector([vx, 0.0]), 1)
 bc2 = DirichletBC(W[0], as_vector([vx, 0.0]), 2)
 bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
 bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
 bc_multiplier = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
-bcs = [bc1, bc2, bc3, bc4, bc_multiplier]
+bcs = [bc1, bc2, bc3, bc4]
 
 # Hybridization parameter
 beta = Constant(0.0)
@@ -81,35 +83,19 @@ a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 F = a - L
 
 #  Solving SC below
-# PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
-# params = {'snes_type': 'ksponly',
-#           'mat_type': 'matfree',
-#           'pmat_type': 'matfree',
-#           'ksp_type': 'preonly',
-#           'pc_type': 'python',
-#           # Use the static condensation PC for hybridized problems
-#           # and use a direct solve on the reduced system for u_hat
-#           'pc_python_type': 'scpc.HybridSCPC',
-#           'hybrid_sc': {'ksp_type': 'preonly',
-#                         'pc_type': 'lu',
-#                         'pc_factor_mat_solver_package': 'mumps'}}
-#
-# problem = NonlinearVariationalProblem(F, solution, bcs=bc_multiplier)
-# solver = NonlinearVariationalSolver(problem, solver_parameters=params)
-# # solver = NonlinearVariationalSolver(problem, solver_parameters=hybrid_params)
-# solver.solve()
+PETSc.Sys.Print("********************\nSolving monolithic system.\n")
 
 # Solving without SC below
 solver_parameters = {
-    'ksp_type': 'gmres',
-    'pc_type': 'bjacobi',
+    'ksp_type': 'ngmres',
+    # 'pc_type': 'bjacobi',
     'mat_type': 'aij',
     'ksp_rtol': 1e-3,
     'ksp_max_it': 2000,
     'ksp_monitor': False
 }
 
-# solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
+# solve(F == 0, solution, bcs=bcs, solver_parameters=solver_parameters)
 solve(F == 0, solution, bcs=bcs)
 
 PETSc.Sys.Print("Solver finished.\n")
