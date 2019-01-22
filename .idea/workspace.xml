@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SDHM/sdhm_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDHM/sdhm_sc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,7 +78,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="69">
+                <state relative-caret-position="-714">
                   <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
@@ -91,8 +90,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="81" column="19" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+                <state relative-caret-position="230">
+                  <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -374,7 +373,7 @@
       <workItem from="1545356200147" duration="1324000" />
       <workItem from="1547764183116" duration="6649000" />
       <workItem from="1547780608440" duration="29841000" />
-      <workItem from="1548035497771" duration="8234000" />
+      <workItem from="1548035497771" duration="8958000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -495,11 +494,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548120417138</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Minor changes in weakly imposed bc and unnecessary codes">
+      <created>1548120770827</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1548120770827</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47934000" />
+    <option name="totallyTimeSpent" value="48658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
@@ -582,7 +588,8 @@
     <MESSAGE value="WIP: Add working SDHM" />
     <MESSAGE value="WIP: Separate monolithic (wrong bc imposing) SDHM, but working" />
     <MESSAGE value="Add SDHM solved with Static Condensation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SDHM solved with Static Condensation" />
+    <MESSAGE value="Minor changes in weakly imposed bc and unnecessary codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes in weakly imposed bc and unnecessary codes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -693,7 +700,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
+        <state relative-caret-position="-714">
           <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
@@ -703,8 +710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="81" column="19" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+        <state relative-caret-position="230">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
         </state>
       </provider>
     </entry>

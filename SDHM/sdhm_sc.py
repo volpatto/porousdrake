@@ -99,7 +99,7 @@ params = {'snes_type': 'ksponly',
           'pc_python_type': 'scpc.HybridSCPC',
           'hybrid_sc': {'ksp_type': 'preonly',
                         'pc_type': 'lu',
-                        'pc_factor_mat_solver_package': 'petsc'}}
+                        'pc_factor_mat_solver_package': 'mumps'}}
 
 problem = NonlinearVariationalProblem(F, solution, bcs=bc_multiplier)
 solver = NonlinearVariationalSolver(problem, solver_parameters=params)
