@@ -77,7 +77,7 @@ a += 0.5 * (mu / k) * div(u) * div(v) * dx
 a += 0.5 * inner((k / mu) * curl((mu / k) * u), curl((mu / k) * v)) * dx
 L += 0.5 * (mu / k) * f * div(v) * dx
 # Hybridization terms
-a += lambda_h('+') * jump(v, n) * dS + mu_h('+') * jump(u, n) * dS
+a += lambda_h('+') * dot(v, n)('+') * dS + mu_h('+') * dot(u, n)('+') * dS
 a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 # Weakly imposed BC
 a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * (ds(1) + ds(2) + ds(3) + ds(4))
