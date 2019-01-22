@@ -79,22 +79,31 @@ L += 0.5 * (mu / k) * f * div(v) * dx
 # Hybridization terms
 a += lambda_h('+') * jump(v, n) * dS + mu_h('+') * jump(u, n) * dS
 a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
+# Weakly imposed BC
+a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * (ds(1) + ds(2) + ds(3) + ds(4))
+a += beta * (lambda_h - p) * (mu_h - q) * (ds(1) + ds(2) + ds(3) + ds(4))
+L += (lambda_h * dot(v, n) + mu_h * dot(v_projected, n)) * (ds(1) + ds(2) + ds(3) + ds(4))
+L += beta * (lambda_h - p_boundaries) * (mu_h - q) * (ds(1) + ds(2) + ds(3) + ds(4))
 
 F = a - L
 
 #  Solving SC below
-PETSc.Sys.Print("*******************************************\nSolving monolithic system.\n")
+PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
+params = {'snes_type': 'ksponly',
+          'mat_type': 'matfree',
+          'pmat_type': 'matfree',
+          'ksp_type': 'preonly',
+          'pc_type': 'python',
+          # Use the static condensation PC for hybridized problems
+          # and use a direct solve on the reduced system for lambda_h
+          'pc_python_type': 'scpc.HybridSCPC',
+          'hybrid_sc': {'ksp_type': 'preonly',
+                        'pc_type': 'lu',
+                        'pc_factor_mat_solver_package': 'petsc'}}
 
-# Solving without SC below
-solver_parameters = {
-    'ksp_type': 'gmres',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-3,
-    'ksp_max_it': 2000,
-    'ksp_monitor': False
-}
-
-solve(F == 0, solution, bcs=bcs, solver_parameters=solver_parameters)
+problem = NonlinearVariationalProblem(F, solution, bcs=bc_multiplier)
+solver = NonlinearVariationalSolver(problem, solver_parameters=params)
+solver.solve()
 
 PETSc.Sys.Print("Solver finished.\n")
 
@@ -103,7 +112,7 @@ sigma_h, u_h, lamb = solution.split()
 sigma_h.rename('Velocity', 'label')
 u_h.rename('Pressure', 'label')
 
-output = File('sdhm_monolithic.pvd', project_output=True)
+output = File('sdhm_sc.pvd', project_output=True)
 output.write(sigma_h, u_h, sol_exact, sigma_e)
 
 plot(sigma_h)
