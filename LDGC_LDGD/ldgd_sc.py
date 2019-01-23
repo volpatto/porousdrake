@@ -17,11 +17,11 @@ plot(mesh)
 plt.axis('off')
 
 degree = 1
-k_plus = 0
+k_plus = 2
 primal_family = 'DG'
 tracer_family = 'DGT'
 U = FunctionSpace(mesh, primal_family, degree + k_plus)
-V = VectorFunctionSpace(mesh, 'CG', degree + k_plus)
+V = VectorFunctionSpace(mesh, 'CG', degree + k_plus + 1)
 T = FunctionSpace(mesh, tracer_family, degree)
 W = U * T
 
@@ -54,7 +54,7 @@ plt.axis('off')
 
 # BCs
 p_boundaries = Constant(0.0)
-v_projected = sigma_e
+vel_projected = sigma_e
 bc_multiplier = DirichletBC(W.sub(1), p_boundaries, "on_boundary")
 
 # DG parameter
@@ -66,19 +66,14 @@ h_avg = avg(h)
 # Classical term
 a = dot(grad(u), grad(v)) * dx
 L = f * v * dx
-# DG terms
-a += s * (dot(jump(u, n), avg(grad(v))) - dot(jump(v, n), avg(grad(u)))) * dS
-a += (beta / h_avg) * dot(jump(u, n), jump(v, n)) * dS
-a += (beta / h) * u * v * ds
-# DG boundary condition terms
-L += s * dot(grad(v), n) * p_boundaries * ds \
-     + (beta / h) * p_boundaries * v * ds \
-     + v * dot(sigma_e, n) * ds
 # Hybridization terms
-# a += (-s * jump(grad(v), n) * (lambda_h('+') - avg(u)) + jump(grad(u), n) * (mu_h('+') - avg(v))) * dS
-a += (-s * jump(grad(v), n) * (lambda_h('+') - u('+')) + jump(grad(u), n) * (mu_h('+') - v('+'))) * dS
-# a += (4.0 * beta / h_avg) * (lambda_h('+') - avg(u)) * (mu_h('+') - avg(v)) * dS
-a += (4.0 * beta / h_avg) * (lambda_h('+') - u('+')) * (mu_h('+') - v('+')) * dS
+a += s * dot(grad(v), n)('+') * (u('+') - lambda_h('+')) * dS
+a += -dot(grad(u), n)('+') * (v('+') - mu_h('+')) * dS
+a += (beta / h_avg) * (u('+') - lambda_h('+')) * (v('+') - mu_h('+')) * dS
+# Boundary terms
+a += s * dot(grad(v), n) * (u - p_boundaries) * ds
+# a += -dot(vel_projected, n) * v * ds
+a += (beta / h) * (u - p_boundaries) * v * ds
 
 F = a - L
 

@@ -10,9 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LDGC_LDGD/ldgc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDHM/sdhm_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDHM/sdhm_sc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LDGC_LDGD/ldgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/LDGC_LDGD/ldgd.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,14 +38,35 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44328767">
+    <splitter split-orientation="horizontal" split-proportion="0.4230137">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="315">
+                  <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="276">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="512">
-                  <caret line="105" selection-start-line="105" selection-end-line="105" selection-end-column="31" />
+                <state relative-caret-position="115">
+                  <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -55,10 +75,17 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/DG-family/dg.py">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+                <state relative-caret-position="-897" />
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="117" column="34" lean-forward="true" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -69,12 +96,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+        <leaf>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1012">
-                  <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+                <state relative-caret-position="315">
+                  <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -82,11 +109,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2668">
-                  <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+                <state>
+                  <caret lean-forward="true" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc_sc.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1196">
+                  <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -109,12 +145,15 @@
       <find>tau</find>
       <find>hdiv_family</find>
       <find>sys</find>
+      <find>v_projected</find>
     </findStrings>
     <replaceStrings>
       <replace>(k / mu)</replace>
       <replace>u</replace>
       <replace>v</replace>
       <replace>velocity_family</replace>
+      <replace>vel</replace>
+      <replace>vel_projected</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -139,10 +178,13 @@
         <option value="$PROJECT_DIR$/LDGD/ldgd.py" />
         <option value="$PROJECT_DIR$/LDGC_LDGD/ldgc.py" />
         <option value="$PROJECT_DIR$/LDGC_LDGD/ldgd.py" />
+        <option value="$PROJECT_DIR$/LDGC_LDGD/ldgd_alternative.py" />
+        <option value="$PROJECT_DIR$/LDGC_LDGD/ldgc_sc.py" />
+        <option value="$PROJECT_DIR$/LDGC_LDGD/ldgd_sc.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="49" />
     <option name="y" value="25" />
     <option name="width" value="936" />
@@ -154,6 +196,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,11 +209,15 @@
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
               <item name="LDGC_LDGD" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
+              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
+              <item name="MVH" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,7 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ldgd (1)">
+  <component name="RunManager" selected="Python.ldgd_alternative">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -230,32 +277,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dg" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="ldgc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DG-family" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DG-family/dg.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ldgc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
-      <module name="porousdrake" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_LDGD" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -271,10 +299,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ldgc_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+      <module name="porousdrake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_LDGD" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LDGC_LDGD/ldgc_sc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="ldgd (1)" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_LDGD" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -312,20 +362,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sdhm_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="ldgd_alternative" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SDHM" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_LDGD" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SDHM/sdhm_sc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LDGC_LDGD/ldgd_sc.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -336,11 +383,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ldgd_alternative" />
+        <item itemvalue="Python.ldgc_sc" />
         <item itemvalue="Python.ldgd (1)" />
         <item itemvalue="Python.ldgc" />
         <item itemvalue="Python.ldgd" />
-        <item itemvalue="Python.sdhm_sc" />
-        <item itemvalue="Python.dg" />
       </list>
     </recent_temporary>
   </component>
@@ -364,7 +411,8 @@
       <workItem from="1548158885948" duration="1332000" />
       <workItem from="1548184219490" duration="6278000" />
       <workItem from="1548193937415" duration="11102000" />
-      <workItem from="1548206202948" duration="383000" />
+      <workItem from="1548206202948" duration="1258000" />
+      <workItem from="1548248366247" duration="2226000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -527,11 +575,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548198296891</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add LDGC and LDGD monolithic (SC don't work)">
+      <created>1548206648053</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1548206648053</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69384000" />
+    <option name="totallyTimeSpent" value="75049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
@@ -620,7 +675,8 @@
     <MESSAGE value="Update Static Condensation with Firedrake internal dependency" />
     <MESSAGE value="Add a generic DG implementation for SIPG, NIPG and IIPG" />
     <MESSAGE value="Minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor change" />
+    <MESSAGE value="Add LDGC and LDGD monolithic (SC don't work)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add LDGC and LDGD monolithic (SC don't work)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -690,8 +746,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MDG/stabilized_mixed_dg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2231">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="119">
+          <caret line="117" column="34" lean-forward="true" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -746,20 +802,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DG-family/dg.py" />
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-897" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="105" selection-start-line="105" selection-end-line="105" selection-end-column="31" />
+        <state relative-caret-position="115">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DG-family/dg.py">
+    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+        <state relative-caret-position="315">
+          <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -768,18 +830,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2668">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="276">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd.py">
+    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc_sc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1012">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1196">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgd_sc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
