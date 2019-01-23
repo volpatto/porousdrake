@@ -52,18 +52,10 @@ f = Function(V).interpolate(source_expr)
 plot(sol_exact)
 plt.axis('off')
 
-# Boundaries: Left (1), Right (2), Bottom(3), Top (4)
-vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
-vy = -2 * pi / Ly * sin(2 * pi * x / Lx) * cos(2 * pi * y / Ly)
+# BCs
 p_boundaries = Constant(0.0)
 v_projected = sigma_e
-
-bc1 = DirichletBC(W[0], as_vector([vx, 0.0]), 1)
-bc2 = DirichletBC(W[0], as_vector([vx, 0.0]), 2)
-bc3 = DirichletBC(W[0], as_vector([0.0, vy]), 3)
-bc4 = DirichletBC(W[0], as_vector([0.0, vy]), 4)
 bc_multiplier = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
-bcs = [bc1, bc2, bc3, bc4]
 
 # Hybridization parameter
 beta = Constant(0.0)
