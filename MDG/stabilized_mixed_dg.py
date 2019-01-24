@@ -1,3 +1,11 @@
+"""
+The present code was originally provided by the paper [1]. Here I just use as a reference code, since the mentioned
+paper is a benchmark for my own work.
+
+Ref:
+[1] Joshaghani, M. S., S. H. S. Joodat, and K. B. Nakshatrala. "A stabilized mixed discontinuous Galerkin formulation
+for double porosity/permeability model." arXiv preprint arXiv:1805.01389 (2018).
+"""
 from firedrake import *
 import numpy as np
 import random
