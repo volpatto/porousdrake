@@ -62,7 +62,7 @@ beta = Constant(0.0)
 
 # Mixed classical terms
 a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
-L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * ds
 # Stabilizing terms
 a += -0.5 * inner((k / mu) * ((mu / k) * u + grad(p)), (mu / k) * v + grad(q)) * dx
 a += 0.5 * (mu / k) * div(u) * div(v) * dx
@@ -72,10 +72,10 @@ L += 0.5 * (mu / k) * f * div(v) * dx
 a += lambda_h('+') * dot(v, n)('+') * dS + mu_h('+') * dot(u, n)('+') * dS
 a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 # Weakly imposed BC
-a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * (ds(1) + ds(2) + ds(3) + ds(4))
-a += beta * (lambda_h - p) * (mu_h - q) * (ds(1) + ds(2) + ds(3) + ds(4))
-L += (lambda_h * dot(v, n) + mu_h * dot(v_projected, n)) * (ds(1) + ds(2) + ds(3) + ds(4))
-L += beta * (lambda_h - p_boundaries) * (mu_h - q) * (ds(1) + ds(2) + ds(3) + ds(4))
+a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * ds
+a += beta * (lambda_h - p) * (mu_h - q) * ds
+L += (lambda_h * dot(v, n) + mu_h * dot(v_projected, n)) * ds
+L += beta * (lambda_h - p_boundaries) * (mu_h - q) * ds
 
 F = a - L
 
