@@ -14,11 +14,13 @@ try:
 except:
     warning("Matplotlib not imported")
 
+random.seed(222)
 nx, ny = 50, 20
 Lx, Ly = 1.0, .4
-mesh = RectangleMesh(nx, ny, Lx, Ly)
+quadrilateral = True
+mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
-degree = 2
+degree = 1
 velSpace = VectorFunctionSpace(mesh, "DG", degree)
 pSpace = FunctionSpace(mesh, "DG", degree)
 wSpace = MixedFunctionSpace([velSpace, pSpace, velSpace, pSpace])
@@ -96,8 +98,8 @@ u = TestFunction(uSpace)
 conc = Function(uSpace)
 conc_k = interpolate(c_0(), uSpace)
 
-T = 0.0015
-dt = 0.00005
+T = 1.5e-3
+dt = 5e-5
 
 bcDPP = []
 
@@ -109,7 +111,7 @@ rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
 f = Constant(0.0)
 
 n = FacetNormal(mesh)
-h = CellSize(mesh)
+h = CellDiameter(mesh)
 h_avg = (h('+') + h('-')) / 2.
 
 eta_p, eta_u = Constant(0.0), Constant(0.0)
@@ -177,7 +179,7 @@ v2file = File('Micro_Velocity.pvd')
 p2file = File('Micro_Pressure.pvd')
 
 solver_parameters = {
-    'ksp_type': 'gmres',
+    'ksp_type': 'lgmres',
     'pc_type': 'bjacobi',
     'mat_type': 'aij',
     'ksp_rtol': 1e-7,
