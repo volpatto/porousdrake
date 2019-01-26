@@ -20,7 +20,7 @@ except:
 random.seed(222)
 nx, ny = 50, 20
 Lx, Ly = 1.0, .4
-quadrilateral = False
+quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 degree = 1
@@ -105,7 +105,7 @@ T = 1.5e-3
 dt = 5e-5
 
 bcDPP = []
-bcleft_c = DirichletBC(uSpace, c_inj, 1, method = 'geometric')
+bcleft_c = DirichletBC(uSpace, c_inj, 1)
 bcAD = [bcleft_c]
 
 rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
@@ -120,8 +120,8 @@ aDPP = dot(w1, alpha1(conc_k) * v1) * dx + \
     div(w2) * p2 * dx + \
     q1 * div(v1) * dx + \
     q2 * div(v2) * dx + \
-    q1 * (p1 - p2) * dx - \
-    q2 * (p1 - p2) * dx - \
+    q1 * (invalpha1(conc_k) / k1) * (p1 - p2) * dx - \
+    q2 * (invalpha2(conc_k) / k2) * (p1 - p2) * dx - \
     0.5 * dot(alpha1(conc_k) * w1 - grad(q1), invalpha1(conc_k) * (alpha1(conc_k) * v1 + grad(p1))) * dx - \
     0.5 * dot(alpha2(conc_k) * w2 - grad(q2), invalpha2(conc_k) * (alpha2(conc_k) * v2 + grad(p2))) * dx
 aDPP += dot(w1, n) * p1 * ds(3) + \
@@ -162,10 +162,10 @@ p2file = File('Micro_Pressure.pvd')
 
 solver_parameters = {
     'ksp_type': 'lgmres',
-    'pc_type': 'bjacobi',
+    'pc_type': 'lu',
     'mat_type': 'aij',
-    'ksp_rtol': 1e-7,
-    'ksp_monitor': False
+    'ksp_rtol': 1e-5,
+    'ksp_monitor_true_residual': True
 }
 
 problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=bcDPP, constant_jacobian=False)
