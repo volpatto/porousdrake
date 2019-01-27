@@ -195,10 +195,10 @@ while t <= T:
     conc_k.assign(conc)
 
     cfile.write(conc, time = t)
-    v1file.write(DPP_solution.sub(0), time = t)
-    p1file.write(DPP_solution.sub(1), time = t)
-    v2file.write(DPP_solution.sub(2), time = t)
-    p2file.write(DPP_solution.sub(3), time = t)
+    v1file.write(DPP_solution.sub(0), time=t)
+    p1file.write(DPP_solution.sub(1), time=t)
+    v2file.write(DPP_solution.sub(2), time=t)
+    p2file.write(DPP_solution.sub(3), time=t)
 
     t += dt
 
