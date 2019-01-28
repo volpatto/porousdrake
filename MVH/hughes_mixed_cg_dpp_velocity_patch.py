@@ -78,20 +78,10 @@ def invalpha2():
     return 1. / alpha2()
 
 
-p_L = Constant(2.44)
 un1_1 = - k1 / mu0
 un2_1 = - k2 / mu0
 un1_2 = k1 / mu0
 un2_2 = k2 / mu0
-
-
-class c_0(Expression):
-    def eval(self, values, x):
-        if x[0] < 0.010 * Lx:
-            values[0] = abs(0.1 * exp(-x[0] * x[0]) * random.random())
-        else:
-            values[0] = 0.0
-
 
 (v1, p1, v2, p2) = TrialFunctions(wSpace)
 (w1, q1, w2, q2) = TestFunctions(wSpace)
