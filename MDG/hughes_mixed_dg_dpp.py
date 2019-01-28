@@ -20,8 +20,8 @@ Lx, Ly = 1.0, .4
 quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
-degree = 1
-velSpace = VectorFunctionSpace(mesh, "DG", degree)
+degree = 2
+velSpace = VectorFunctionSpace(mesh, "DG", degree + 1)
 pSpace = FunctionSpace(mesh, "DG", degree)
 wSpace = MixedFunctionSpace([velSpace, pSpace, velSpace, pSpace])
 

@@ -20,15 +20,15 @@ except:
 random.seed(222)
 nx, ny = 50, 20
 Lx, Ly = 1.0, .4
-quadrilateral = True
+quadrilateral = False
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 degree = 1
-velSpace = VectorFunctionSpace(mesh, "CG", degree)
+velSpace = VectorFunctionSpace(mesh, "CG", degree + 1)
 pSpace = FunctionSpace(mesh, "CG", degree)
 wSpace = MixedFunctionSpace([velSpace, pSpace, velSpace, pSpace])
 
-uSpace = FunctionSpace(mesh, "CG", degree)
+uSpace = FunctionSpace(mesh, "CG", 1)
 kSpace = FunctionSpace(mesh, "DG", 0)
 
 mu0, Rc, D = Constant(1e-3), Constant(3.0), Constant(2e-6)
