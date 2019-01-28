@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LDGC_LDGD/ldgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/LDGC_LDGD/shdg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LDGC_LDGD/ldgd_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/LDGC_LDGD/shdg_sc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,10 +41,10 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_clean.py">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="23">
-                  <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
+                <state relative-caret-position="215">
+                  <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -73,8 +69,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+                <state relative-caret-position="230">
+                  <caret line="84" column="32" lean-forward="true" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -95,16 +91,28 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+                <state relative-caret-position="276">
+                  <caret line="213" column="37" lean-forward="true" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="529">
+                  <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="307">
@@ -169,7 +177,6 @@
         <option value="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" />
         <option value="$PROJECT_DIR$/LDG-H/ldgh.py" />
         <option value="$PROJECT_DIR$/SDHM/sdhm.py" />
-        <option value="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" />
         <option value="$PROJECT_DIR$/DG-family/dg.py" />
         <option value="$PROJECT_DIR$/LDGD/ldgd.py" />
         <option value="$PROJECT_DIR$/LDGC_LDGD/ldgc.py" />
@@ -187,6 +194,7 @@
         <option value="$PROJECT_DIR$/CGLS/cgls_dpp.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" />
         <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_clean.py" />
+        <option value="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" />
       </list>
     </option>
   </component>
@@ -208,11 +216,6 @@
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="LDGC_LDGD" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
@@ -385,7 +388,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_tracer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -428,7 +431,7 @@
       <workItem from="1548248366247" duration="2226000" />
       <workItem from="1548343734298" duration="925000" />
       <workItem from="1548357331008" duration="2696000" />
-      <workItem from="1548446027803" duration="71562000" />
+      <workItem from="1548446027803" duration="72321000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -647,11 +650,25 @@
       <option name="project" value="LOCAL" />
       <updated>1548549452521</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Minor changes">
+      <created>1548635266017</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1548635266017</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Minor changes">
+      <created>1548635311428</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1548635311428</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187010000" />
+    <option name="totallyTimeSpent" value="187769000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,8 +681,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986301" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24986301" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -725,7 +743,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add MDG Hughes BC strongly imposing instead Nitsche's method" />
     <MESSAGE value="Update MDG Hughes exact solution to considers the model parameters" />
     <MESSAGE value="Add Correa-Loula CGLS methods" />
     <MESSAGE value="Add Correa-Loula CGLSHdiv methods (needs work)" />
@@ -750,7 +767,8 @@
     <MESSAGE value="Add mixed continuous Joodat for DPP" />
     <MESSAGE value="Improves all Joodat methods, fix scale transmission terms and preconditioner options" />
     <MESSAGE value="Moniro changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moniro changes" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -808,16 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LDG-H/ldgh.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-270">
@@ -836,14 +844,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DG-family/dg.py" />
-    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc.py">
+    <entry file="file://$PROJECT_DIR$/LDGC_SHDG/ldgc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/shdg.py">
+    <entry file="file://$PROJECT_DIR$/LDGC_SHDG/shdg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="77" column="56" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
@@ -863,7 +871,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/shdg_sc.py" />
+    <entry file="file://$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py" />
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -871,7 +879,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LDGC_LDGD/ldgc_sc.py">
+    <entry file="file://$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1380" />
       </provider>
@@ -924,23 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2254">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -954,10 +945,37 @@
     <entry file="file://$PROJECT_DIR$/CGLS/cgls_dpp.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_clean.py">
+    <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="135" column="20" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
+        <state relative-caret-position="529">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_sc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="84" column="32" lean-forward="true" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="86" column="21" lean-forward="true" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="213" column="37" lean-forward="true" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

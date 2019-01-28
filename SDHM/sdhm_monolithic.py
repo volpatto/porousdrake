@@ -85,11 +85,11 @@ PETSc.Sys.Print("*******************************************\nSolving monolithic
 
 # Solving without SC below
 solver_parameters = {
-    'ksp_type': 'gmres',
+    'ksp_type': 'lgmres',
     'mat_type': 'aij',
-    'ksp_rtol': 1e-3,
+    'ksp_rtol': 1e-5,
     'ksp_max_it': 2000,
-    'ksp_monitor': False
+    'ksp_monitor_true_residual': True
 }
 
 solve(F == 0, solution, bcs=bcs, solver_parameters=solver_parameters)
