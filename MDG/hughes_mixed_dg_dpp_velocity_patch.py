@@ -1,12 +1,9 @@
 """
-The present code is based in the code and method proposed in [1], but adapted from [2]. Here I just use as a reference
-code, since the mentioned paper is a benchmark for my own work.
+The present code was originally provided by the paper [1]. Here I just use as a reference code, since the mentioned
+paper is a benchmark for my own work.
 
 Ref:
-[1] S.H.S. Joodat, K.B. Nakshatrala, R. Ballarini, Modeling flow in porous media with double porosity/permeability:
-A stabilized mixed formulation, error analysis, and numerical solutions, Computer Methods in Applied Mechanics and
-Engineering, Volume 337, 2018, Pages 632-676, ISSN 0045-7825, https://doi.org/10.1016/j.cma.2018.04.004.
-[2] Joshaghani, M. S., S. H. S. Joodat, and K. B. Nakshatrala. "A stabilized mixed discontinuous Galerkin formulation
+[1] Joshaghani, M. S., S. H. S. Joodat, and K. B. Nakshatrala. "A stabilized mixed discontinuous Galerkin formulation
 for double porosity/permeability model." arXiv preprint arXiv:1805.01389 (2018).
 """
 from firedrake import *
@@ -22,8 +19,8 @@ quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 degree = 1
-velSpace = VectorFunctionSpace(mesh, "CG", degree)
-pSpace = FunctionSpace(mesh, "CG", degree)
+velSpace = VectorFunctionSpace(mesh, "DG", degree)
+pSpace = FunctionSpace(mesh, "DG", degree)
 wSpace = MixedFunctionSpace([velSpace, pSpace, velSpace, pSpace])
 
 kSpace = FunctionSpace(mesh, "DG", 0)
@@ -35,13 +32,14 @@ tol = 1e-14
 k1_0 = 10 * k
 k1_1 = 50 * k
 
+
 class myk1(Expression):
     def eval(self, values, x):
         if x[1] < Ly / 2. + tol:
             values[0] = k1_0
         else:
             values[0] = k1_1
-            
+
 
 k1 = interpolate(myk1(), kSpace)
 
@@ -55,7 +53,7 @@ class myk2(Expression):
             values[0] = k2_0
         else:
             values[0] = k2_1
-            
+
 
 k2 = interpolate(myk2(), kSpace)
 
@@ -90,6 +88,9 @@ f = Constant(0.0)
 
 n = FacetNormal(mesh)
 h = CellDiameter(mesh)
+h_avg = (h('+') + h('-')) / 2.
+
+eta_p, eta_u = Constant(0.0), Constant(0.0)
 
 aDPP = dot(w1, alpha1() * v1) * dx + \
     dot(w2, alpha2() * v2) * dx - \
@@ -98,13 +99,22 @@ aDPP = dot(w1, alpha1() * v1) * dx + \
     q1 * div(v1) * dx + \
     q2 * div(v2) * dx + \
     q1 * (invalpha1() / k1) * (p1 - p2) * dx - \
-    q2 * (invalpha2() / k2) * (p1 - p2) * dx - \
+    q2 * (invalpha2() / k2) * (p1 - p2) * dx + \
+    jump(w1, n) * avg(p1) * dS + \
+    jump(w2, n) * avg(p2) * dS - \
+    avg(q1) * jump(v1, n) * dS - \
+    avg(q2) * jump(v2, n) * dS + \
+    dot(w1, n) * p1 * ds + \
+    dot(w2, n) * p2 * ds - \
+    q1 * dot(v1, n) * ds - \
+    q2 * dot(v2, n) * ds - \
     0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx - \
-    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
-aDPP += dot(w1, n) * p1 * ds + \
-        dot(w2, n) * p2 * ds - \
-        q1 * dot(v1, n) * ds - \
-        q2 * dot(v2, n) * ds
+    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx + \
+    (eta_u * h_avg) * avg(alpha1()) * (jump(v1, n) * jump(w1, n)) * dS + \
+    (eta_u * h_avg) * avg(alpha2()) * (jump(v2, n) * jump(w2, n)) * dS + \
+    (eta_p / h_avg) * avg(1. / alpha1()) * dot(jump(q1, n), jump(p1, n)) * dS + \
+    (eta_p / h_avg) * avg(1. / alpha2()) * dot(jump(q2, n), jump(p2, n)) * dS
+
 LDPP = dot(w1, rhob1) * dx + \
     dot(w2, rhob2) * dx - \
     q1 * un1_1 * ds(1) - \
