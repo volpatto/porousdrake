@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp_velocity_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp_velocity_patch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,10 +44,10 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_tracer.py">
+            <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="307">
-                  <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+                <state relative-caret-position="23">
+                  <caret line="37" selection-start-line="37" selection-end-line="37" />
                   <folding>
                     <element signature="e#367#390#0" expanded="true" />
                   </folding>
@@ -54,12 +56,24 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="736">
-                  <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+                <state relative-caret-position="299">
+                  <caret line="109" selection-start-line="109" selection-end-line="109" />
                   <folding>
-                    <element signature="e#367#390#0" expanded="true" />
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CGLS/cgls_dpp_velocity_patch.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="491">
+                  <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -69,11 +83,23 @@
       </split-first>
       <split-second>
         <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="100">
+                  <caret line="166" column="50" selection-start-line="166" selection-start-column="50" selection-end-line="169" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp_velocity_patch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="675">
-                  <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+                <state relative-caret-position="698">
+                  <caret line="34" selection-start-line="34" selection-end-line="34" />
                   <folding>
                     <element signature="e#732#755#0" expanded="true" />
                   </folding>
@@ -152,8 +178,11 @@
         <option value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" />
         <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_clean.py" />
         <option value="$PROJECT_DIR$/SDHM/sdhm_monolithic.py" />
+        <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py" />
+        <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py" />
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp_velocity_patch.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py" />
+        <option value="$PROJECT_DIR$/CGLS/cgls_dpp_velocity_patch.py" />
       </list>
     </option>
   </component>
@@ -179,12 +208,7 @@
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="MDG" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="MVH" type="462c0819:PsiDirectoryNode" />
+              <item name="SDHM" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -210,10 +234,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CGLS" />
+      <recent name="$PROJECT_DIR$/SDHM" />
       <recent name="$PROJECT_DIR$/MDG" />
       <recent name="$PROJECT_DIR$/MVH" />
-      <recent name="$PROJECT_DIR$/SDHM" />
-      <recent name="$PROJECT_DIR$/CGLS" />
       <recent name="$PROJECT_DIR$/LDGC_LDGD" />
     </key>
   </component>
@@ -396,7 +420,7 @@
       <workItem from="1548248366247" duration="2226000" />
       <workItem from="1548343734298" duration="925000" />
       <workItem from="1548357331008" duration="2696000" />
-      <workItem from="1548446027803" duration="79482000" />
+      <workItem from="1548446027803" duration="95450000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -650,11 +674,25 @@
       <option name="project" value="LOCAL" />
       <updated>1548643579491</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Add Hughes-Joodat mixed discontinuous multiscale velocity patch">
+      <created>1548644704689</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1548644704689</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Minor change">
+      <created>1548652369790</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1548652369790</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194930000" />
+    <option name="totallyTimeSpent" value="210898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -729,7 +767,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add MGLS method" />
     <MESSAGE value="Fix Hughes methods' function spaces to more appropriate ones" />
     <MESSAGE value="Add LDG-H code scratch" />
     <MESSAGE value="WIP: Add (not working) SDHM" />
@@ -741,7 +778,6 @@
     <MESSAGE value="Update PETSc static condensation to updated firedrake" />
     <MESSAGE value="Update Static Condensation with Firedrake internal dependency" />
     <MESSAGE value="Add a generic DG implementation for SIPG, NIPG and IIPG" />
-    <MESSAGE value="Minor change" />
     <MESSAGE value="Add LDGC and LDGD monolithic (SC don't work)" />
     <MESSAGE value="Add LDGC and LDGD SC first version" />
     <MESSAGE value="Update Joodat DG docstring" />
@@ -754,7 +790,9 @@
     <MESSAGE value="Minor changes in file names" />
     <MESSAGE value="Add Joodat-Hughes mixed multiscale tangential velocity patch test" />
     <MESSAGE value="Remove some unnecessary code in continuous mixed multiscale Joodat-Hughes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove some unnecessary code in continuous mixed multiscale Joodat-Hughes" />
+    <MESSAGE value="Add Hughes-Joodat mixed discontinuous multiscale velocity patch" />
+    <MESSAGE value="Minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor change" />
   </component>
   <component name="editorHistoryManager">
     <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
@@ -937,16 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="145" column="22" lean-forward="true" selection-start-line="145" selection-start-column="22" selection-end-line="145" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DG-family/dg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="813">
@@ -974,10 +1002,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="166" column="50" selection-start-line="166" selection-start-column="50" selection-end-line="169" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp_velocity_patch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
+        <state relative-caret-position="698">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#732#755#0" expanded="true" />
           </folding>
@@ -986,10 +1024,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_velocity_patch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="23">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#367#390#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CGLS/cgls_dpp_velocity_patch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

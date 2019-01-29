@@ -32,31 +32,36 @@ mu0 = Constant(1.0)
 k = Constant(0.2)
 tol = 1e-14
 
-k1_0 = 10 * k
-k1_1 = 50 * k
 
 class myk1(Expression):
     def eval(self, values, x):
-        if x[1] < Ly / 2. + tol:
-            values[0] = k1_0
-        else:
-            values[0] = k1_1
-            
-
-k1 = interpolate(myk1(), kSpace)
-
-k2_0 = 2 * k
-k2_1 = 10 * k
+        if x[1] <= 0.8:
+            values[0] = 80 * k
+        elif x[1] <= 1.6:
+            values[0] = 30 * k
+        elif x[1] <= 2.4:
+            values[0] = 5 * k
+        elif x[1] <= 3.2:
+            values[0] = 50 * k
+        elif x[1] <= 4.0:
+            values[0] = 10 * k
 
 
 class myk2(Expression):
     def eval(self, values, x):
-        if x[1] < Ly / 2. + tol:
-            values[0] = k2_0
-        else:
-            values[0] = k2_1
-            
+        if x[1] <= 0.8:
+            values[0] = 16 * k
+        elif x[1] <= 1.6:
+            values[0] = 6 * k
+        elif x[1] <= 2.4:
+            values[0] = 1 * k
+        elif x[1] <= 3.2:
+            values[0] = 10 * k
+        elif x[1] <= 4.0:
+            values[0] = 2 * k
 
+
+k1 = interpolate(myk1(), kSpace)
 k2 = interpolate(myk2(), kSpace)
 
 
