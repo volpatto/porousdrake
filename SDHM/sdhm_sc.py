@@ -65,7 +65,7 @@ beta_avg = beta_0 / h('+')
 
 # Mixed classical terms
 a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
-L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * ds
+L = -f * q * dx - dot(rho * g, v) * dx
 # Stabilizing terms
 a += -0.5 * inner((k / mu) * ((mu / k) * u + grad(p)), (mu / k) * v + grad(q)) * dx
 a += 0.5 * (mu / k) * div(u) * div(v) * dx
@@ -75,10 +75,8 @@ L += 0.5 * (mu / k) * f * div(v) * dx
 a += lambda_h('+') * dot(v, n)('+') * dS + mu_h('+') * dot(u, n)('+') * dS
 a += beta_avg * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 # Weakly imposed BC
-a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * ds
-a += beta * (lambda_h - p) * (mu_h - q) * ds
-L += (lambda_h * dot(v, n) + mu_h * dot(v_projected, n)) * ds
-L += beta * (lambda_h - p_boundaries) * (mu_h - q) * ds
+a += (p_boundaries * dot(v, n) + mu_h * (dot(u, n) - dot(v_projected, n))) * ds
+a += beta * (lambda_h - p_boundaries) * mu_h * ds
 
 F = a - L
 
@@ -97,7 +95,7 @@ params = {'snes_type': 'ksponly',
                         'pc_type': 'lu',
                         'pc_factor_mat_solver_type': 'mumps'}}
 
-problem = NonlinearVariationalProblem(F, solution, bcs=bc_multiplier)
+problem = NonlinearVariationalProblem(F, solution)
 solver = NonlinearVariationalSolver(problem, solver_parameters=params)
 solver.solve()
 
