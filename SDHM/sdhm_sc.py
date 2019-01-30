@@ -33,6 +33,7 @@ v, q, mu_h = TestFunctions(W)
 # Mesh entities
 n = FacetNormal(mesh)
 x, y = SpatialCoordinate(mesh)
+h = CellDiameter(mesh)
 
 # Model parameters
 k = Constant(1.0)
@@ -58,7 +59,9 @@ v_projected = sigma_e
 bc_multiplier = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
 
 # Hybridization parameter
-beta = Constant(0.0)
+beta_0 = Constant(1.0)
+beta = beta_0 / h
+beta_avg = beta_0 / h('+')
 
 # Mixed classical terms
 a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
@@ -70,7 +73,7 @@ a += 0.5 * inner((k / mu) * curl((mu / k) * u), curl((mu / k) * v)) * dx
 L += 0.5 * (mu / k) * f * div(v) * dx
 # Hybridization terms
 a += lambda_h('+') * dot(v, n)('+') * dS + mu_h('+') * dot(u, n)('+') * dS
-a += beta * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
+a += beta_avg * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 # Weakly imposed BC
 a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * ds
 a += beta * (lambda_h - p) * (mu_h - q) * ds
