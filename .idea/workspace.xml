@@ -9,11 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="Improve SDHM single-scale weakly imposing BC method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py" afterDir="false" />
-    </list>
+    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +42,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_exact_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="125" column="54" lean-forward="true" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+                <state relative-caret-position="184">
+                  <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -68,11 +64,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
+                <state relative-caret-position="-1886">
                   <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="345">
+                  <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
@@ -198,6 +203,10 @@
         <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_exact_sc.py" />
         <option value="$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py" />
         <option value="$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/cgls_dpp_exact.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/sdhm_dpp_exact_sc.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_dg_dpp_exact.py" />
       </list>
     </option>
   </component>
@@ -231,7 +240,7 @@
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="LDGC_SHDG" type="462c0819:PsiDirectoryNode" />
+              <item name="DPP-convergence" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -275,7 +284,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ldgc_sc">
+  <component name="RunManager" selected="Python.hughes_mixed_cg_dpp_exact">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -298,17 +307,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cgls_dpp_exact" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="cgls_dpp_exact (1)" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CGLS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CGLS/cgls_dpp_exact.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/cgls_dpp_exact.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hughes_mixed_cg_dpp_exact" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+      <module name="porousdrake" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -355,28 +383,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sdhm_dpp_tracer" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
-      <module name="porousdrake" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SDHM" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SDHM/sdhm_dpp_tracer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="shdg_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -398,11 +404,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.hughes_mixed_cg_dpp_exact" />
+        <item itemvalue="Python.cgls_dpp_exact (1)" />
         <item itemvalue="Python.ldgc_sc" />
         <item itemvalue="Python.shdg_sc" />
         <item itemvalue="Python.sdhm_dpp_exact_sc" />
-        <item itemvalue="Python.cgls_dpp_exact" />
-        <item itemvalue="Python.sdhm_dpp_tracer" />
       </list>
     </recent_temporary>
   </component>
@@ -435,7 +441,7 @@
       <workItem from="1548848422543" duration="21983000" />
       <workItem from="1548932774552" duration="2938000" />
       <workItem from="1548971764004" duration="923000" />
-      <workItem from="1548982425936" duration="4389000" />
+      <workItem from="1548982425936" duration="5625000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -731,11 +737,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548891601189</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Fix hybrid primal BCs">
+      <created>1548989131567</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1548989131567</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265577000" />
+    <option name="totallyTimeSpent" value="266813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -810,7 +823,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="WIP: Separate monolithic (wrong bc imposing) SDHM, but working" />
     <MESSAGE value="Add SDHM solved with Static Condensation" />
     <MESSAGE value="Minor changes in weakly imposed bc and unnecessary codes" />
     <MESSAGE value="Change SDHM SC solver" />
@@ -835,7 +847,8 @@
     <MESSAGE value="Add Joodat-Hughes methods with MMS case" />
     <MESSAGE value="Fix SDHM single scale stabilizing parameters" />
     <MESSAGE value="Improve SDHM single-scale weakly imposing BC method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve SDHM single-scale weakly imposing BC method" />
+    <MESSAGE value="Fix hybrid primal BCs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix hybrid primal BCs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1107,16 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_exact_sc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="125" column="54" lean-forward="true" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -1124,10 +1127,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls_dpp_exact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm_dpp_exact_sc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/hughes_mixed_dg_dpp_exact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="120" column="28" lean-forward="true" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="-1886">
           <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_exact_sc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
         </state>
       </provider>
     </entry>
