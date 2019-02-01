@@ -17,10 +17,10 @@ plot(mesh)
 plt.axis('off')
 
 degree = 1
-k_plus = 1
+k_plus = 0
 primal_family = 'DG'
 U = FunctionSpace(mesh, primal_family, degree + k_plus)
-V = VectorFunctionSpace(mesh, 'CG', degree + k_plus + 1)
+V = VectorFunctionSpace(mesh, 'CG', degree + k_plus)
 LagrangeElement = FiniteElement("Lagrange", triangle, degree)
 C0TraceElement = LagrangeElement["facet"]
 T = FunctionSpace(mesh, C0TraceElement)
@@ -72,9 +72,9 @@ a += s * dot(grad(v), n)('+') * (u('+') - lambda_h('+')) * dS
 a += -dot(grad(u), n)('+') * (v('+') - mu_h('+')) * dS
 a += (beta / h_avg) * (u('+') - lambda_h('+')) * (v('+') - mu_h('+')) * dS
 # Boundary terms
-a += s * dot(grad(v), n) * (u - p_boundaries) * ds
 # a += -dot(vel_projected, n) * v * ds  # How to set this bc??
 a += (beta / h) * (u - p_boundaries) * v * ds
+L += s * dot(grad(v), n) * p_boundaries * ds
 
 F = a - L
 
