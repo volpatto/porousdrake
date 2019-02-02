@@ -10,14 +10,16 @@ except:
     warning("Matplotlib not imported")
 
 
-def sdhm(mesh,
-         degree,
-         beta_0=Constant(1e-2),
-         delta_0=Constant(1.0),
-         delta_1=Constant(-0.5),
-         delta_2=Constant(0.5),
-         delta_3=Constant(0.5),
-         solver_parameters={}):
+def sdhm(
+    mesh,
+    degree,
+    beta_0=Constant(1e-2),
+    delta_0=Constant(1.0),
+    delta_1=Constant(-0.5),
+    delta_2=Constant(0.5),
+    delta_3=Constant(0.5),
+    solver_parameters={}
+):
     if not solver_parameters:
         solver_parameters = {
             'snes_type': 'ksponly',
@@ -101,10 +103,8 @@ def sdhm(mesh,
 
     # Exact solution and source term projection
     eta = sqrt(b_factor * (k1 + k2) / (k1 * k2))
-    p_exact_1 = mu0 / pi * exp(pi * x) * sin(
-        pi * y) - mu0 / (b_factor * k1) * exp(eta * y)
-    p_exact_2 = mu0 / pi * exp(pi * x) * sin(
-        pi * y) + mu0 / (b_factor * k2) * exp(eta * y)
+    p_exact_1 = mu0 / pi * exp(pi * x) * sin(pi * y) - mu0 / (b_factor * k1) * exp(eta * y)
+    p_exact_2 = mu0 / pi * exp(pi * x) * sin(pi * y) + mu0 / (b_factor * k2) * exp(eta * y)
     p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
     p_e_1.rename('Exact macro pressure', 'label')
     p_e_2 = Function(W.sub(4)).interpolate(p_exact_2)
@@ -134,31 +134,23 @@ def sdhm(mesh,
     L += -delta_0 * dot(rhob2, v2) * dx
     # Stabilizing terms
     ###
-    a += delta_1 * inner(invalpha1() * (alpha1() * u1 + grad(p1)),
-                         delta_0 * alpha1() * v1 + grad(q1)) * dx
-    a += delta_1 * inner(invalpha2() * (alpha2() * u2 + grad(p2)),
-                         delta_0 * alpha2() * v2 + grad(q2)) * dx
+    a += delta_1 * inner(invalpha1() * (alpha1() * u1 + grad(p1)), delta_0 * alpha1() * v1 + grad(q1)) * dx
+    a += delta_1 * inner(invalpha2() * (alpha2() * u2 + grad(p2)), delta_0 * alpha2() * v2 + grad(q2)) * dx
     ###
     a += delta_2 * alpha1() * div(u1) * div(v1) * dx
     a += delta_2 * alpha2() * div(u2) * div(v2) * dx
-    L += delta_2 * alpha1() * (b_factor * invalpha1() / k1) * (
-        p2 - p1) * div(v1) * dx
-    L += delta_2 * alpha2() * (b_factor * invalpha2() / k2) * (
-        p1 - p2) * div(v2) * dx
+    L += delta_2 * alpha1() * (b_factor * invalpha1() / k1) * (p2 - p1) * div(v1) * dx
+    L += delta_2 * alpha2() * (b_factor * invalpha2() / k2) * (p1 - p2) * div(v2) * dx
     ###
-    a += delta_3 * inner(invalpha1() * curl(alpha1() * u1), curl(
-        alpha1() * v1)) * dx
-    a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(
-        alpha2() * v2)) * dx
+    a += delta_3 * inner(invalpha1() * curl(alpha1() * u1), curl(alpha1() * v1)) * dx
+    a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
     # Hybridization terms
     ###
     a += lambda1('+') * jump(v1, n) * dS + mu1('+') * jump(u1, n) * dS
     a += lambda2('+') * jump(v2, n) * dS + mu2('+') * jump(u2, n) * dS
     ###
-    a += beta_avg * invalpha1()('+') * (lambda1('+') - p1('+')) * (
-        mu1('+') - q1('+')) * dS
-    a += beta_avg * invalpha2()('+') * (lambda2('+') - p2('+')) * (
-        mu2('+') - q2('+')) * dS
+    a += beta_avg * invalpha1()('+') * (lambda1('+') - p1('+')) * (mu1('+') - q1('+')) * dS
+    a += beta_avg * invalpha2()('+') * (lambda2('+') - p2('+')) * (mu2('+') - q2('+')) * dS
     # Weakly imposed BC from hybridization
     a += beta * invalpha1() * (lambda1 - p_e_1) * mu1 * ds
     a += beta * invalpha1() * (lambda2 - p_e_2) * mu2 * ds
@@ -168,27 +160,10 @@ def sdhm(mesh,
     F = a - L
 
     #  Solving SC below
-    PETSc.Sys.Print(
-        "*******************************************\nSolving using static condensation.\n"
-    )
+    PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
     problem_flow = NonlinearVariationalProblem(F, DPP_solution)
-    solver_flow = NonlinearVariationalSolver(
-        problem_flow, solver_parameters=solver_parameters)
+    solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
     solver_flow.solve()
 
-    # Writing solution in a .vtk file and plotting the solution
-    plot(DPP_solution.sub(1))
-    plot(DPP_solution.sub(4))
-    plt.show()
-
-    output_file = File('results_sdhm/dpp_sdhm_exact.pvd')
-    v1_sol = DPP_solution.sub(0)
-    v1_sol.rename('Macro velocity', 'label')
-    p1_sol = DPP_solution.sub(1)
-    p1_sol.rename('Macro pressure', 'label')
-    v2_sol = DPP_solution.sub(3)
-    v2_sol.rename('Micro velocity', 'label')
-    p2_sol = DPP_solution.sub(4)
-    p2_sol.rename('Micro pressure', 'label')
-    output_file.write(p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2,
-                      v_e_2)
+    # Returning numerical and exact solutions
+    output_file.write(p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2)

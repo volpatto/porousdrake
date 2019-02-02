@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/sdhm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,11 +42,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="253">
               <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.style.yapf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -140,6 +148,7 @@
         <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_dg_dpp_exact.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
+        <option value="$PROJECT_DIR$/.style.yapf" />
       </list>
     </option>
   </component>
@@ -161,7 +170,20 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
+              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -373,7 +395,7 @@
       <workItem from="1548971764004" duration="923000" />
       <workItem from="1548982425936" duration="6143000" />
       <workItem from="1548990879937" duration="93000" />
-      <workItem from="1548990993738" duration="2634000" />
+      <workItem from="1548990993738" duration="4844000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -683,11 +705,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548990543697</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Begin to convert FEM methods in modules">
+      <created>1548994058365</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1548994058365</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270058000" />
+    <option name="totallyTimeSpent" value="272268000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -762,7 +791,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor changes in weakly imposed bc and unnecessary codes" />
     <MESSAGE value="Change SDHM SC solver" />
     <MESSAGE value="Update PETSc static condensation to updated firedrake" />
     <MESSAGE value="Update Static Condensation with Firedrake internal dependency" />
@@ -787,7 +815,8 @@
     <MESSAGE value="Improve SDHM single-scale weakly imposing BC method" />
     <MESSAGE value="Fix hybrid primal BCs" />
     <MESSAGE value="Add DPP convergence study" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DPP convergence study" />
+    <MESSAGE value="Begin to convert FEM methods in modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin to convert FEM methods in modules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1091,9 +1120,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.style.yapf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="253">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
