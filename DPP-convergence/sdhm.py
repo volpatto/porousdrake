@@ -166,4 +166,4 @@ def sdhm(
     solver_flow.solve()
 
     # Returning numerical and exact solutions
-    output_file.write(p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2)
+    return p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2
