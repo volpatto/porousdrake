@@ -24,16 +24,7 @@ def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
 
 
 def convergence_hp(
-    min_degree=1,
-    max_degree=4,
-    norm_type='L2',
-    quadrilateral=True,
-    beta_0=Constant(1e-2),
-    delta_0=Constant(1.0),
-    delta_1=Constant(-0.5),
-    delta_2=Constant(0.5),
-    delta_3=Constant(0.5),
-    solver_parameters={}
+    solver, min_degree=1, max_degree=4, mesh_pow_min=2, mesh_pow_max=8, norm_type='L2', quadrilateral=True, **kwargs
 ):
     for degree in range(min_degree, max_degree):
         p1_errors = np.array([])
@@ -42,22 +33,13 @@ def convergence_hp(
         v2_errors = np.array([])
         num_cells = np.array([])
         mesh_size = np.array([])
-        for i in range(2, 8):
+        for i in range(mesh_pow_min, mesh_pow_max):
             nel_x, nel_y = 2.0**i, 2.0**i
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=quadrilateral)
             num_cells = np.append(num_cells, mesh.num_cells())
             mesh_size = np.append(mesh_size, 1. / nel_x)
 
-            p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
-                mesh=mesh,
-                degree=degree,
-                delta_0=delta_0,
-                delta_1=delta_1,
-                delta_2=delta_2,
-                delta_3=delta_3,
-                beta_0=beta_0,
-                solver_parameters=solver_parameters
-            )
+            p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(mesh=mesh, degree=degree, **kwargs)
             error_dictionary = {}
             error_dictionary.update(compute_error(p1_sol, p_e_1, 'p1_error', norm_type=norm_type))
             error_dictionary.update(compute_error(p2_sol, p_e_2, 'p2_error', norm_type=norm_type))

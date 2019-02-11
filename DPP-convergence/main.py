@@ -1,5 +1,5 @@
 from firedrake import *
-import sdhm
+import solvers
 import convergence
 try:
     import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ degree = 1
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Cold run
-p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
+p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solvers.sdhm(
     mesh=mesh,
     degree=degree,
     delta_0=Constant(1),
@@ -27,11 +27,13 @@ p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
 print('*** Cold run OK ***\n')
 
 convergence.convergence_hp(
-    max_degree=2,
-    quadrilateral=False,
-    delta_0=Constant(1),
-    delta_1=Constant(-0.5),
-    delta_2=Constant(0.5),
-    delta_3=Constant(0.5),
-    beta_0=Constant(1e-10)
+    solvers.cgls,
+    max_degree=3,
+    mesh_pow_min=3,
+    mesh_pow_max=7,
+    quadrilateral=True,
+    delta_0=Constant(-1),
+    delta_1=Constant(0.5),
+    delta_2=Constant(0.0),
+    delta_3=Constant(0.0)
 )
