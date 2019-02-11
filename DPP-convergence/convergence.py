@@ -43,7 +43,6 @@ def convergence_hp(
         for i in range(2, 8):
             nel_x, nel_y = 2.0**i, 2.0**i
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=True)
-            # x, y = SpatialCoordinate(mesh)
             num_cells = np.append(num_cells, mesh.num_cells())
             mesh_size = np.append(mesh_size, 1. / nel_x)
 
