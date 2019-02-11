@@ -20,7 +20,7 @@ p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
-    beta_0=Constant(1e-3)
+    beta_0=Constant(1e-5)
 )
 plot(p1_sol)
 plot(p_e_1)

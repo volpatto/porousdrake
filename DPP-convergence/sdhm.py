@@ -3,6 +3,7 @@ import numpy as np
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 import exact_solution
+from model_parameters import *
 
 
 def sdhm(
@@ -71,30 +72,6 @@ def sdhm(
     n = FacetNormal(mesh)
     x, y = SpatialCoordinate(mesh)
     h = CellDiameter(mesh)
-
-    #################################################
-    # *** Model parameters
-    #################################################
-    mu0 = Constant(1.0)
-    k1 = Constant(1.0)
-    k2 = Constant(0.1)
-    b_factor = Constant(1.0)
-
-    def alpha1():
-        return mu0 / k1
-
-    def invalpha1():
-        return 1. / alpha1()
-
-    def alpha2():
-        return mu0 / k2
-
-    def invalpha2():
-        return 1. / alpha2()
-
-    #################################################
-    #################################################
-    #################################################
 
     # Exact solution and source term projection
     p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
