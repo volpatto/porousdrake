@@ -1,6 +1,6 @@
 from firedrake import *
 import sdhm
-# import numpy as np
+import numpy as np
 from scipy.stats import linregress
 import exact_solution as sol
 try:
@@ -23,9 +23,17 @@ def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
     return error_dictionary
 
 
-def convergence_hp():
-    import numpy as np
-    for degree in range(1, 4):
+def convergence_hp(
+    min_degree=1,
+    max_degree=4,
+    beta_0=Constant(1e-2),
+    delta_0=Constant(1.0),
+    delta_1=Constant(-0.5),
+    delta_2=Constant(0.5),
+    delta_3=Constant(0.5),
+    solver_parameters={}
+):
+    for degree in range(min_degree, max_degree):
         p1_errors = np.array([])
         p2_errors = np.array([])
         v1_errors = np.array([])
@@ -37,16 +45,17 @@ def convergence_hp():
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=True)
             # x, y = SpatialCoordinate(mesh)
             num_cells = np.append(num_cells, mesh.num_cells())
-            mesh_size = np.append(mesh_size, nel_x)
+            mesh_size = np.append(mesh_size, 1. / nel_x)
 
             p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
                 mesh=mesh,
                 degree=degree,
-                delta_0=Constant(-1),
-                delta_1=Constant(0.5),
-                delta_2=Constant(0.0),
-                delta_3=Constant(0.0),
-                beta_0=Constant(1e-5)
+                delta_0=delta_0,
+                delta_1=delta_1,
+                delta_2=delta_2,
+                delta_3=delta_3,
+                beta_0=beta_0,
+                solver_parameters=solver_parameters
             )
             error_dictionary = {}
             error_dictionary.update(compute_error(p1_sol, p_e_1, 'p1_error'))
@@ -57,12 +66,12 @@ def convergence_hp():
             error_dictionary.update(compute_error(v2_sol, v_e_2, 'v2_error'))
             v1_errors = np.append(v1_errors, error_dictionary['v1_error'])
             v2_errors = np.append(v2_errors, error_dictionary['v2_error'])
-        p1_errors_log2 = np.log10(p1_errors)
-        p2_errors_log2 = np.log10(p2_errors)
-        v1_errors_log2 = np.log10(v1_errors)
-        v2_errors_log2 = np.log10(v2_errors)
-        num_cells_log2 = np.log10(num_cells)
-        mesh_size_log2 = np.log10(mesh_size)
+        p1_errors_log2 = np.log2(p1_errors)
+        p2_errors_log2 = np.log2(p2_errors)
+        v1_errors_log2 = np.log2(v1_errors)
+        v2_errors_log2 = np.log2(v2_errors)
+        num_cells_log2 = np.log2(num_cells)
+        mesh_size_log2 = np.log2(mesh_size)
         p1_slope, intercept1, r_value1, p_value1, stderr1 = linregress(mesh_size_log2, p1_errors_log2)
         p2_slope, intercept2, r_value2, p_value2, stderr2 = linregress(mesh_size_log2, p2_errors_log2)
         print(
@@ -75,9 +84,21 @@ def convergence_hp():
             "\n--------------------------------------\nDegree %d: v1 slope error %f" % (degree, np.abs(v1_slope)),
             "\nDegree %d: v2 slope error %f" % (degree, np.abs(v2_slope)),
         )
-        plt.loglog(mesh_size, p1_errors, '-o', label=(r'k = %d; slope = %f' % (degree, np.abs(p1_slope))))
+        plot_errors(mesh_size, p1_errors, p1_slope, degree, name='p1_errors')
+        plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
+        plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
+        plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
         np.savetxt(
             ('errors_degree%d.dat' % degree), np.transpose([num_cells, p1_errors, p2_errors, v1_errors, v2_errors])
         )
 
-        return p1_errors, p2_errors, v1_errors, v2_errors
+    return
+
+
+def plot_errors(mesh_size, errors, slope, degree, name='Error'):
+    plt.figure()
+    plt.loglog(mesh_size, errors, '-o', label=(r'k = %d; slope = %f' % (degree, np.abs(slope))))
+    plt.legend(loc='best')
+    plt.grid(True)
+    plt.savefig('%s_deg%i.png' % (name, degree))
+    return

@@ -11,8 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/sdhm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="55" column="77" lean-forward="true" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+                <state relative-caret-position="259">
+                  <caret line="97" column="64" lean-forward="true" selection-start-line="97" selection-start-column="64" selection-end-line="97" selection-end-column="64" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -124,8 +124,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2415">
-                  <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+                <state>
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -136,8 +135,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="190">
-                  <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+                <state relative-caret-position="257">
+                  <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -148,8 +147,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1702">
-                  <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+                <state relative-caret-position="46">
+                  <caret line="7" selection-start-line="7" selection-end-line="7" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -260,8 +259,8 @@
         <option value="$PROJECT_DIR$/DPP-convergence/dgls.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/model_parameters.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
       </list>
     </option>
   </component>
@@ -499,14 +498,18 @@
       <workItem from="1549767021525" duration="13901000" />
       <workItem from="1549853379056" duration="170000" />
       <workItem from="1549853571854" duration="716000" />
-      <workItem from="1549854319240" duration="157000" />
-    </task>
-    <task id="LOCAL-00002" summary="Improve Hughes mixed code readability and model parameters">
-      <created>1547771480720</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1547771480720</updated>
+      <workItem from="1549854319240" duration="832000" />
+      <workItem from="1549855535833" duration="235000" />
+      <workItem from="1549855796550" duration="798000" />
+      <workItem from="1549856697765" duration="477000" />
+      <workItem from="1549857197014" duration="139000" />
+      <workItem from="1549857389001" duration="8000" />
+      <workItem from="1549857420493" duration="136000" />
+      <workItem from="1549857577940" duration="22000" />
+      <workItem from="1549857620384" duration="91000" />
+      <workItem from="1549857732277" duration="69000" />
+      <workItem from="1549857822371" duration="283000" />
+      <workItem from="1549858124813" duration="10000" />
     </task>
     <task id="LOCAL-00003" summary="Add forgotten rhs stabilizing term to Mixed Hughes">
       <created>1547771838794</created>
@@ -844,11 +847,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549851610930</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="WIP: Add first scratch convergence module">
+      <created>1549854505490</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1549854505490</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295582000" />
+    <option name="totallyTimeSpent" value="298525000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -880,7 +890,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50027394" side_tool="true" weight="0.32792208" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.33847737" />
       <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="bottom" id="Python Console" order="14" sideWeight="0.49972603" visible="true" weight="0.32792208" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="14" sideWeight="0.49972603" visible="true" weight="0.32792208" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -923,7 +933,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add LDGC and LDGD SC first version" />
     <MESSAGE value="Update Joodat DG docstring" />
     <MESSAGE value="Update SDHM exterior ds code writing" />
     <MESSAGE value="Fix random seed to Joodat mixed DG" />
@@ -948,7 +957,8 @@
     <MESSAGE value="WIP: splits sdhm module in main and exact solution to perform convegence analysis" />
     <MESSAGE value="WIP: add a separated module for model parameters" />
     <MESSAGE value="WIP: refactor sdhm" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: refactor sdhm" />
+    <MESSAGE value="WIP: Add first scratch convergence module" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: Add first scratch convergence module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1277,8 +1287,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+        <state>
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1287,8 +1296,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1702">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+        <state relative-caret-position="46">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1304,8 +1313,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="257">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1314,8 +1323,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="55" column="77" lean-forward="true" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+        <state relative-caret-position="259">
+          <caret line="97" column="64" lean-forward="true" selection-start-line="97" selection-start-column="64" selection-end-line="97" selection-end-column="64" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
