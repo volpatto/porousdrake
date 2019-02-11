@@ -74,19 +74,7 @@ def sdhm(
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
-    p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
-    p_e_1.rename('Exact macro pressure', 'label')
-    p_e_2 = Function(W.sub(4)).interpolate(p_exact_2)
-    p_e_2.rename('Exact micro pressure', 'label')
-    v_e_1 = Function(W.sub(0), name='Exact macro velocity')
-    v_e_1.project(-(k1 / mu0) * grad(p_e_1))
-    v_e_2 = Function(W.sub(3), name='Exact macro velocity')
-    v_e_2.project(-(k2 / mu0) * grad(p_e_2))
-
-    # Source term
-    rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
-    f = Constant(0.0)
+    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(W)
 
     # Stabilizing parameter
     beta = beta_0 / h
@@ -133,12 +121,30 @@ def sdhm(
     solver_flow.solve()
 
     # Returning numerical and exact solutions
-    v1_sol = DPP_solution.sub(0)
-    v1_sol.rename('Macro velocity', 'label')
-    p1_sol = DPP_solution.sub(1)
-    p1_sol.rename('Macro pressure', 'label')
-    v2_sol = DPP_solution.sub(3)
-    v2_sol.rename('Micro velocity', 'label')
-    p2_sol = DPP_solution.sub(4)
-    p2_sol.rename('Micro pressure', 'label')
+    p1_sol, v1_sol, p2_sol, v2_sol = _decompose_numerical_solution(DPP_solution)
     return p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2
+
+
+def _decompose_numerical_solution(solution):
+    v1_sol = solution.sub(0)
+    v1_sol.rename('Macro velocity', 'label')
+    p1_sol = solution.sub(1)
+    p1_sol.rename('Macro pressure', 'label')
+    v2_sol = solution.sub(3)
+    v2_sol.rename('Micro velocity', 'label')
+    p2_sol = solution.sub(4)
+    p2_sol.rename('Micro pressure', 'label')
+    return p1_sol, v1_sol, p2_sol, v2_sol
+
+
+def _decompose_exact_solution(W):
+    p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
+    p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
+    p_e_1.rename('Exact macro pressure', 'label')
+    p_e_2 = Function(W.sub(4)).interpolate(p_exact_2)
+    p_e_2.rename('Exact micro pressure', 'label')
+    v_e_1 = Function(W.sub(0), name='Exact macro velocity')
+    v_e_1.project(-(k1 / mu0) * grad(p_e_1))
+    v_e_2 = Function(W.sub(3), name='Exact macro velocity')
+    v_e_2.project(-(k2 / mu0) * grad(p_e_2))
+    return p_e_1, v_e_1, p_e_2, v_e_2
