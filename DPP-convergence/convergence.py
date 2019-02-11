@@ -26,6 +26,8 @@ def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
 def convergence_hp(
     min_degree=1,
     max_degree=4,
+    norm_type='L2',
+    quadrilateral=True,
     beta_0=Constant(1e-2),
     delta_0=Constant(1.0),
     delta_1=Constant(-0.5),
@@ -42,7 +44,7 @@ def convergence_hp(
         mesh_size = np.array([])
         for i in range(2, 8):
             nel_x, nel_y = 2.0**i, 2.0**i
-            mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=True)
+            mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=quadrilateral)
             num_cells = np.append(num_cells, mesh.num_cells())
             mesh_size = np.append(mesh_size, 1. / nel_x)
 
@@ -57,12 +59,12 @@ def convergence_hp(
                 solver_parameters=solver_parameters
             )
             error_dictionary = {}
-            error_dictionary.update(compute_error(p1_sol, p_e_1, 'p1_error'))
-            error_dictionary.update(compute_error(p2_sol, p_e_2, 'p2_error'))
+            error_dictionary.update(compute_error(p1_sol, p_e_1, 'p1_error', norm_type=norm_type))
+            error_dictionary.update(compute_error(p2_sol, p_e_2, 'p2_error', norm_type=norm_type))
             p1_errors = np.append(p1_errors, error_dictionary['p1_error'])
             p2_errors = np.append(p2_errors, error_dictionary['p2_error'])
-            error_dictionary.update(compute_error(v1_sol, v_e_1, 'v1_error'))
-            error_dictionary.update(compute_error(v2_sol, v_e_2, 'v2_error'))
+            error_dictionary.update(compute_error(v1_sol, v_e_1, 'v1_error'), norm_type=norm_type)
+            error_dictionary.update(compute_error(v2_sol, v_e_2, 'v2_error'), norm_type=norm_type)
             v1_errors = np.append(v1_errors, error_dictionary['v1_error'])
             v2_errors = np.append(v2_errors, error_dictionary['v2_error'])
         p1_errors_log2 = np.log2(p1_errors)

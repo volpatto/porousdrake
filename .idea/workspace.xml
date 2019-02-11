@@ -12,6 +12,7 @@
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="326">
-                  <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+                <state relative-caret-position="395">
+                  <caret line="90" column="78" lean-forward="true" selection-start-line="90" selection-start-column="78" selection-end-line="90" selection-end-column="78" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -134,8 +135,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="257">
-                  <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+                <state relative-caret-position="349">
+                  <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -508,14 +509,9 @@
       <workItem from="1549857620384" duration="91000" />
       <workItem from="1549857732277" duration="69000" />
       <workItem from="1549857822371" duration="283000" />
-      <workItem from="1549858124813" duration="401000" />
-    </task>
-    <task id="LOCAL-00005" summary="Add minor changes to improve stability">
-      <created>1547873719088</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1547873719088</updated>
+      <workItem from="1549858124813" duration="857000" />
+      <workItem from="1549859054501" duration="57000" />
+      <workItem from="1549859139216" duration="202000" />
     </task>
     <task id="LOCAL-00006" summary="Add MDG Hughes minor changes">
       <created>1547910499283</created>
@@ -853,11 +849,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549858508131</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="WIP: minor changes">
+      <created>1549858563678</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1549858563679</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="298916000" />
+    <option name="totallyTimeSpent" value="299631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,7 +935,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix random seed to Joodat mixed DG" />
     <MESSAGE value="Add mixed continuous Joodat for DPP" />
     <MESSAGE value="Improves all Joodat methods, fix scale transmission terms and preconditioner options" />
     <MESSAGE value="Moniro changes" />
@@ -957,7 +959,8 @@
     <MESSAGE value="WIP: Add first scratch convergence module" />
     <MESSAGE value="WIP: some improvements in convergence module" />
     <MESSAGE value="WIP: minor change" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: minor change" />
+    <MESSAGE value="WIP: minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1312,8 +1315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="349">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1322,8 +1325,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="395">
+          <caret line="90" column="78" lean-forward="true" selection-start-line="90" selection-start-column="78" selection-end-line="90" selection-end-column="78" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
