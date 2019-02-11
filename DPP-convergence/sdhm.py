@@ -2,12 +2,7 @@ from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-try:
-    import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
-except:
-    warning("Matplotlib not imported")
+import exact_solution
 
 
 def sdhm(
@@ -102,9 +97,7 @@ def sdhm(
     #################################################
 
     # Exact solution and source term projection
-    eta = sqrt(b_factor * (k1 + k2) / (k1 * k2))
-    p_exact_1 = mu0 / pi * exp(pi * x) * sin(pi * y) - mu0 / (b_factor * k1) * exp(eta * y)
-    p_exact_2 = mu0 / pi * exp(pi * x) * sin(pi * y) + mu0 / (b_factor * k2) * exp(eta * y)
+    p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
     p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
     p_e_1.rename('Exact macro pressure', 'label')
     p_e_2 = Function(W.sub(4)).interpolate(p_exact_2)
@@ -113,9 +106,6 @@ def sdhm(
     v_e_1.project(-(k1 / mu0) * grad(p_e_1))
     v_e_2 = Function(W.sub(3), name='Exact macro velocity')
     v_e_2.project(-(k2 / mu0) * grad(p_e_2))
-
-    plot(p_e_1)
-    plot(p_e_2)
 
     # Source term
     rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
@@ -166,4 +156,12 @@ def sdhm(
     solver_flow.solve()
 
     # Returning numerical and exact solutions
+    v1_sol = DPP_solution.sub(0)
+    v1_sol.rename('Macro velocity', 'label')
+    p1_sol = DPP_solution.sub(1)
+    p1_sol.rename('Macro pressure', 'label')
+    v2_sol = DPP_solution.sub(3)
+    v2_sol.rename('Micro velocity', 'label')
+    p2_sol = DPP_solution.sub(4)
+    p2_sol.rename('Micro pressure', 'label')
     return p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2

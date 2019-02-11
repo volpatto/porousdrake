@@ -10,6 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/dg-jh.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/dg-jh.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/sdhm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,29 +40,114 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="395">
+                  <caret line="166" column="69" selection-start-line="166" selection-start-column="69" selection-end-line="166" selection-end-column="69" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="23">
+                  <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/dgls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="161">
+                  <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret lean-forward="true" />
+                  <folding>
+                    <element signature="e#0#4#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/cg-jh.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#732#755#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1541">
+                  <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="510">
+                  <caret line="108" column="53" lean-forward="true" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,10 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/MVH/hughes_mixed_paper.py" />
-        <option value="$PROJECT_DIR$/CGLS/mgls.py" />
         <option value="$PROJECT_DIR$/CGLS/cgls_hdiv.py" />
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_cg.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mdg_paper.py" />
@@ -148,9 +231,14 @@
         <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_dg_dpp_exact.py" />
         <option value="$PROJECT_DIR$/.style.yapf" />
-        <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/exact.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/exact_solution.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/cg-jh.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/sdhm2.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/dg-jh.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/dgls.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
       </list>
     </option>
   </component>
@@ -194,10 +282,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/MVH" />
+    <property name="last_opened_file_path" value="$USER_HOME$/victims_location_prediction" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -209,11 +297,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DPP-convergence" />
       <recent name="$PROJECT_DIR$/SDHM" />
       <recent name="$PROJECT_DIR$/CGLS" />
       <recent name="$PROJECT_DIR$/MDG" />
       <recent name="$PROJECT_DIR$/MVH" />
-      <recent name="$PROJECT_DIR$/LDGC_LDGD" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -228,7 +316,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hughes_mixed_cg_dpp_exact">
+  <component name="RunManager" selected="Python.main">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -251,20 +339,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cgls_dpp_exact (1)" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="dg-jh" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/cgls_dpp_exact.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/dg-jh.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -273,20 +358,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="hughes_mixed_cg_dpp_exact" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="dgls" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/hughes_mixed_cg_dpp_exact.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/dgls.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -295,20 +377,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ldgc_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_SHDG" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LDGC_SHDG/ldgc_sc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -317,20 +396,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sdhm_dpp_exact_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="sdhm" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SDHM" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SDHM/sdhm_dpp_exact_sc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -339,20 +415,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="shdg_sc" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
+    <configuration name="sdhm2" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="porousdrake" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/firedrake/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LDGC_SHDG" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPP-convergence" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LDGC_SHDG/shdg_sc.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPP-convergence/sdhm2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -363,11 +436,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hughes_mixed_cg_dpp_exact" />
-        <item itemvalue="Python.cgls_dpp_exact (1)" />
-        <item itemvalue="Python.ldgc_sc" />
-        <item itemvalue="Python.shdg_sc" />
-        <item itemvalue="Python.sdhm_dpp_exact_sc" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.sdhm" />
+        <item itemvalue="Python.sdhm2" />
+        <item itemvalue="Python.dgls" />
+        <item itemvalue="Python.dg-jh" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +475,11 @@
       <workItem from="1548971764004" duration="923000" />
       <workItem from="1548982425936" duration="6143000" />
       <workItem from="1548990879937" duration="93000" />
-      <workItem from="1548990993738" duration="5737000" />
+      <workItem from="1548990993738" duration="6438000" />
+      <workItem from="1549244744724" duration="42000" />
+      <workItem from="1549381075001" duration="6700000" />
+      <workItem from="1549674735719" duration="34000" />
+      <workItem from="1549767021525" duration="9883000" />
     </task>
     <task id="LOCAL-00001" summary="Add first scratches of Hughes's Mixed Methods for single porosity&#10;Darcy Flow">
       <created>1545355936812</created>
@@ -726,11 +803,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549074654214</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="WIP: add a module with exact solution">
+      <created>1549075545287</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1549075545287</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273161000" />
+    <option name="totallyTimeSpent" value="290521000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -745,7 +829,7 @@
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986301" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25260273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -767,10 +851,10 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.4978355" weight="0.329863" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49758455" weight="0.329863" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49436393" weight="0.329863" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="R Packages" order="6" />
-      <window_info anchor="right" x="0" y="0" width="417" height="855" id="Documentation" order="7" sideWeight="0.5021645" side_tool="true" weight="0.329863" />
+      <window_info anchor="right" x="0" y="0" width="417" height="855" id="Documentation" order="7" sideWeight="0.5056361" side_tool="true" weight="0.329863" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2509589" />
@@ -805,7 +889,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PETSc static condensation to updated firedrake" />
     <MESSAGE value="Update Static Condensation with Firedrake internal dependency" />
     <MESSAGE value="Add a generic DG implementation for SIPG, NIPG and IIPG" />
     <MESSAGE value="Add LDGC and LDGD monolithic (SC don't work)" />
@@ -830,7 +913,8 @@
     <MESSAGE value="Add DPP convergence study" />
     <MESSAGE value="Begin to convert FEM methods in modules" />
     <MESSAGE value="Add yapf style file and WIP sdhm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add yapf style file and WIP sdhm" />
+    <MESSAGE value="WIP: add a module with exact solution" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: add a module with exact solution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -848,28 +932,6 @@
     <option name="formatOnSave" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://Python/#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID />
-          <OriginalElement>#/home/volps/Dropbox/Doutorado/codes/hughes/MVH/hughes_mixed_paper.py</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="384.0" y="278.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MVH/mixed_darcy.ipynb" />
     <entry file="file://$PROJECT_DIR$/MVH/darcy_mixed.py" />
     <entry file="file://$PROJECT_DIR$/CGLS/cgls_hdiv.py">
@@ -1019,16 +1081,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_exact.py" />
-    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="114" column="23" selection-start-line="114" selection-start-column="23" selection-end-line="114" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SDHM/sdhm_monolithic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1141,19 +1193,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
+    <entry file="file://$PROJECT_DIR$/SDHM/sdhm_dpp_velocity_patch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/cg-jh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#732#755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/dg-jh.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/dgls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="87" column="20" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="108" column="53" lean-forward="true" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="395">
+          <caret line="166" column="69" selection-start-line="166" selection-start-column="69" selection-end-line="166" selection-end-column="69" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#4#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -63,8 +63,8 @@ v_e_1.project(-(k1 / mu0) * grad(p_e_1))
 v_e_2 = Function(velSpace, name='Exact macro velocity')
 v_e_2.project(-(k2 / mu0) * grad(p_e_2))
 
-plot(v_e_1)
-plot(v_e_2)
+plot(p_e_1)
+plot(p_e_2)
 
 (v1, p1, v2, p2) = TrialFunctions(wSpace)
 (w1, q1, w2, q2) = TestFunctions(wSpace)
@@ -113,8 +113,8 @@ problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=[], consta
 solver_flow = LinearVariationalSolver(problem_flow, options_prefix='flow_', solver_parameters=solver_parameters)
 solver_flow.solve()
 
-plot(DPP_solution.sub(0))
-plot(DPP_solution.sub(2))
+plot(DPP_solution.sub(1))
+plot(DPP_solution.sub(3))
 plt.show()
 
 output_file = File('results_dg-jh/dpp_exact_mdg.pvd')
