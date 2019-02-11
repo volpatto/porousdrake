@@ -83,10 +83,10 @@ def convergence_hp(
             "\n--------------------------------------\nDegree %d: v1 slope error %f" % (degree, np.abs(v1_slope)),
             "\nDegree %d: v2 slope error %f" % (degree, np.abs(v2_slope)),
         )
-        plot_errors(mesh_size, p1_errors, p1_slope, degree, name='p1_errors')
-        plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
-        plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
-        plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
+        _plot_errors(mesh_size, p1_errors, p1_slope, degree, name='p1_errors')
+        _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
+        _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
+        _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
         np.savetxt(
             ('errors_degree%d.dat' % degree), np.transpose([num_cells, p1_errors, p2_errors, v1_errors, v2_errors])
         )
@@ -94,7 +94,7 @@ def convergence_hp(
     return
 
 
-def plot_errors(mesh_size, errors, slope, degree, name='Error'):
+def _plot_errors(mesh_size, errors, slope, degree, name='Error'):
     plt.figure()
     plt.loglog(mesh_size, errors, '-o', label=(r'k = %d; slope = %f' % (degree, np.abs(slope))))
     plt.legend(loc='best')
