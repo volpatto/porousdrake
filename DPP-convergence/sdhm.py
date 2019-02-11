@@ -74,7 +74,7 @@ def sdhm(
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(W)
+    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(x, y, W)
 
     # Stabilizing parameter
     beta = beta_0 / h
@@ -137,7 +137,7 @@ def _decompose_numerical_solution(solution):
     return p1_sol, v1_sol, p2_sol, v2_sol
 
 
-def _decompose_exact_solution(W):
+def _decompose_exact_solution(x, y, W):
     p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
     p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
     p_e_1.rename('Exact macro pressure', 'label')

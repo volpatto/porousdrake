@@ -1,5 +1,6 @@
 from firedrake import *
 import sdhm
+import convergence
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False
@@ -16,12 +17,16 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = sdhm.sdhm(
     mesh=mesh,
     degree=degree,
-    delta_0=Constant(1),
-    delta_1=Constant(-0.5),
-    delta_2=Constant(0.5),
-    delta_3=Constant(0.5),
+    delta_0=Constant(-1),
+    delta_1=Constant(0.5),
+    delta_2=Constant(0.0),
+    delta_3=Constant(0.0),
     beta_0=Constant(1e-5)
 )
 plot(p1_sol)
 plot(p_e_1)
 plt.show()
+
+p1_errors, p2_errors, v1_errors, v2_errors = convergence.convergence_hp()
+
+print(p1_errors)
