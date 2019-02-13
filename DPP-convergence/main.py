@@ -21,6 +21,7 @@ delta_2 = Constant(0.0)
 delta_3 = Constant(0.0)
 eta_u = Constant(10.0)
 eta_p = 100 * eta_u
+beta_0 = Constant(1.0)
 
 # Cold run
 p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solvers.dgls(
