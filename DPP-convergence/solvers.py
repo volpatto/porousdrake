@@ -140,13 +140,13 @@ def sdhm(
     a += delta_1 * inner(invalpha1() * (alpha1() * u1 + grad(p1)), delta_0 * alpha1() * v1 + grad(q1)) * dx
     a += delta_1 * inner(invalpha2() * (alpha2() * u2 + grad(p2)), delta_0 * alpha2() * v2 + grad(q2)) * dx
     ###
-    a += delta_2 * alpha1() * div(u1) * div(v1) * dx
-    a += delta_2 * alpha2() * div(u2) * div(v2) * dx
-    L += delta_2 * alpha1() * (b_factor * invalpha1() / k1) * (p2 - p1) * div(v1) * dx
-    L += delta_2 * alpha2() * (b_factor * invalpha2() / k2) * (p1 - p2) * div(v2) * dx
+    a += delta_2 * h * h * alpha1() * div(u1) * div(v1) * dx
+    a += delta_2 * h * h * alpha2() * div(u2) * div(v2) * dx
+    L += delta_2 * h * h * alpha1() * (b_factor * invalpha1() / k1) * (p2 - p1) * div(v1) * dx
+    L += delta_2 * h * h * alpha2() * (b_factor * invalpha2() / k2) * (p1 - p2) * div(v2) * dx
     ###
-    a += delta_3 * inner(invalpha1() * curl(alpha1() * u1), curl(alpha1() * v1)) * dx
-    a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
+    a += delta_3 * h * h * inner(invalpha1() * curl(alpha1() * u1), curl(alpha1() * v1)) * dx
+    a += delta_3 * h * h * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
     # Hybridization terms
     ###
     a += lambda1('+') * jump(v1, n) * dS + mu1('+') * jump(u1, n) * dS
