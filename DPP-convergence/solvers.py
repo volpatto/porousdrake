@@ -4,6 +4,12 @@ from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 import exact_solution
 from model_parameters import *
+try:
+    import matplotlib.pyplot as plt
+    plt.rcParams['contour.corner_mask'] = False
+    plt.close('all')
+except:
+    warning("Matplotlib not imported")
 
 
 def sdhm(
@@ -21,11 +27,13 @@ def sdhm(
             'snes_type': 'ksponly',
             'pmat_type': 'matfree',
             # 'ksp_view': True,
-            'ksp_type': 'lgmres',
+            'ksp_type': 'tfqmr',
             'ksp_monitor_true_residual': True,
             # 'snes_monitor': True,
-            'ksp_rtol': 1.e-5,
-            'ksp_atol': 1.e-5,
+            'ksp_rtol': 1e-5,
+            'ksp_atol': 1e-5,
+            # 'snes_rtol': 1e-5,
+            # 'snes_atol': 1e-5,
             'pc_type': 'fieldsplit',
             'pc_fieldsplit_0_fields': '0,1,2',
             'pc_fieldsplit_1_fields': '3,4,5',
@@ -54,6 +62,45 @@ def sdhm(
                 }
             }
         }
+        # solver_parameters = {
+        #     'snes_type': 'ksponly',
+        #     'pmat_type': 'matfree',
+        #     # 'ksp_view': True,
+        #     'ksp_type': 'bcgsl',
+        #     'ksp_monitor_true_residual': True,
+        #     'snes_monitor': True,
+        #     'ksp_rtol': 1e-4,
+        #     'ksp_atol': 1e-5,
+        #     'pc_type': 'fieldsplit',
+        #     'pc_fieldsplit_type': 'schur',
+        #     'pc_fieldsplit_schur_fact_type': 'FULL',
+        #     'pc_fieldsplit_0_fields': '0,1,2',
+        #     'pc_fieldsplit_1_fields': '3,4,5',
+        #     'fieldsplit_0': {
+        #         'pmat_type': 'matfree',
+        #         'ksp_type': 'preonly',
+        #         'pc_type': 'python',
+        #         'pc_python_type': 'firedrake.SCPC',
+        #         'pc_sc_eliminate_fields': '0, 1',
+        #         'condensed_field': {
+        #             'ksp_type': 'preonly',
+        #             'pc_type': 'lu',
+        #             'pc_factor_mat_solver_type': 'mumps'
+        #         }
+        #     },
+        #     'fieldsplit_1': {
+        #         'pmat_type': 'matfree',
+        #         'ksp_type': 'preonly',
+        #         'pc_type': 'python',
+        #         'pc_python_type': 'firedrake.SCPC',
+        #         'pc_sc_eliminate_fields': '0, 1',
+        #         'condensed_field': {
+        #             'ksp_type': 'preonly',
+        #             'pc_type': 'lu',
+        #             'pc_factor_mat_solver_type': 'mumps'
+        #         }
+        #     }
+        # }
 
     pressure_family = 'DG'
     velocity_family = 'DG'
@@ -70,15 +117,16 @@ def sdhm(
 
     # Mesh entities
     n = FacetNormal(mesh)
-    x, y = SpatialCoordinate(mesh)
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution_hybrid(x, y, W)
+    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
 
     # Stabilizing parameter
-    beta = beta_0 / h
-    beta_avg = beta_0 / h('+')
+    # beta = beta_0 / h
+    # beta_avg = beta_0 / h('+')
+    beta = beta_0
+    beta_avg = beta_0
 
     # Mixed classical terms
     a = (dot(alpha1() * u1, v1) - div(v1) * p1 - delta_0 * q1 * div(u1)) * dx
@@ -108,7 +156,7 @@ def sdhm(
     a += beta_avg * invalpha2()('+') * (lambda2('+') - p2('+')) * (mu2('+') - q2('+')) * dS
     # Weakly imposed BC from hybridization
     a += beta * invalpha1() * (lambda1 - p_e_1) * mu1 * ds
-    a += beta * invalpha1() * (lambda2 - p_e_2) * mu2 * ds
+    a += beta * invalpha2() * (lambda2 - p_e_2) * mu2 * ds
     a += (p_e_1 * dot(v1, n) + mu1 * (dot(u1, n) - dot(v_e_1, n))) * ds
     a += (p_e_2 * dot(v2, n) + mu2 * (dot(u2, n) - dot(v_e_2, n))) * ds
 
@@ -159,11 +207,10 @@ def dgls(
 
     # Mesh entities
     n = FacetNormal(mesh)
-    x, y = SpatialCoordinate(mesh)
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution_mixed(x, y, W)
+    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
 
     # Average cell size
     h_avg = (h('+') + h('-')) / 2.
@@ -245,11 +292,14 @@ def cgls(
 
     # Mesh entities
     n = FacetNormal(mesh)
-    x, y = SpatialCoordinate(mesh)
-    h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution_mixed(x, y, W)
+    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
+
+    # Boundary conditions
+    # bc_1 = DirichletBC(W.sub(0), Function(U).interpolate(v_e_1), 'on_boundary')
+    # bc_2 = DirichletBC(W.sub(2), Function(U).interpolate(v_e_2), 'on_boundary')
+    # bcs = [bc_1, bc_2]
 
     # Mixed classical terms
     a = (dot(alpha1() * u1, v1) - div(v1) * p1 - delta_0 * q1 * div(u1)) * dx
@@ -308,27 +358,17 @@ def _decompose_numerical_solution_mixed(solution):
     return p1_sol, v1_sol, p2_sol, v2_sol
 
 
-def _decompose_exact_solution_hybrid(x, y, W):
+def _decompose_exact_solution(mesh, degree, velocity_family='DG', pressure_family='DG'):
+    x, y = SpatialCoordinate(mesh)
+    V_e = VectorFunctionSpace(mesh, velocity_family, degree + 3)
+    U_e = FunctionSpace(mesh, pressure_family, degree + 3)
     p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
-    p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
+    p_e_1 = Function(U_e).interpolate(p_exact_1)
     p_e_1.rename('Exact macro pressure', 'label')
-    p_e_2 = Function(W.sub(4)).interpolate(p_exact_2)
+    p_e_2 = Function(U_e).interpolate(p_exact_2)
     p_e_2.rename('Exact micro pressure', 'label')
-    v_e_1 = Function(W.sub(0), name='Exact macro velocity')
-    v_e_1.project(-(k1 / mu0) * grad(p_e_1))
-    v_e_2 = Function(W.sub(3), name='Exact macro velocity')
-    v_e_2.project(-(k2 / mu0) * grad(p_e_2))
-    return p_e_1, v_e_1, p_e_2, v_e_2
-
-
-def _decompose_exact_solution_mixed(x, y, W):
-    p_exact_1, p_exact_2, v_exact_1, v_exact_2 = exact_solution.exact_solution(x, y, b_factor, k1, k2, mu0)
-    p_e_1 = Function(W.sub(1)).interpolate(p_exact_1)
-    p_e_1.rename('Exact macro pressure', 'label')
-    p_e_2 = Function(W.sub(3)).interpolate(p_exact_2)
-    p_e_2.rename('Exact micro pressure', 'label')
-    v_e_1 = Function(W.sub(0), name='Exact macro velocity')
-    v_e_1.project(-(k1 / mu0) * grad(p_e_1))
-    v_e_2 = Function(W.sub(2), name='Exact macro velocity')
-    v_e_2.project(-(k2 / mu0) * grad(p_e_2))
+    v_e_1 = Function(V_e, name='Exact macro velocity')
+    v_e_1.project(-(k1 / mu0) * grad(p_exact_1))
+    v_e_2 = Function(V_e, name='Exact macro velocity')
+    v_e_2.project(-(k2 / mu0) * grad(p_exact_2))
     return p_e_1, v_e_1, p_e_2, v_e_2

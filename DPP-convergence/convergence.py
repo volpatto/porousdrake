@@ -1,5 +1,4 @@
 from firedrake import *
-import sdhm
 import numpy as np
 from scipy.stats import linregress
 import exact_solution as sol

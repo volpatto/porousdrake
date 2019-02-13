@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="WIP: minor changes">
-      <change afterPath="$PROJECT_DIR$/DPP-convergence/solvers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/sdhm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/solvers.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/solvers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +45,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+                <state relative-caret-position="483">
+                  <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -66,11 +66,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
-                  <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+                <state relative-caret-position="391">
+                  <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -81,7 +81,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/cg-jh.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="2208">
+                  <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
                   <folding>
                     <element signature="e#732#755#0" expanded="true" />
                   </folding>
@@ -123,34 +124,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <folding>
-                    <element signature="e#0#23#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="549">
-                  <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-                  <folding>
-                    <element signature="e#0#23#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
-                  <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+                <state relative-caret-position="261">
+                  <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -161,8 +139,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="245" column="19" lean-forward="true" selection-start-line="245" selection-start-column="19" selection-end-line="245" selection-end-column="19" />
+                <state relative-caret-position="4577">
+                  <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -206,6 +184,8 @@
       <find>deg</find>
       <find>_decompose_numerical_solution</find>
       <find>_decompose_exact_solution</find>
+      <find>_decompose_exact_solution_mixed</find>
+      <find>_decompose_exact_solution_hybrid</find>
     </findStrings>
     <replaceStrings>
       <replace>(k / mu)</replace>
@@ -220,6 +200,7 @@
       <replace>degree</replace>
       <replace>_decompose_numerical_solution_hybrid</replace>
       <replace>_decompose_exact_solution_hybrid</replace>
+      <replace>_decompose_exact_solution</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -270,15 +251,15 @@
         <option value="$PROJECT_DIR$/.style.yapf" />
         <option value="$PROJECT_DIR$/DPP-convergence/exact.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/exact_solution.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/cg-jh.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm2.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/dg-jh.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/dgls.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/model_parameters.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/solvers.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/cg-jh.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/solvers.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
       </list>
     </option>
   </component>
@@ -301,23 +282,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="DPP-convergence" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -558,14 +524,19 @@
       <workItem from="1549924908919" duration="155000" />
       <workItem from="1549925090521" duration="363000" />
       <workItem from="1549925474313" duration="280000" />
-      <workItem from="1549925774376" duration="303000" />
-    </task>
-    <task id="LOCAL-00007" summary="Add MDG Hughes BC strongly imposing instead Nitsche's method">
-      <created>1547929860726</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1547929860726</updated>
+      <workItem from="1549925774376" duration="1686000" />
+      <workItem from="1549932953647" duration="97000" />
+      <workItem from="1549933071793" duration="411000" />
+      <workItem from="1549933504359" duration="375000" />
+      <workItem from="1549933941184" duration="1526000" />
+      <workItem from="1549937530557" duration="22000" />
+      <workItem from="1549937575087" duration="129000" />
+      <workItem from="1549937727228" duration="291000" />
+      <workItem from="1549938045732" duration="197000" />
+      <workItem from="1549938264558" duration="1037000" />
+      <workItem from="1549939323855" duration="19436000" />
+      <workItem from="1549992703453" duration="536000" />
+      <workItem from="1550021736080" duration="629000" />
     </task>
     <task id="LOCAL-00008" summary="Update MDG Hughes exact solution to considers the model parameters">
       <created>1547936319449</created>
@@ -903,11 +874,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549859392362</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="WIP: add solvers module and improves convergence module">
+      <created>1549926131928</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1549926131928</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304950000" />
+    <option name="totallyTimeSpent" value="331019000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -922,8 +900,8 @@
     <frame x="49" y="25" width="1871" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986301" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24986301" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.20931506" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -939,7 +917,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50027394" side_tool="true" weight="0.32792208" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.33847737" />
       <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="bottom" id="Python Console" order="14" sideWeight="0.49972603" visible="true" weight="0.2857143" />
+      <window_info anchor="bottom" id="Python Console" order="14" sideWeight="0.49972603" weight="0.96753246" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -982,7 +960,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add mixed continuous Joodat for DPP" />
     <MESSAGE value="Improves all Joodat methods, fix scale transmission terms and preconditioner options" />
     <MESSAGE value="Moniro changes" />
     <MESSAGE value="Minor changes" />
@@ -1007,7 +984,8 @@
     <MESSAGE value="WIP: some improvements in convergence module" />
     <MESSAGE value="WIP: minor change" />
     <MESSAGE value="WIP: minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: minor changes" />
+    <MESSAGE value="WIP: add solvers module and improves convergence module" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: add solvers module and improves convergence module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1284,6 +1262,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py" />
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/dgls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3473">
@@ -1291,19 +1289,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/cg-jh.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="2208">
+          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
           <folding>
             <element signature="e#732#755#0" expanded="true" />
           </folding>
@@ -1320,6 +1309,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1327,9 +1326,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="4577">
+          <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1345,38 +1345,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/cgls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="245" column="19" lean-forward="true" selection-start-line="245" selection-start-column="19" selection-end-line="245" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+        <state relative-caret-position="261">
+          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
