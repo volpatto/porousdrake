@@ -28,13 +28,7 @@ solver = solvers.sdhm
 
 # Cold run
 p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(
-    mesh=mesh,
-    degree=degree,
-    delta_0=delta_0,
-    delta_1=delta_1,
-    delta_2=delta_2,
-    delta_3=delta_3,
-    beta_0=beta_0
+    mesh=mesh, degree=degree, delta_0=delta_0, delta_1=delta_1, delta_2=delta_2, delta_3=delta_3, beta_0=beta_0
 )
 plot(p1_sol)
 plot(p_e_1)
