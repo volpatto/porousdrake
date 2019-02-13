@@ -123,10 +123,10 @@ def sdhm(
     p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
 
     # Stabilizing parameter
-    # beta = beta_0 / h
-    # beta_avg = beta_0 / h('+')
-    beta = beta_0
-    beta_avg = beta_0
+    beta = beta_0 / h
+    beta_avg = beta_0 / h('+')
+    #beta = beta_0
+    #beta_avg = beta_0
     delta_2 = delta_2 * h * h
     delta_3 = delta_3 * h * h
 

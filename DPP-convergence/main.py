@@ -11,7 +11,7 @@ except:
 nx, ny = 2**3, 2**3
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
-degree = 1
+degree = 3
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Stabilizing parameters
@@ -21,7 +21,7 @@ delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
 eta_u = Constant(10.0)
 eta_p = 100 * eta_u
-beta_0 = Constant(1.0)
+beta_0 = Constant(1.0e-15)
 
 # Choosing the solver
 solver = solvers.sdhm
@@ -45,8 +45,8 @@ convergence.convergence_hp(
     solver,
     min_degree=degree,
     max_degree=degree + 1,
-    mesh_pow_min=3,
-    mesh_pow_max=7,
+    mesh_pow_min=2,
+    mesh_pow_max=8,
     quadrilateral=quadrilateral,
     delta_0=delta_0,
     delta_1=delta_1,
