@@ -9,12 +9,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="WIP: minor changes">
+    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/sdhm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/solvers.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/solvers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+                <state relative-caret-position="422">
+                  <caret line="78" column="78" lean-forward="true" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -127,8 +125,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="261">
-                  <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+                <state relative-caret-position="31">
+                  <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -139,8 +137,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4577">
-                  <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+                <state>
+                  <caret lean-forward="true" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -257,8 +255,8 @@
         <option value="$PROJECT_DIR$/DPP-convergence/model_parameters.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/cg-jh.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/solvers.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/solvers.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
       </list>
     </option>
@@ -281,10 +279,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -536,14 +531,8 @@
       <workItem from="1549938264558" duration="1037000" />
       <workItem from="1549939323855" duration="19436000" />
       <workItem from="1549992703453" duration="536000" />
-      <workItem from="1550021736080" duration="629000" />
-    </task>
-    <task id="LOCAL-00008" summary="Update MDG Hughes exact solution to considers the model parameters">
-      <created>1547936319449</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1547936319449</updated>
+      <workItem from="1550021736080" duration="2084000" />
+      <workItem from="1550023947748" duration="819000" />
     </task>
     <task id="LOCAL-00009" summary="Add Correa-Loula CGLS methods">
       <created>1547951351948</created>
@@ -881,11 +870,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549926131928</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="WIP: minor changes">
+      <created>1550022582410</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1550022582416</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331019000" />
+    <option name="totallyTimeSpent" value="333293000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -983,9 +979,9 @@
     <MESSAGE value="WIP: Add first scratch convergence module" />
     <MESSAGE value="WIP: some improvements in convergence module" />
     <MESSAGE value="WIP: minor change" />
-    <MESSAGE value="WIP: minor changes" />
     <MESSAGE value="WIP: add solvers module and improves convergence module" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: add solvers module and improves convergence module" />
+    <MESSAGE value="WIP: minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1309,30 +1305,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/exact_solution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4577">
-          <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1343,10 +1319,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="78" column="78" lean-forward="true" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+        <state relative-caret-position="31">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

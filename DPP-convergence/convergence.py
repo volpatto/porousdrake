@@ -23,7 +23,15 @@ def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
 
 
 def convergence_hp(
-    solver, min_degree=1, max_degree=4, mesh_pow_min=2, mesh_pow_max=8, norm_type='L2', quadrilateral=True, **kwargs
+    solver,
+    min_degree=1,
+    max_degree=4,
+    mesh_pow_min=2,
+    mesh_pow_max=8,
+    norm_type='L2',
+    quadrilateral=True,
+    name='',
+    **kwargs
 ):
     for degree in range(min_degree, max_degree):
         p1_errors = np.array([])
@@ -70,8 +78,11 @@ def convergence_hp(
         _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
         _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
         _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
+        if name:
+            name += '_'
         np.savetxt(
-            ('errors_degree%d.dat' % degree), np.transpose([num_cells, p1_errors, p2_errors, v1_errors, v2_errors])
+            ('%serrors_degree%d.dat' % (name, degree)),
+            np.transpose([num_cells, p1_errors, p2_errors, v1_errors, v2_errors])
         )
 
     return

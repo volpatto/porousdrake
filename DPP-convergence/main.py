@@ -18,11 +18,12 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solvers.dgls(
     mesh=mesh,
     degree=degree,
-    delta_0=Constant(-1),
+    delta_0=Constant(1),
     delta_1=Constant(0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.0),
-    eta_u=Constant(10.0)
+    eta_u=Constant(10.0),
+    eta_p=Constant(100.0)
 )
 plot(p1_sol)
 plot(p_e_1)
@@ -37,14 +38,15 @@ print('*** Cold run OK ***\n')
 
 convergence.convergence_hp(
     solvers.dgls,
-    min_degree=1,
-    max_degree=2,
+    min_degree=degree,
+    max_degree=degree + 1,
     mesh_pow_min=3,
     mesh_pow_max=7,
     quadrilateral=True,
     delta_0=Constant(1),
-    delta_1=Constant(-0.5),
+    delta_1=Constant(0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.0),
-    eta_u=Constant(10.0)
+    eta_u=Constant(10.0),
+    eta_p=Constant(100.0)
 )
