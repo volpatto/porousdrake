@@ -26,8 +26,7 @@ def convergence_hp(
     solver,
     min_degree=1,
     max_degree=4,
-    mesh_pow_min=2,
-    mesh_pow_max=8,
+    numel_xy=[2, 4, 8, 16, 32, 64, 128, 256],
     norm_type='L2',
     quadrilateral=True,
     name='',
@@ -40,11 +39,11 @@ def convergence_hp(
         v2_errors = np.array([])
         num_cells = np.array([])
         mesh_size = np.array([])
-        for i in range(mesh_pow_min, mesh_pow_max):
-            nel_x, nel_y = 2.0**i, 2.0**i
+        for n in numel_xy:
+            nel_x = nel_y = n
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=quadrilateral)
             num_cells = np.append(num_cells, mesh.num_cells())
-            mesh_size = np.append(mesh_size, 1. / nel_x)
+            mesh_size = np.append(mesh_size, 1. / n)
 
             p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(mesh=mesh, degree=degree, **kwargs)
             error_dictionary = {}
@@ -74,15 +73,15 @@ def convergence_hp(
             "\n--------------------------------------\nDegree %d: v1 slope error %f" % (degree, np.abs(v1_slope)),
             "\nDegree %d: v2 slope error %f" % (degree, np.abs(v2_slope)),
         )
-        _plot_errors(mesh_size, p1_errors, p1_slope, degree, name='p1_errors')
-        _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
-        _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
-        _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
+        # _plot_errors(mesh_size, p1_errors, p1_slope, degree, name='p1_errors')
+        # _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
+        # _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
+        # _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
         if name:
             name += '_'
         np.savetxt(
             ('%serrors_degree%d.dat' % (name, degree)),
-            np.transpose([num_cells, p1_errors, p2_errors, v1_errors, v2_errors])
+            np.transpose([-mesh_size_log2, p1_errors_log2, p2_errors_log2, v1_errors_log2, v2_errors_log2])
         )
 
     return

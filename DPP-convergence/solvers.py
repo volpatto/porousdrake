@@ -20,6 +20,7 @@ def sdhm(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
+    mesh_parameter=True,
     solver_parameters={}
 ):
     if not solver_parameters:
@@ -127,8 +128,9 @@ def sdhm(
     beta_avg = beta_0 / h('+')
     #beta = beta_0
     #beta_avg = beta_0
-    delta_2 = delta_2 * h * h
-    delta_3 = delta_3 * h * h
+    if mesh_parameter:
+        delta_2 = delta_2 * h * h
+        delta_3 = delta_3 * h * h
 
     # Mixed classical terms
     a = (dot(alpha1() * u1, v1) - div(v1) * p1 - delta_0 * q1 * div(u1)) * dx
@@ -184,6 +186,7 @@ def dgls(
     delta_3=Constant(0.5),
     eta_p=Constant(0.0),
     eta_u=Constant(1.0),
+    mesh_parameter=True,
     solver_parameters={}
 ):
     if not solver_parameters:
@@ -214,8 +217,11 @@ def dgls(
     # Exact solution and source term projection
     p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
 
-    # Average cell size
+    # Average cell size and mesh dependent stabilization
     h_avg = (h('+') + h('-')) / 2.
+    if mesh_parameter:
+        delta_2 = delta_2 * h * h
+        delta_3 = delta_3 * h * h
 
     # Mixed classical terms
     a = (dot(alpha1() * u1, v1) - div(v1) * p1 - delta_0 * q1 * div(u1)) * dx
@@ -269,6 +275,7 @@ def cgls(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
+    mesh_parameter=True,
     solver_parameters={}
 ):
     if not solver_parameters:
@@ -302,6 +309,11 @@ def cgls(
     # bc_1 = DirichletBC(W.sub(0), Function(U).interpolate(v_e_1), 'on_boundary')
     # bc_2 = DirichletBC(W.sub(2), Function(U).interpolate(v_e_2), 'on_boundary')
     # bcs = [bc_1, bc_2]
+
+    # Mesh stabilizing parameter
+    if mesh_parameter:
+        delta_2 = delta_2 * h * h
+        delta_3 = delta_3 * h * h
 
     # Mixed classical terms
     a = (dot(alpha1() * u1, v1) - div(v1) * p1 - delta_0 * q1 * div(u1)) * dx

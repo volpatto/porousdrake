@@ -11,22 +11,28 @@ except:
 nx, ny = 2**3, 2**3
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
-degree = 3
+degree = 1
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Stabilizing parameters
-delta_0 = Constant(1)
-delta_1 = Constant(-0.5)
+delta_0 = Constant(-1)
+delta_1 = Constant(0.5)
 delta_2 = Constant(0.5)
-delta_3 = Constant(0.5)
+delta_3 = Constant(0.0)
 eta_u = Constant(10.0)
 eta_p = 100 * eta_u
 beta_0 = Constant(1.0e-15)
+mesh_parameter=True
 
 # Choosing the solver
-solver = solvers.sdhm
+solver = solvers.cgls
+
+# Convergence range
+#n = [5, 10, 15, 20, 30]
+n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
+'''
 p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(
     mesh=mesh, degree=degree, delta_0=delta_0, delta_1=delta_1, delta_2=delta_2, delta_3=delta_3, beta_0=beta_0
 )
@@ -40,17 +46,17 @@ plot(v2_sol)
 plot(v_e_2)
 plt.show()
 print('*** Cold run OK ***\n')
+'''
 
 convergence.convergence_hp(
     solver,
     min_degree=degree,
-    max_degree=degree + 1,
-    mesh_pow_min=2,
-    mesh_pow_max=8,
+    max_degree=degree + 4,
+    numel_xy=n,
     quadrilateral=quadrilateral,
     delta_0=delta_0,
     delta_1=delta_1,
     delta_2=delta_2,
     delta_3=delta_3,
-    beta_0=beta_0
+    mesh_parameter=mesh_parameter
 )
