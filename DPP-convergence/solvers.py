@@ -301,6 +301,7 @@ def cgls(
 
     # Mesh entities
     n = FacetNormal(mesh)
+    h = CellDiameter(mesh)
 
     # Exact solution and source term projection
     p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
