@@ -32,6 +32,8 @@ def convergence_hp(
     name='',
     **kwargs
 ):
+    if name:
+        name += '_'
     for degree in range(min_degree, max_degree):
         p1_errors = np.array([])
         p2_errors = np.array([])
@@ -77,8 +79,6 @@ def convergence_hp(
         # _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
         # _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
         # _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
-        if name:
-            name += '_'
         np.savetxt(
             ('%serrors_degree%d.dat' % (name, degree)),
             np.transpose([-mesh_size_log2, p1_errors_log2, p2_errors_log2, v1_errors_log2, v2_errors_log2])

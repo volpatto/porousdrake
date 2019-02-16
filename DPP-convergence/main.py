@@ -15,10 +15,10 @@ degree = 1
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Stabilizing parameters
-delta_0 = Constant(-1)
+delta_0 = Constant(1)
 delta_1 = Constant(0.5)
 delta_2 = Constant(0.5)
-delta_3 = Constant(0.0)
+delta_3 = Constant(0.5)
 eta_u = Constant(10.0)
 eta_p = 100 * eta_u
 beta_0 = Constant(1.0e-15)
