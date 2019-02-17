@@ -29,7 +29,7 @@ def sdhm(
             'pmat_type': 'matfree',
             # 'ksp_view': True,
             'ksp_type': 'tfqmr',
-            'ksp_monitor_true_residual': True,
+            'ksp_monitor_true_residual': None,
             # 'snes_monitor': True,
             'ksp_rtol': 1e-5,
             'ksp_atol': 1e-5,
@@ -196,7 +196,7 @@ def dgls(
             'mat_type': 'aij',
             'ksp_rtol': 1e-5,
             'ksp_atol': 1e-5,
-            'ksp_monitor_true_residual': True
+            'ksp_monitor_true_residual': None
         }
 
     pressure_family = 'DG'
@@ -285,7 +285,7 @@ def cgls(
             'mat_type': 'aij',
             'ksp_rtol': 1e-5,
             'ksp_atol': 1e-5,
-            'ksp_monitor_true_residual': True
+            'ksp_monitor_true_residual': None
         }
 
     pressure_family = 'CG'
