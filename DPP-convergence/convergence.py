@@ -80,7 +80,7 @@ def convergence_hp(
         # _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
         # _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
         np.savetxt(
-            ('%serrors_degree%d.dat' % (name, degree)),
+            ('%s_degree%d.dat' % (name, degree)),
             np.transpose([-mesh_size_log2, p1_errors_log2, p2_errors_log2, v1_errors_log2, v2_errors_log2])
         )
 
