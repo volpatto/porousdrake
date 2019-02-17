@@ -1,5 +1,7 @@
 from firedrake import *
 from solvers import cgls, dgls, sdhm
+from firedrake.petsc import PETSc
+from firedrake import COMM_WORLD
 import convergence
 try:
     import matplotlib.pyplot as plt
@@ -253,6 +255,8 @@ for element in mesh_quad:
 
             # Setting the output file name
             name = '%s_%s_%s_errors' % (current_solver, mesh_par, element_kind)
+            PETSc.Sys.Print("*******************************************\n")
+            PETSc.Sys.Print("*** Begin case: %s ***\n" % name)
 
             # Selecting the solver and its kwargs
             solver = solvers_options[current_solver]
@@ -271,3 +275,5 @@ for element in mesh_quad:
                 name=name,
                 **kwargs
             )
+            PETSc.Sys.Print("*** End case: %s ***" % name)
+            PETSc.Sys.Print("*******************************************\n")
