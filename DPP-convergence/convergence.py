@@ -1,6 +1,7 @@
 from firedrake import *
 import numpy as np
 from scipy.stats import linregress
+import os
 import exact_solution as sol
 try:
     import matplotlib.pyplot as plt
@@ -79,6 +80,7 @@ def convergence_hp(
         # _plot_errors(mesh_size, p2_errors, p2_slope, degree, name='p2_errors')
         # _plot_errors(mesh_size, v1_errors, v1_slope, degree, name='v1_errors')
         # _plot_errors(mesh_size, v2_errors, v2_slope, degree, name='v2_errors')
+        os.makedirs("results_%s" % name, exist_ok=True)
         np.savetxt(
             ('results_%s/%s_degree%d.dat' % (name, name, degree)),
             np.transpose([-mesh_size_log2, p1_errors_log2, p2_errors_log2, v1_errors_log2, v2_errors_log2])
