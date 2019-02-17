@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +57,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+                <state relative-caret-position="385">
+                  <caret line="82" column="66" lean-forward="true" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -100,11 +100,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-4922">
-                  <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+                <state relative-caret-position="330">
+                  <caret line="256" column="49" lean-forward="true" selection-start-line="256" selection-start-column="49" selection-end-line="256" selection-end-column="49" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -112,10 +112,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="215">
+                <state relative-caret-position="-3166">
                   <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
@@ -243,11 +243,11 @@
         <option value="$PROJECT_DIR$/DPP-convergence/model_parameters.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/cg-jh.py" />
-        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/dgls.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/solvers.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/sdhm2.py" />
         <option value="$PROJECT_DIR$/DPP-convergence/main.py" />
+        <option value="$PROJECT_DIR$/DPP-convergence/convergence.py" />
       </list>
     </option>
   </component>
@@ -537,21 +537,7 @@
       <workItem from="1550023947748" duration="6045000" />
       <workItem from="1550090992788" duration="737000" />
       <workItem from="1550286323399" duration="795000" />
-      <workItem from="1550326237161" duration="9948000" />
-    </task>
-    <task id="LOCAL-00013" summary="Add LDG-H code scratch">
-      <created>1548032894956</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1548032894956</updated>
-    </task>
-    <task id="LOCAL-00014" summary="WIP: Add (not working) SDHM">
-      <created>1548037221371</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1548037221371</updated>
+      <workItem from="1550326237161" duration="10241000" />
     </task>
     <task id="LOCAL-00015" summary="WIP: Add working SDHM">
       <created>1548037750017</created>
@@ -882,11 +868,25 @@
       <option name="project" value="LOCAL" />
       <updated>1550364108238</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="WIP: Change main module to incorporate all convergence tests at once">
+      <created>1550368259456</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1550368259456</updated>
+    </task>
+    <task id="LOCAL-00063" summary="WIP: Fix file name output in convergence module">
+      <created>1550368354399</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1550368354399</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349999000" />
+    <option name="totallyTimeSpent" value="350292000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1001,8 +1001,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moniro changes" />
-    <MESSAGE value="Minor changes" />
     <MESSAGE value="Minor changes in file names" />
     <MESSAGE value="Add Joodat-Hughes mixed multiscale tangential velocity patch test" />
     <MESSAGE value="Remove some unnecessary code in continuous mixed multiscale Joodat-Hughes" />
@@ -1026,7 +1024,9 @@
     <MESSAGE value="WIP: add solvers module and improves convergence module" />
     <MESSAGE value="WIP: minor changes" />
     <MESSAGE value="WIP: Fix new Firedrake PETSc True/False options" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: Fix new Firedrake PETSc True/False options" />
+    <MESSAGE value="WIP: Change main module to incorporate all convergence tests at once" />
+    <MESSAGE value="WIP: Fix file name output in convergence module" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: Fix file name output in convergence module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1349,16 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/solvers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4485">
@@ -1369,20 +1359,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="330">
+          <caret line="256" column="49" lean-forward="true" selection-start-line="256" selection-start-column="49" selection-end-line="256" selection-end-column="49" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/sdhm2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4922">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="-3166">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPP-convergence/convergence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="82" column="66" lean-forward="true" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
