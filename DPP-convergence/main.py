@@ -14,6 +14,7 @@ nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
 degree = 1
+last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
@@ -269,11 +270,11 @@ for element in mesh_quad:
             convergence.convergence_hp(
                 solver,
                 min_degree=degree,
-                max_degree=degree + 4,
+                max_degree=degree + last_degree,
                 numel_xy=n,
                 quadrilateral=quadrilateral,
                 name=name,
                 **kwargs
             )
-            PETSc.Sys.Print("*** End case: %s ***" % name)
+            PETSc.Sys.Print("\n*** End case: %s ***" % name)
             PETSc.Sys.Print("*******************************************\n")
