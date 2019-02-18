@@ -121,7 +121,7 @@ def sdhm(
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
+    p_e_1, v_e_1, p_e_2, v_e_2 = decompose_exact_solution(mesh, degree)
 
     # Stabilizing parameter
     beta = beta_0 / h
@@ -215,7 +215,7 @@ def dgls(
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
+    p_e_1, v_e_1, p_e_2, v_e_2 = decompose_exact_solution(mesh, degree)
 
     # Average cell size and mesh dependent stabilization
     h_avg = (h('+') + h('-')) / 2.
@@ -304,7 +304,7 @@ def cgls(
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection
-    p_e_1, v_e_1, p_e_2, v_e_2 = _decompose_exact_solution(mesh, degree)
+    p_e_1, v_e_1, p_e_2, v_e_2 = decompose_exact_solution(mesh, degree)
 
     # Boundary conditions
     # bc_1 = DirichletBC(W.sub(0), Function(U).interpolate(v_e_1), 'on_boundary')
@@ -373,7 +373,7 @@ def _decompose_numerical_solution_mixed(solution):
     return p1_sol, v1_sol, p2_sol, v2_sol
 
 
-def _decompose_exact_solution(mesh, degree, velocity_family='DG', pressure_family='DG'):
+def decompose_exact_solution(mesh, degree, velocity_family='DG', pressure_family='DG'):
     x, y = SpatialCoordinate(mesh)
     V_e = VectorFunctionSpace(mesh, velocity_family, degree + 3)
     U_e = FunctionSpace(mesh, pressure_family, degree + 3)
