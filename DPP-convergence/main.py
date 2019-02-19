@@ -62,7 +62,7 @@ mesh_parameter = True
 solver = cgls
 
 # Convergence range
-n = [5, 10, 15, 20, 30]
+n = [5, 10, 15, 20, 25, 30]
 #n = [4, 8, 16, 32, 64, 128]
 
 # Cold run

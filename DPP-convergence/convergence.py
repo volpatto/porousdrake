@@ -1,4 +1,6 @@
 from firedrake import *
+from firedrake.petsc import PETSc
+from firedrake import COMM_WORLD
 import numpy as np
 from scipy.stats import linregress
 import os
@@ -66,13 +68,13 @@ def convergence_hp(
         mesh_size_log2 = np.log2(mesh_size)
         p1_slope, intercept1, r_value1, p_value1, stderr1 = linregress(mesh_size_log2, p1_errors_log2)
         p2_slope, intercept2, r_value2, p_value2, stderr2 = linregress(mesh_size_log2, p2_errors_log2)
-        print(
+        PETSc.Sys.Print(
             "\n--------------------------------------\nDegree %d: p1 slope error %f" % (degree, np.abs(p1_slope)),
             "\nDegree %d: p2 slope error %f" % (degree, np.abs(p2_slope)),
         )
         v1_slope, intercept_v1, r_value_v1, p_value_v1, stderr_v1 = linregress(mesh_size_log2, v1_errors_log2)
         v2_slope, intercept_v2, r_value_v2, p_value_v2, stderr_v2 = linregress(mesh_size_log2, v2_errors_log2)
-        print(
+        PETSc.Sys.Print(
             "\n--------------------------------------\nDegree %d: v1 slope error %f" % (degree, np.abs(v1_slope)),
             "\nDegree %d: v2 slope error %f" % (degree, np.abs(v2_slope)),
         )
