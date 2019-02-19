@@ -249,7 +249,7 @@ assert solvers_options.keys() == solvers_kwargs.keys()
 for element in mesh_quad:
     for current_solver in solvers_options:
         for mesh_parameter in mesh_parameters:
-            if mesh_quad:
+            if element:
                 element_kind = 'quad'
             else:
                 element_kind = 'tri'
