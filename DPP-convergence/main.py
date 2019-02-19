@@ -3,6 +3,8 @@ from solvers import cgls, dgls, sdhm
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 import convergence
+import postprocessing as pp
+import sys
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False
@@ -60,11 +62,11 @@ mesh_parameter = True
 solver = cgls
 
 # Convergence range
-#n = [5, 10, 15, 20, 30]
-n = [4, 8, 16, 32, 64, 128]
+n = [5, 10, 15, 20, 30]
+#n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
-# p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(
+#p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(
 #     mesh=mesh,
 #     degree=degree,
 #     delta_0=delta_0,
@@ -75,7 +77,7 @@ n = [4, 8, 16, 32, 64, 128]
 #     # eta_u=eta_u,
 #     # eta_p=eta_p,
 #     mesh_parameter=mesh_parameter
-# )
+#)
 # plot(p1_sol)
 # plot(p_e_1)
 # plot(p2_sol)
@@ -85,7 +87,9 @@ n = [4, 8, 16, 32, 64, 128]
 # plot(v2_sol)
 # plot(v_e_2)
 # plt.show()
-# print('*** Cold run OK ***\n')
+#print('*** Cold run OK ***\n')
+#pp.write_pvd_mixed_formulations('teste_nohup', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
+#sys.exit()
 
 solvers_kwargs = {
     'cgls_full': {

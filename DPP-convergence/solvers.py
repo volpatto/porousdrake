@@ -31,8 +31,8 @@ def sdhm(
             'ksp_type': 'tfqmr',
             'ksp_monitor_true_residual': None,
             # 'snes_monitor': True,
-            'ksp_rtol': 1e-5,
-            'ksp_atol': 1e-5,
+            'ksp_rtol': 1e-12,
+            'ksp_atol': 1e-12,
             # 'snes_rtol': 1e-5,
             # 'snes_atol': 1e-5,
             'pc_type': 'fieldsplit',
@@ -194,8 +194,8 @@ def dgls(
             'ksp_type': 'lgmres',
             'pc_type': 'lu',
             'mat_type': 'aij',
-            'ksp_rtol': 1e-5,
-            'ksp_atol': 1e-5,
+            'ksp_rtol': 1e-12,
+            'ksp_atol': 1e-12,
             'ksp_monitor_true_residual': None
         }
 
@@ -283,8 +283,8 @@ def cgls(
             'ksp_type': 'lgmres',
             'pc_type': 'lu',
             'mat_type': 'aij',
-            'ksp_rtol': 1e-5,
-            'ksp_atol': 1e-5,
+            'ksp_rtol': 1e-12,
+            'ksp_atol': 1e-12,
             'ksp_monitor_true_residual': None
         }
 
