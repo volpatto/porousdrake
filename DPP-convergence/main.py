@@ -25,16 +25,16 @@ mesh_parameters = [True, False]
 
 # Solver options
 solvers_options = {
-    'cgls_full': cgls,
-    'cgls_div': cgls,
-    'mgls': cgls,
-    'mgls_full': cgls,
-    'mvh_full': cgls,
-    'mvh_div': cgls,
-    'mvh': cgls,
-    'dgls_full': dgls,
-    'dgls_div': dgls,
-    'dmgls': dgls,
+#    'cgls_full': cgls,
+#    'cgls_div': cgls,
+#    'mgls': cgls,
+#    'mgls_full': cgls,
+#    'mvh_full': cgls,
+#    'mvh_div': cgls,
+#    'mvh': cgls,
+#    'dgls_full': dgls,
+#    'dgls_div': dgls,
+#    'dmgls': dgls,
     'dmgls_full': dgls,
     'dmvh_full': dgls,
     'dmvh_div': dgls,
@@ -243,8 +243,93 @@ solvers_kwargs = {
     },
 }
 
+solvers_kwargs = {
+    'dmgls_full': {
+        'delta_0': Constant(1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.5),
+        'eta_u': eta_u,
+        'eta_p': eta_p
+    },
+    'dmvh_full': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.5),
+        'eta_u': eta_u,
+        'eta_p': eta_p
+    },
+    'dmvh_div': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.0),
+        'eta_u': eta_u,
+        'eta_p': eta_p
+    },
+    'dmvh': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.0),
+        'delta_3': Constant(0.0),
+        'eta_u': eta_u,
+        'eta_p': eta_p
+    },
+    ###############################################
+    'sdhm_full': {
+        'delta_0': Constant(1),
+        'delta_1': Constant(-0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.5),
+        'beta_0': beta_0
+    },
+    'sdhm_div': {
+        'delta_0': Constant(1),
+        'delta_1': Constant(-0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.0),
+        'beta_0': beta_0
+    },
+    'hmgls_full': {
+        'delta_0': Constant(1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.5),
+        'beta_0': beta_0
+    },
+    'hmgls': {
+        'delta_0': Constant(1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.0),
+        'beta_0': beta_0
+    },
+    'hmvh_full': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.5),
+        'beta_0': beta_0
+    },
+    'hmvh_div': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.5),
+        'delta_3': Constant(0.0),
+        'beta_0': beta_0
+    },
+    'hmvh': {
+        'delta_0': Constant(-1),
+        'delta_1': Constant(0.5),
+        'delta_2': Constant(0.0),
+        'delta_3': Constant(0.0),
+        'beta_0': beta_0
+    },
+}
+
 # Sanity check for keys among solvers_options and solvers_kwargs
-assert solvers_options.keys() == solvers_kwargs.keys()
+assert set(solvers_options.keys()).issubset(solvers_kwargs.keys())
 
 for element in mesh_quad:
     for current_solver in solvers_options:
