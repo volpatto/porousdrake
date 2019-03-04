@@ -2,8 +2,8 @@ from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-import exact_solution
-from model_parameters import *
+import convergence.exact_solution as exact_solution
+from convergence.model_parameters import *
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False

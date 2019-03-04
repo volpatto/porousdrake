@@ -4,7 +4,7 @@ from firedrake import COMM_WORLD
 import numpy as np
 from scipy.stats import linregress
 import os
-import exact_solution as sol
+import convergence.exact_solution as sol
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False

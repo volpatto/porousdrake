@@ -1,8 +1,8 @@
 from firedrake import *
-from solvers import cgls, dgls, sdhm
+from convergence.solvers import cgls, dgls, sdhm
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-import convergence
+from convergence import processor
 import postprocessing as pp
 import sys
 try:
@@ -25,16 +25,16 @@ mesh_parameters = [True, False]
 
 # Solver options
 solvers_options = {
-#    'cgls_full': cgls,
-#    'cgls_div': cgls,
-#    'mgls': cgls,
-#    'mgls_full': cgls,
-#    'mvh_full': cgls,
-#    'mvh_div': cgls,
-#    'mvh': cgls,
-#    'dgls_full': dgls,
-#    'dgls_div': dgls,
-#    'dmgls': dgls,
+    #    'cgls_full': cgls,
+    #    'cgls_div': cgls,
+    #    'mgls': cgls,
+    #    'mgls_full': cgls,
+    #    'mvh_full': cgls,
+    #    'mvh_div': cgls,
+    #    'mvh': cgls,
+    #    'dgls_full': dgls,
+    #    'dgls_div': dgls,
+    #    'dmgls': dgls,
     'dmgls_full': dgls,
     'dmvh_full': dgls,
     'dmvh_div': dgls,
@@ -356,7 +356,7 @@ for element in mesh_quad:
             kwargs['mesh_parameter'] = mesh_parameter
 
             # Performing the convergence study
-            convergence.convergence_hp(
+            processor.convergence_hp(
                 solver,
                 min_degree=degree,
                 max_degree=degree + last_degree,
