@@ -12,7 +12,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-nx, ny = 50, 40
+nx, ny = 10, 10
 Lx, Ly = 5.0, 4.0
 quadrilateral = True
 degree = 1
@@ -23,13 +23,13 @@ delta_0 = Constant(1)
 delta_1 = Constant(-0.5)
 delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
-eta_u = Constant(100.0)
-eta_p = 1 * eta_u
+eta_u = Constant(50.0)
+eta_p = 10 * eta_u
 beta_0 = Constant(1.0e-15)
 mesh_parameter = True
 
 # Choosing the solver
-solver = sdhm
+solver = dgls
 
 p1_sol, v1_sol, p2_sol, v2_sol = solver(
     mesh=mesh,
@@ -38,9 +38,9 @@ p1_sol, v1_sol, p2_sol, v2_sol = solver(
     delta_1=delta_1,
     delta_2=delta_2,
     delta_3=delta_3,
-    beta_0=beta_0,
-    # eta_u=eta_u,
-    # eta_p=eta_p,
+    # beta_0=beta_0,
+    eta_u=eta_u,
+    eta_p=eta_p,
     mesh_parameter=mesh_parameter
 )
 plot(v1_sol.sub(0))
