@@ -78,8 +78,8 @@ def invalpha2():
     return 1. / alpha2()
 
 
-un1_1 = - k1 / mu0
-un2_1 = - k2 / mu0
+un1_1 = -k1 / mu0
+un2_1 = -k2 / mu0
 un1_2 = k1 / mu0
 un2_2 = k2 / mu0
 
@@ -94,7 +94,7 @@ n = FacetNormal(mesh)
 h = CellDiameter(mesh)
 h_avg = (h('+') + h('-')) / 2.
 
-eta_p, eta_u = Constant(0.0), Constant(0.0)
+eta_p, eta_u = Constant(50.0), Constant(500.0)
 
 aDPP = dot(w1, alpha1() * v1) * dx + \
     dot(w2, alpha2() * v2) * dx - \
@@ -149,3 +149,6 @@ v1file.write(DPP_solution.sub(0))
 p1file.write(DPP_solution.sub(1))
 v2file.write(DPP_solution.sub(2))
 p2file.write(DPP_solution.sub(3))
+
+plot(DPP_solution.sub(0).sub(0))
+plt.show()
