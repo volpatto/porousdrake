@@ -9,16 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DPP-convergence/convergence/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence/processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/exact_solution.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence/exact_solution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/model_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence/model_parameters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/postprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/postprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP-convergence/solvers.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP-convergence/convergence/solvers.py" afterDir="false" />
-    </list>
+    <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="360" column="34" lean-forward="true" selection-start-line="360" selection-start-column="34" selection-end-line="360" selection-end-column="34" />
+            <state relative-caret-position="194">
+              <caret line="157" column="33" lean-forward="true" selection-start-line="157" selection-start-column="33" selection-end-line="157" selection-end-column="33" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -272,12 +263,6 @@
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
               <item name="DPP-convergence" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="DPP-convergence" type="462c0819:PsiDirectoryNode" />
-              <item name="convergence" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -555,14 +540,7 @@
       <workItem from="1550286323399" duration="795000" />
       <workItem from="1550326237161" duration="17511000" />
       <workItem from="1550453901498" duration="239000" />
-      <workItem from="1551670623863" duration="1307000" />
-    </task>
-    <task id="LOCAL-00018" summary="Minor changes in weakly imposed bc and unnecessary codes">
-      <created>1548120770827</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1548120770827</updated>
+      <workItem from="1551670623863" duration="1552000" />
     </task>
     <task id="LOCAL-00019" summary="Change SDHM SC solver">
       <created>1548121464086</created>
@@ -900,11 +878,18 @@
       <option name="project" value="LOCAL" />
       <updated>1550369320359</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="WIP: Refactors convergence study to add velocity patch as a module in the future">
+      <created>1551672163721</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1551672163722</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359108000" />
+    <option name="totallyTimeSpent" value="359353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,12 +904,12 @@
     <frame x="0" y="0" width="1920" height="1052" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.20931506" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32900432" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1019,7 +1004,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Hughes-Joodat mixed discontinuous multiscale velocity patch" />
     <MESSAGE value="Minor change" />
     <MESSAGE value="Update velocity patch to match the one like the Joodat paper" />
     <MESSAGE value="Add Joodat-Hughes methods with MMS case" />
@@ -1044,7 +1028,8 @@
     <MESSAGE value="WIP: Fix output dir in convergence module" />
     <MESSAGE value="WIP: Add some PETSc prints for monitoring purpose" />
     <MESSAGE value="WIP: Add a check to guarantee the existence of output dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: Add a check to guarantee the existence of output dir" />
+    <MESSAGE value="WIP: Refactors convergence study to add velocity patch as a module in the future" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: Refactors convergence study to add velocity patch as a module in the future" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1392,8 +1377,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DPP-convergence/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="360" column="34" lean-forward="true" selection-start-line="360" selection-start-column="34" selection-end-line="360" selection-end-column="34" />
+        <state relative-caret-position="194">
+          <caret line="157" column="33" lean-forward="true" selection-start-line="157" selection-start-column="33" selection-end-line="157" selection-end-column="33" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
