@@ -10,10 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7917792e-606d-47c5-9c06-b4c1d57dd3cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPP/run_velocity_patch.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPP/run_velocity_patch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDHM/sdhm_sc.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDHM/sdhm_sc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SPP/run_convergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/SPP/run_convergence.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +69,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/SPP/run_convergence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+                <state relative-caret-position="286">
+                  <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -100,10 +98,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/SPP/convergence/solvers.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
+                <state relative-caret-position="4462">
                   <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
@@ -117,6 +115,18 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="184">
                   <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/SPP/convergence/processor.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-289">
+                  <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#23#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -182,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SDHM/sdhm_dpp_2.py" />
         <option value="$PROJECT_DIR$/MVH/hughes_mixed_cg_dpp.py" />
         <option value="$PROJECT_DIR$/CGLS/cgls_dpp.py" />
         <option value="$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp.py" />
@@ -232,6 +241,7 @@
         <option value="$PROJECT_DIR$/SPP/convergence/model_parameters.py" />
         <option value="$PROJECT_DIR$/SPP/convergence/exact_solution.py" />
         <option value="$PROJECT_DIR$/SPP/convergence/solvers.py" />
+        <option value="$PROJECT_DIR$/SPP/convergence/processor.py" />
         <option value="$PROJECT_DIR$/SPP/run_convergence.py" />
       </list>
     </option>
@@ -266,11 +276,6 @@
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
               <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
               <item name="CGLS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
-              <item name="porousdrake" type="462c0819:PsiDirectoryNode" />
-              <item name="MDG" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="porousdrake" type="b2602c69:ProjectViewProjectNode" />
@@ -562,21 +567,7 @@
       <workItem from="1551670623863" duration="8603000" />
       <workItem from="1551999441786" duration="99000" />
       <workItem from="1551999624886" duration="24000" />
-      <workItem from="1552019956741" duration="6256000" />
-    </task>
-    <task id="LOCAL-00022" summary="Add a generic DG implementation for SIPG, NIPG and IIPG">
-      <created>1548197790653</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1548197790653</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Minor change">
-      <created>1548198296891</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1548198296891</updated>
+      <workItem from="1552019956741" duration="7221000" />
     </task>
     <task id="LOCAL-00024" summary="Add LDGC and LDGD monolithic (SC don't work)">
       <created>1548206648053</created>
@@ -907,11 +898,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551677090305</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Add single scale initial module for solver and exact solution to convergence studies">
+      <created>1552026356756</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1552026356757</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Add adapted convergence processor to single scale case">
+      <created>1552026890791</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1552026890791</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372783000" />
+    <option name="totallyTimeSpent" value="373748000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,7 +937,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
@@ -1026,8 +1031,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix SDHM single scale stabilizing parameters" />
-    <MESSAGE value="Improve SDHM single-scale weakly imposing BC method" />
     <MESSAGE value="Fix hybrid primal BCs" />
     <MESSAGE value="Add DPP convergence study" />
     <MESSAGE value="Begin to convert FEM methods in modules" />
@@ -1051,7 +1054,9 @@
     <MESSAGE value="WIP: Change dir name to a more general context" />
     <MESSAGE value="WIP: Add a velocity patch module" />
     <MESSAGE value="WIP: Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP: Minor changes" />
+    <MESSAGE value="Add single scale initial module for solver and exact solution to convergence studies" />
+    <MESSAGE value="Add adapted convergence processor to single scale case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add adapted convergence processor to single scale case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1366,15 +1371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SPP/convergence/processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1481">
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/firedrake/src/ufl/ufl/corealg/map_dag.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1406,11 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1518" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MDG/hughes_mixed_dg_dpp_exact.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -1427,8 +1418,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SPP/convergence/solvers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="4462">
           <caret line="194" column="33" lean-forward="true" selection-start-line="194" selection-start-column="33" selection-end-line="194" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MDG/hughes_mdg_paper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1518" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SPP/convergence/processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1437,8 +1443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SPP/run_convergence.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        <state relative-caret-position="286">
+          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
