@@ -4,8 +4,14 @@
 *.png
 *.csv
 *.pvsm
+*.eps
+*.dat
+*.asy
+*.pyc
+*.pdf
 
 # Folders
+*__pycache__/
 .ipynb_checkpoints/
 .idea/
 outputs/

@@ -2,7 +2,6 @@ from firedrake import *
 from velocity_patch.solvers import cgls, dgls, sdhm
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-from convergence import processor
 import postprocessing as pp
 import sys
 try:
