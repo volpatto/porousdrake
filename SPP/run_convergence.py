@@ -12,7 +12,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-single_run = True
+single_run = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
