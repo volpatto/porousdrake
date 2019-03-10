@@ -68,7 +68,7 @@ def plot_matrix_mixed(a_form, bcs=[], **kwargs):
 
 
 def plot_matrix_hybrid_full(a_form, bcs=[], **kwargs):
-    """Provides a plot of a hybrid-mixed matrix."""
+    """Provides a plot of a full hybrid-mixed matrix."""
     fig, ax = plt.subplots(1, 1)
 
     A = assemble(a_form, bcs=bcs, mat_type='aij')
@@ -102,7 +102,7 @@ def plot_matrix_hybrid_full(a_form, bcs=[], **kwargs):
 
 
 def plot_matrix_hybrid_multiplier_spp(a_form, bcs=[], **kwargs):
-    """Provides a plot of a hybrid-mixed matrix."""
+    """Provides a plot of a condensed hybrid-mixed matrix for single scale problems."""
     fig, ax = plt.subplots(1, 1)
 
     _A = Tensor(a_form)
