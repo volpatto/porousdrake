@@ -1,9 +1,8 @@
 from firedrake import *
-from DPP.convergence.solvers import cgls, dgls, sdhm
+from porousdrake.DPP import dgls, sdhm
 from firedrake.petsc import PETSc
-from firedrake import COMM_WORLD
-from DPP.convergence import processor
-from post_processing.writers import write_pvd_mixed_formulations
+from porousdrake.DPP.convergence import processor
+from porousdrake.post_processing.writers import write_pvd_mixed_formulations
 import sys
 try:
     import matplotlib.pyplot as plt
