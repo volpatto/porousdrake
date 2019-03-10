@@ -28,7 +28,7 @@ beta_0 = Constant(1.0e-15)
 mesh_parameter = True
 
 # Choosing the solver
-solver = dgls
+solver = sdhm
 
 p_sol, v_sol = solver(
     mesh=mesh,
@@ -37,9 +37,9 @@ p_sol, v_sol = solver(
     delta_1=delta_1,
     delta_2=delta_2,
     delta_3=delta_3,
-    # beta_0=beta_0,
-    eta_u=eta_u,
-    eta_p=eta_p,
+    beta_0=beta_0,
+    # eta_u=eta_u,
+    # eta_p=eta_p,
     mesh_parameter=mesh_parameter
 )
 plot(v_sol.sub(0))

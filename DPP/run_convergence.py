@@ -1,9 +1,9 @@
 from firedrake import *
-from convergence.solvers import cgls, dgls, sdhm
+from DPP.convergence.solvers import cgls, dgls, sdhm
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-from convergence import processor
-import postprocessing as pp
+from DPP.convergence import processor
+from post_processing.writers import write_pvd_mixed_formulations
 import sys
 try:
     import matplotlib.pyplot as plt
@@ -52,8 +52,8 @@ solvers_options = {
 # Stabilizing parameters
 delta_0 = Constant(1)
 delta_1 = Constant(-0.5)
-delta_2 = Constant(0.0)
-delta_3 = Constant(0.0)
+delta_2 = Constant(0.5)
+delta_3 = Constant(0.5)
 eta_u = Constant(100.0)
 eta_p = 1 * eta_u
 beta_0 = Constant(1.0e-15)
@@ -76,8 +76,8 @@ if single_run:
         delta_2=delta_2,
         delta_3=delta_3,
         # beta_0=beta_0,
-        # eta_u=eta_u,
-        # eta_p=eta_p,
+        eta_u=eta_u,
+        eta_p=eta_p,
         mesh_parameter=mesh_parameter
     )
 
@@ -91,7 +91,7 @@ if single_run:
     plot(v_e_2)
     plt.show()
     print('*** Cold run OK ***\n')
-    # pp.write_pvd_mixed_formulations('teste_nohup', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
+    write_pvd_mixed_formulations('teste_import', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
     sys.exit()
 
 solvers_kwargs = {
