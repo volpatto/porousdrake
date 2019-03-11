@@ -15,7 +15,7 @@ except:
     warning("Matplotlib not imported")
 
 single_evaluation = False
-nx, ny = 10, 10
+nx, ny = 50, 30
 Lx, Ly = 5.0, 4.0
 quadrilateral = True
 degree = 1
@@ -27,6 +27,8 @@ solvers_options = {
     'cgls_div': cgls,
     'mgls': cgls,
     'mvh_full': cgls,
+    'mvh_div': cgls,
+    'mvh': cgls,
     'dgls_full': dgls,
     'dmgls_full': dgls,
     'dmvh_full': dgls,
