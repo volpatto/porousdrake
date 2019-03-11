@@ -82,8 +82,8 @@ if single_run:
     plot(v2_sol)
     plot(v_e_2)
     plt.show()
-    print('*** Cold run OK ***\n')
-    write_pvd_mixed_formulations('teste_import', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
+    print('*** Single run OK ***\n')
+    # write_pvd_mixed_formulations('teste_import', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
     sys.exit()
 
 # Sanity check for keys among solvers_options and solvers_args
