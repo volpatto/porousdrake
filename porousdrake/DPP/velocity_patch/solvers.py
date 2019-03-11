@@ -2,7 +2,7 @@ from firedrake import *
 import numpy as np
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-from velocity_patch.model_parameters import *
+from porousdrake.DPP.velocity_patch.model_parameters import *
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False
