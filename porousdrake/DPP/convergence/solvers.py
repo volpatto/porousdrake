@@ -1,6 +1,7 @@
 from firedrake import *
 from firedrake.petsc import PETSc
-from porousdrake import DPP as exact_solution
+from porousdrake.DPP.convergence import exact_solution
+from porousdrake.DPP.convergence.model_parameters import *
 
 try:
     import matplotlib.pyplot as plt
@@ -22,57 +23,18 @@ def sdhm(
     solver_parameters={}
 ):
     if not solver_parameters:
-        solver_parameters = {
-            'snes_type': 'ksponly',
-            'pmat_type': 'matfree',
-            # 'ksp_view': True,
-            'ksp_type': 'tfqmr',
-            'ksp_monitor_true_residual': None,
-            # 'snes_monitor': True,
-            'ksp_rtol': 1e-12,
-            'ksp_atol': 1e-12,
-            # 'snes_rtol': 1e-5,
-            # 'snes_atol': 1e-5,
-            'pc_type': 'fieldsplit',
-            'pc_fieldsplit_0_fields': '0,1,2',
-            'pc_fieldsplit_1_fields': '3,4,5',
-            'fieldsplit_0': {
-                'pmat_type': 'matfree',
-                'ksp_type': 'preonly',
-                'pc_type': 'python',
-                'pc_python_type': 'firedrake.SCPC',
-                'pc_sc_eliminate_fields': '0, 1',
-                'condensed_field': {
-                    'ksp_type': 'preonly',
-                    'pc_type': 'lu',
-                    'pc_factor_mat_solver_type': 'mumps'
-                }
-            },
-            'fieldsplit_1': {
-                'pmat_type': 'matfree',
-                'ksp_type': 'preonly',
-                'pc_type': 'python',
-                'pc_python_type': 'firedrake.SCPC',
-                'pc_sc_eliminate_fields': '0, 1',
-                'condensed_field': {
-                    'ksp_type': 'preonly',
-                    'pc_type': 'lu',
-                    'pc_factor_mat_solver_type': 'mumps'
-                }
-            }
-        }
         # solver_parameters = {
         #     'snes_type': 'ksponly',
         #     'pmat_type': 'matfree',
         #     # 'ksp_view': True,
-        #     'ksp_type': 'bcgsl',
-        #     'ksp_monitor_true_residual': True,
-        #     'snes_monitor': True,
-        #     'ksp_rtol': 1e-4,
-        #     'ksp_atol': 1e-5,
+        #     'ksp_type': 'tfqmr',
+        #     'ksp_monitor_true_residual': None,
+        #     # 'snes_monitor': True,
+        #     'ksp_rtol': 1e-12,
+        #     'ksp_atol': 1e-12,
+        #     # 'snes_rtol': 1e-5,
+        #     # 'snes_atol': 1e-5,
         #     'pc_type': 'fieldsplit',
-        #     'pc_fieldsplit_type': 'schur',
-        #     'pc_fieldsplit_schur_fact_type': 'FULL',
         #     'pc_fieldsplit_0_fields': '0,1,2',
         #     'pc_fieldsplit_1_fields': '3,4,5',
         #     'fieldsplit_0': {
@@ -100,6 +62,45 @@ def sdhm(
         #         }
         #     }
         # }
+        solver_parameters = {
+            'snes_type': 'ksponly',
+            'pmat_type': 'matfree',
+            # 'ksp_view': True,
+            'ksp_type': 'tfqmr',
+            'ksp_monitor_true_residual': None,
+            'snes_monitor': True,
+            'ksp_rtol': 1e-12,
+            'ksp_atol': 1e-12,
+            'pc_type': 'fieldsplit',
+            'pc_fieldsplit_type': 'schur',
+            'pc_fieldsplit_schur_fact_type': 'FULL',
+            'pc_fieldsplit_0_fields': '0,1,2',
+            'pc_fieldsplit_1_fields': '3,4,5',
+            'fieldsplit_0': {
+                'pmat_type': 'matfree',
+                'ksp_type': 'preonly',
+                'pc_type': 'python',
+                'pc_python_type': 'firedrake.SCPC',
+                'pc_sc_eliminate_fields': '0, 1',
+                'condensed_field': {
+                    'ksp_type': 'preonly',
+                    'pc_type': 'lu',
+                    'pc_factor_mat_solver_type': 'mumps'
+                }
+            },
+            'fieldsplit_1': {
+                'pmat_type': 'matfree',
+                'ksp_type': 'preonly',
+                'pc_type': 'python',
+                'pc_python_type': 'firedrake.SCPC',
+                'pc_sc_eliminate_fields': '0, 1',
+                'condensed_field': {
+                    'ksp_type': 'preonly',
+                    'pc_type': 'lu',
+                    'pc_factor_mat_solver_type': 'mumps'
+                }
+            }
+        }
 
     pressure_family = 'DG'
     velocity_family = 'DG'

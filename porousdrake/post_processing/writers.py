@@ -1,6 +1,6 @@
 from firedrake import *
 import os
-from porousdrake.DPP import decompose_exact_solution
+from porousdrake.DPP.convergence.solvers import decompose_exact_solution
 
 
 def write_pvd_mixed_formulations(name, mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol):

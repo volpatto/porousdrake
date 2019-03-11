@@ -1,5 +1,5 @@
 from firedrake import *
-from porousdrake.DPP import dgls, sdhm
+from porousdrake.DPP.convergence.solvers import dgls, sdhm
 from firedrake.petsc import PETSc
 from porousdrake.DPP.convergence import processor
 from porousdrake.post_processing.writers import write_pvd_mixed_formulations
@@ -11,7 +11,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-single_run = False
+single_run = True
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
