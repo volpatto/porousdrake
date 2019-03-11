@@ -1,8 +1,11 @@
 from firedrake import *
 from porousdrake.DPP.convergence.solvers import dgls, sdhm
 from firedrake.petsc import PETSc
+
 from porousdrake.DPP.convergence import processor
+import porousdrake.setup.solvers_parameters as parameters
 from porousdrake.post_processing.writers import write_pvd_mixed_formulations
+
 import sys
 try:
     import matplotlib.pyplot as plt
@@ -11,7 +14,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-single_run = True
+single_run = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
@@ -48,16 +51,6 @@ solvers_options = {
     'hmvh': sdhm
 }
 
-# Stabilizing parameters
-delta_0 = Constant(1)
-delta_1 = Constant(-0.5)
-delta_2 = Constant(0.5)
-delta_3 = Constant(0.5)
-eta_u = Constant(100.0)
-eta_p = 1 * eta_u
-beta_0 = Constant(1.0e-15)
-mesh_parameter = True
-
 # Choosing the solver
 solver = dgls
 
@@ -70,14 +63,14 @@ if single_run:
     p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2 = solver(
         mesh=mesh,
         degree=degree,
-        delta_0=delta_0,
-        delta_1=delta_1,
-        delta_2=delta_2,
-        delta_3=delta_3,
-        # beta_0=beta_0,
-        eta_u=eta_u,
-        eta_p=eta_p,
-        mesh_parameter=mesh_parameter
+        delta_0=parameters.delta_0,
+        delta_1=parameters.delta_1,
+        delta_2=parameters.delta_2,
+        delta_3=parameters.delta_3,
+        # beta_0=parameters.beta_0,
+        eta_u=parameters.eta_u,
+        eta_p=parameters.eta_p,
+        mesh_parameter=parameters.mesh_parameter
     )
 
     plot(p1_sol)
@@ -93,160 +86,8 @@ if single_run:
     write_pvd_mixed_formulations('teste_import', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
     sys.exit()
 
-solvers_kwargs = {
-    'cgls_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5)
-    },
-    'cgls_div': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0)
-    },
-    'mgls_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5)
-    },
-    'mgls': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0)
-    },
-    'mvh_full': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5)
-    },
-    'mvh_div': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0)
-    },
-    'mvh': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.0),
-        'delta_3': Constant(0.0)
-    },
-    ###############################################
-    'dgls_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dgls_div': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dmgls_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dmgls': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dmvh_full': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dmvh_div': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    'dmvh': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.0),
-        'delta_3': Constant(0.0),
-        'eta_u': eta_u,
-        'eta_p': eta_p
-    },
-    ###############################################
-    'sdhm_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'beta_0': beta_0
-    },
-    'sdhm_div': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(-0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'beta_0': beta_0
-    },
-    'hmgls_full': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'beta_0': beta_0
-    },
-    'hmgls': {
-        'delta_0': Constant(1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'beta_0': beta_0
-    },
-    'hmvh_full': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.5),
-        'beta_0': beta_0
-    },
-    'hmvh_div': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.5),
-        'delta_3': Constant(0.0),
-        'beta_0': beta_0
-    },
-    'hmvh': {
-        'delta_0': Constant(-1),
-        'delta_1': Constant(0.5),
-        'delta_2': Constant(0.0),
-        'delta_3': Constant(0.0),
-        'beta_0': beta_0
-    },
-}
-
-# Sanity check for keys among solvers_options and solvers_kwargs
-assert set(solvers_options.keys()).issubset(solvers_kwargs.keys())
+# Sanity check for keys among solvers_options and solvers_args
+assert set(solvers_options.keys()).issubset(parameters.solvers_args.keys())
 
 for element in mesh_quad:
     for current_solver in solvers_options:
@@ -267,7 +108,7 @@ for element in mesh_quad:
 
             # Selecting the solver and its kwargs
             solver = solvers_options[current_solver]
-            kwargs = solvers_kwargs[current_solver]
+            kwargs = parameters.solvers_args[current_solver]
 
             # Appending the mesh parameter option to kwargs
             kwargs['mesh_parameter'] = mesh_parameter

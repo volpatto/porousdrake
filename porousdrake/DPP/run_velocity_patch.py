@@ -1,8 +1,10 @@
 from firedrake import *
-from porousdrake.DPP.velocity_patch.solvers import cgls, dgls, sdhm
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
-import sys
+
+from porousdrake.DPP.velocity_patch.solvers import cgls, dgls, sdhm
+import porousdrake.setup.solvers_parameters as parameters
+
 try:
     import matplotlib.pyplot as plt
     plt.rcParams['contour.corner_mask'] = False
@@ -16,30 +18,33 @@ quadrilateral = True
 degree = 1
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
-# Stabilizing parameters
-delta_0 = Constant(1)
-delta_1 = Constant(-0.5)
-delta_2 = Constant(0.5)
-delta_3 = Constant(0.5)
-eta_u = Constant(50.0)
-eta_p = 10 * eta_u
-beta_0 = Constant(1.0e-15)
-mesh_parameter = True
+# Solver options
+solvers_options = {
+    'cgls_full': cgls,
+    'mgls_full': cgls,
+    'mvh_full': cgls,
+    'dgls_full': dgls,
+    'dmgls_full': dgls,
+    'dmvh_full': dgls,
+    'sdhm_full': sdhm,
+    'hmvh_full': sdhm,
+    'hmvh': sdhm
+}
 
 # Choosing the solver
-solver = dgls
+solver = cgls
 
 p1_sol, v1_sol, p2_sol, v2_sol = solver(
     mesh=mesh,
     degree=degree,
-    delta_0=delta_0,
-    delta_1=delta_1,
-    delta_2=delta_2,
-    delta_3=delta_3,
-    # beta_0=beta_0,
-    eta_u=eta_u,
-    eta_p=eta_p,
-    mesh_parameter=mesh_parameter
+    delta_0=parameters.delta_0,
+    delta_1=parameters.delta_1,
+    delta_2=parameters.delta_2,
+    delta_3=parameters.delta_3,
+    # beta_0=parameters.beta_0,
+    # eta_u=parameters.eta_u,
+    # eta_p=parameters.eta_p,
+    mesh_parameter=parameters.mesh_parameter
 )
 plot(v1_sol.sub(0))
 plot(v2_sol.sub(0))
