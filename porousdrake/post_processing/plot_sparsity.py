@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from firedrake import *
 from firedrake.petsc import PETSc
 
-my_cmap = plt.cm.copper
+my_cmap = plt.cm.winter
 my_cmap.set_bad(color="lightgray")
 
 

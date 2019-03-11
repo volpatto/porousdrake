@@ -80,10 +80,10 @@ a += beta_avg * (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
 
 F = a - L
 
-plot_matrix_hybrid_multiplier_spp(a)
+plot_matrix_hybrid_multiplier_spp(a, bcs=bc_multiplier)
 plt.show()
 
-plot_matrix_hybrid_full(a)
+plot_matrix_hybrid_full(a, bcs=bc_multiplier)
 plt.show()
 
 print("\n*** DoF = %i" % W.sub(2).dim())
