@@ -56,10 +56,15 @@ def sdhm(
     # Mesh entities
     n = FacetNormal(mesh)
     h = CellDiameter(mesh)
+    x, y = SpatialCoordinate(mesh)
 
     # Permeability
-    kSpace = FunctionSpace(mesh, "DG", 0)
-    k = interpolate(myk(), kSpace)
+    k = conditional(
+        y <= 0.8, 80 * k_ref,
+        conditional(
+            y <= 1.6, 30 * k_ref, conditional(y <= 2.4, 5 * k_ref, conditional(y <= 3.2, 50 * k_ref, 10 * k_ref))
+        )
+    )
 
     def alpha():
         return mu / k
@@ -148,10 +153,15 @@ def dgls(
     # Mesh entities
     n = FacetNormal(mesh)
     h = CellDiameter(mesh)
+    x, y = SpatialCoordinate(mesh)
 
     # Permeability
-    kSpace = FunctionSpace(mesh, "DG", 0)
-    k = interpolate(myk(), kSpace)
+    k = conditional(
+        y <= 0.8, 80 * k_ref,
+        conditional(
+            y <= 1.6, 30 * k_ref, conditional(y <= 2.4, 5 * k_ref, conditional(y <= 3.2, 50 * k_ref, 10 * k_ref))
+        )
+    )
 
     def alpha():
         return mu / k
@@ -174,9 +184,7 @@ def dgls(
     L = -delta_0 * f * q * dx - delta_0 * dot(rhob, v) * dx
     # DG terms
     a += jump(v, n) * avg(p) * dS - \
-         avg(q) * jump(u, n) * dS + \
-         dot(v, n) * p * ds - \
-         q * dot(u, n) * ds
+         avg(q) * jump(u, n) * dS
     # Edge stabilizing terms
     a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS + \
          (eta_p / h_avg) * avg(1. / alpha()) * dot(jump(q, n), jump(p, n)) * dS
@@ -188,10 +196,15 @@ def dgls(
     L += delta_2 * alpha() * f * div(v) * dx
     ###
     a += delta_3 * inner(invalpha() * curl(alpha() * u), curl(alpha() * v)) * dx
-    # Weakly imposed BC
+    # Weakly imposed BC by Nitsche's method
+    a += dot(v, n) * p * ds - \
+         q * dot(u, n) * ds
     L += -q * un_1 * ds(1) - \
         q * un_2 * ds(2) - \
         delta_1 * dot(delta_0 * alpha() * v + grad(q), invalpha() * rhob) * dx
+    a += eta_u / h * inner(dot(v, n), dot(u, n)) * ds
+    L += eta_u / h * dot(v, n) * un_1 * ds(1) + \
+         eta_u / h * dot(v, n) * un_2 * ds(2)
 
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
@@ -210,6 +223,7 @@ def cgls(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
+    eta_u=Constant(50),
     mesh_parameter=True,
     solver_parameters={}
 ):
@@ -237,10 +251,15 @@ def cgls(
     # Mesh entities
     n = FacetNormal(mesh)
     h = CellDiameter(mesh)
+    x, y = SpatialCoordinate(mesh)
 
     # Permeability
-    kSpace = FunctionSpace(mesh, "DG", 0)
-    k = interpolate(myk(), kSpace)
+    k = conditional(
+        y <= 0.8, 80 * k_ref,
+        conditional(
+            y <= 1.6, 30 * k_ref, conditional(y <= 2.4, 5 * k_ref, conditional(y <= 3.2, 50 * k_ref, 10 * k_ref))
+        )
+    )
 
     def alpha():
         return mu / k
@@ -251,12 +270,6 @@ def cgls(
     #  Flux BCs
     un_1 = -k / mu
     un_2 = k / mu
-    # Snippet below does not work
-    # u_left = interpolate(as_vector([un_1, 0.0]), U)
-    # u_right = interpolate(as_vector([un_2, 0.0]), U)
-    # bc_left = DirichletBC(U, u_left, 1)
-    # bc_right = DirichletBC(U, u_right, 2)
-    # bcs = [bc_left, bc_right]
 
     # Mesh stabilizing parameter
     if mesh_parameter:
@@ -274,11 +287,14 @@ def cgls(
     L += delta_2 * alpha() * f * div(v) * dx
     ###
     a += delta_3 * inner(invalpha() * curl(alpha() * u), curl(alpha() * v)) * dx
-    # Weakly imposed BC
+    # Weakly imposed BC by Nitsche's method
     a += dot(v, n) * p * ds - \
          q * dot(u, n) * ds
     L += -q * un_1 * ds(1) - \
          q * un_2 * ds(2)
+    a += eta_u / h * inner(dot(v, n), dot(u, n)) * ds
+    L += eta_u / h * dot(v, n) * un_1 * ds(1) + \
+         eta_u / h * dot(v, n) * un_2 * ds(2)
 
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)

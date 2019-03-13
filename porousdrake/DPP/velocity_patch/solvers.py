@@ -326,7 +326,7 @@ def cgls(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
-    eta_u=Constant(50),
+    eta_u=Constant(10),
     mesh_parameter=True,
     solver_parameters={}
 ):

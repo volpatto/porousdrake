@@ -243,6 +243,9 @@ def cgls(
     L += -dot(v, n) * p_e * ds - \
          delta_1 * dot(delta_0 * alpha() * v + grad(q), invalpha() * rhob) * dx
 
+    # Weakly imposed BC
+    L += -dot(v, n) * p_e * ds
+
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
     solver_flow = LinearVariationalSolver(problem_flow, options_prefix='dpp_flow', solver_parameters=solver_parameters)
