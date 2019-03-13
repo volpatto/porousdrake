@@ -66,7 +66,7 @@ bcs = [bc1, bc2, bc3, bc4]
 a = (dot((mu / k) * u, v) - div(v) * p - q * div(u)) * dx
 L = -f * q * dx - dot(rho * g, v) * dx - p_boundaries * dot(v, n) * ds
 
-plot_matrix_mixed(a)
+plot_matrix_mixed(a, bcs=bcs)
 plt.show()
 
 print("\n*** DoF = %i" % W.dim())

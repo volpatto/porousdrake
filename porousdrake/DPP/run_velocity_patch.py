@@ -82,8 +82,6 @@ for current_solver in solvers_options:
 
     # Appending the mesh parameter option to kwargs
     kwargs['mesh_parameter'] = True
-    if current_solver == 'mgls':
-        kwargs['mesh_parameter'] = False
 
     # Running the case
     current_solution = solver(mesh=mesh, degree=degree, **kwargs)

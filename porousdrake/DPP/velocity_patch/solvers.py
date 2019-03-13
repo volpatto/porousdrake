@@ -273,11 +273,7 @@ def dgls(
     a += jump(v1, n) * avg(p1) * dS + \
          jump(v2, n) * avg(p2) * dS - \
          avg(q1) * jump(u1, n) * dS - \
-         avg(q2) * jump(u2, n) * dS + \
-         dot(v1, n) * p1 * ds + \
-         dot(v2, n) * p2 * ds - \
-         q1 * dot(u1, n) * ds - \
-         q2 * dot(u2, n) * ds
+         avg(q2) * jump(u2, n) * dS
     # Edge stabilizing terms
     a += (eta_u * h_avg) * avg(alpha1()) * (jump(u1, n) * jump(v1, n)) * dS + \
          (eta_u * h_avg) * avg(alpha2()) * (jump(u2, n) * jump(v2, n)) * dS + \
@@ -287,6 +283,8 @@ def dgls(
     ###
     a += delta_1 * inner(invalpha1() * (alpha1() * u1 + grad(p1)), delta_0 * alpha1() * v1 + grad(q1)) * dx
     a += delta_1 * inner(invalpha2() * (alpha2() * u2 + grad(p2)), delta_0 * alpha2() * v2 + grad(q2)) * dx
+    L += -delta_1 * dot(delta_0 * alpha1() * v1 + grad(q1), invalpha1() * rhob1) * dx
+    L += -delta_1 * dot(delta_0 * alpha2() * v2 + grad(q2), invalpha2() * rhob2) * dx
     ###
     a += delta_2 * alpha1() * div(u1) * div(v1) * dx
     a += delta_2 * alpha2() * div(u2) * div(v2) * dx
@@ -295,13 +293,21 @@ def dgls(
     ###
     a += delta_3 * inner(invalpha1() * curl(alpha1() * u1), curl(alpha1() * v1)) * dx
     a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
-    # Weakly imposed BC
+    # Weakly imposed BC by Nitsche's method
+    a += dot(v1, n) * p1 * ds + \
+         dot(v2, n) * p2 * ds - \
+         q1 * dot(u1, n) * ds - \
+         q2 * dot(u2, n) * ds
     L += -q1 * un1_1 * ds(1) - \
-        q2 * un2_1 * ds(1) - \
-        q1 * un1_2 * ds(2) - \
-        q2 * un2_2 * ds(2) - \
-        delta_1 * dot(delta_0 * alpha1() * v1 + grad(q1), invalpha1() * rhob1) * dx - \
-        delta_1 * dot(delta_0 * alpha2() * v2 + grad(q2), invalpha2() * rhob2) * dx
+         q2 * un2_1 * ds(1) - \
+         q1 * un1_2 * ds(2) - \
+         q2 * un2_2 * ds(2)
+    a += eta_u / h * inner(dot(v1, n), dot(u1, n)) * ds + \
+         eta_u / h * inner(dot(v2, n), dot(u2, n)) * ds
+    L += eta_u / h * dot(v1, n) * un1_1 * ds(1) + \
+         eta_u / h * dot(v2, n) * un2_1 * ds(1) + \
+         eta_u / h * dot(v1, n) * un1_2 * ds(2) + \
+         eta_u / h * dot(v2, n) * un2_2 * ds(2)
 
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
@@ -320,6 +326,7 @@ def cgls(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
+    eta_u=Constant(50),
     mesh_parameter=True,
     solver_parameters={}
 ):
@@ -395,7 +402,7 @@ def cgls(
     ###
     a += delta_3 * inner(invalpha1() * curl(alpha1() * u1), curl(alpha1() * v1)) * dx
     a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
-    # Weakly imposed BC
+    # Weakly imposed BC by Nitsche's method
     a += dot(v1, n) * p1 * ds + \
          dot(v2, n) * p2 * ds - \
          q1 * dot(u1, n) * ds - \
@@ -404,8 +411,14 @@ def cgls(
          q2 * un2_1 * ds(1) - \
          q1 * un1_2 * ds(2) - \
          q2 * un2_2 * ds(2)
+    a += eta_u / h * inner(dot(v1, n), dot(u1, n)) * ds + \
+         eta_u / h * inner(dot(v2, n), dot(u2, n)) * ds
+    L += eta_u / h * dot(v1, n) * un1_1 * ds(1) + \
+         eta_u / h * dot(v2, n) * un2_1 * ds(1) + \
+         eta_u / h * dot(v1, n) * un1_2 * ds(2) + \
+         eta_u / h * dot(v2, n) * un2_2 * ds(2)
 
-    #  Solving
+    # Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
     solver_flow = LinearVariationalSolver(problem_flow, options_prefix='dpp_flow', solver_parameters=solver_parameters)
     solver_flow.solve()

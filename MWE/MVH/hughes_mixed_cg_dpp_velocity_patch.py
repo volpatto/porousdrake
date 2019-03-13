@@ -81,8 +81,8 @@ def invalpha2():
     return 1. / alpha2()
 
 
-un1_1 = - k1 / mu0
-un2_1 = - k2 / mu0
+un1_1 = -k1 / mu0
+un2_1 = -k2 / mu0
 un1_2 = k1 / mu0
 un2_2 = k2 / mu0
 
@@ -95,6 +95,7 @@ f = Constant(0.0)
 
 n = FacetNormal(mesh)
 h = CellDiameter(mesh)
+eta = Constant(10)
 
 aDPP = dot(w1, alpha1() * v1) * dx + \
     dot(w2, alpha2() * v2) * dx - \
@@ -106,10 +107,6 @@ aDPP = dot(w1, alpha1() * v1) * dx + \
     q2 * (invalpha2() / k2) * (p1 - p2) * dx - \
     0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx - \
     0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
-aDPP += dot(w1, n) * p1 * ds + \
-        dot(w2, n) * p2 * ds - \
-        q1 * dot(v1, n) * ds - \
-        q2 * dot(v2, n) * ds
 LDPP = dot(w1, rhob1) * dx + \
     dot(w2, rhob2) * dx - \
     q1 * un1_1 * ds(1) - \
@@ -118,6 +115,17 @@ LDPP = dot(w1, rhob1) * dx + \
     q2 * un2_2 * ds(2) - \
     0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * rhob1) * dx - \
     0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * rhob2) * dx
+# Nitsche's method
+aDPP += dot(w1, n) * p1 * ds + \
+        dot(w2, n) * p2 * ds - \
+        q1 * dot(v1, n) * ds - \
+        q2 * dot(v2, n) * ds
+aDPP += eta / h * inner(dot(w1, n), dot(v1, n)) * ds + \
+        eta / h * inner(dot(w2, n), dot(v2, n)) * ds
+LDPP += eta / h * dot(w1, n) * un1_1 * ds(1) + \
+        eta / h * dot(w2, n) * un2_1 * ds(1) + \
+        eta / h * dot(w1, n) * un1_2 * ds(2) + \
+        eta / h * dot(w2, n) * un2_2 * ds(2)
 
 solver_parameters = {
     'ksp_type': 'lgmres',
@@ -140,3 +148,6 @@ v1file.write(DPP_solution.sub(0))
 p1file.write(DPP_solution.sub(1))
 v2file.write(DPP_solution.sub(2))
 p2file.write(DPP_solution.sub(3))
+
+plot(DPP_solution.sub(0).sub(0))
+plt.show()
