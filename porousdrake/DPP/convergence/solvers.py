@@ -336,7 +336,9 @@ def cgls(
     a += delta_3 * inner(invalpha2() * curl(alpha2() * u2), curl(alpha2() * v2)) * dx
     # Weakly imposed BC
     L += -dot(v1, n) * p_e_1 * ds - \
-         dot(v2, n) * p_e_2 * ds
+         dot(v2, n) * p_e_2 * ds - \
+         delta_1 * dot(delta_0 * alpha1() * v1 + grad(q1), invalpha1() * rhob1) * dx - \
+         delta_1 * dot(delta_0 * alpha2() * v2 + grad(q2), invalpha2() * rhob2) * dx
 
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)

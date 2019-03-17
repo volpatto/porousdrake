@@ -21,7 +21,7 @@ quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 degree = 1
-velSpace = VectorFunctionSpace(mesh, "DG", degree + 1)
+velSpace = VectorFunctionSpace(mesh, "DG", degree)
 pSpace = FunctionSpace(mesh, "DG", degree)
 wSpace = MixedFunctionSpace([velSpace, pSpace, velSpace, pSpace])
 
@@ -34,13 +34,14 @@ tol = 1e-14
 k1_0 = 1.1
 k1_1 = 0.9
 
+
 class myk1(Expression):
     def eval(self, values, x):
         if x[1] < Ly / 2. + tol:
             values[0] = k1_0
         else:
             values[0] = k1_1
-            
+
 
 k1 = interpolate(myk1(), kSpace)
 
@@ -54,7 +55,7 @@ class myk2(Expression):
             values[0] = k2_0
         else:
             values[0] = k2_1
-            
+
 
 k2 = interpolate(myk2(), kSpace)
 
@@ -103,7 +104,7 @@ dt = 5e-5
 
 bcDPP = []
 
-bcleft_c = DirichletBC(uSpace, c_inj, 1, method = 'geometric')
+bcleft_c = DirichletBC(uSpace, c_inj, 1, method='geometric')
 bcAD = [bcleft_c]
 
 rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
@@ -160,8 +161,9 @@ a_r = taw * (c1 + dt * (dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1
 
 L_r = taw * (conc_k + dt * f) * dx
 
-aAD = a_r + u * c1 * dx + dt * (u * dot((DPP_solution.sub(0) + DPP_solution.sub(2)),
-                                        grad(c1)) * dx + dot(grad(u), D * grad(c1)) * dx)
+aAD = a_r + u * c1 * dx + dt * (
+    u * dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1)) * dx + dot(grad(u), D * grad(c1)) * dx
+)
 
 LAD = L_r + u * conc_k * dx + dt * u * f * dx
 
@@ -176,7 +178,7 @@ solver_parameters = {
     'pc_type': 'lu',
     'mat_type': 'aij',
     'ksp_rtol': 1e-5,
-    'ksp_monitor_true_residual': True
+    'ksp_monitor_true_residual': None
 }
 
 problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=bcDPP, constant_jacobian=False)
@@ -194,7 +196,7 @@ while t <= T:
     solve(aAD == LAD, conc, bcs=bcAD)
     conc_k.assign(conc)
 
-    cfile.write(conc, time = t)
+    cfile.write(conc, time=t)
     v1file.write(DPP_solution.sub(0), time=t)
     p1file.write(DPP_solution.sub(1), time=t)
     v2file.write(DPP_solution.sub(2), time=t)
