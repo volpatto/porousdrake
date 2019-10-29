@@ -47,10 +47,13 @@ sol_exact.rename('Exact pressure', 'label')
 sigma_e = Function(V, name='Exact velocity')
 sigma_e.project(-(k / mu) * grad(p_exact))
 plot(sigma_e)
+plt.axis('off')
+plt.show()
 source_expr = div(-(k / mu) * grad(p_exact))
 f = Function(U).interpolate(source_expr)
 plot(sol_exact)
 plt.axis('off')
+plt.show()
 
 # BCs
 p_boundaries = Constant(0.0)
@@ -72,7 +75,7 @@ a += -dot(grad(u), n)('+') * (v('+') - mu_h('+')) * dS
 a += (beta / h_avg) * (u('+') - lambda_h('+')) * (v('+') - mu_h('+')) * dS
 # Boundary terms
 a += (beta / h) * (u - p_boundaries) * v * ds
-L += s * dot(grad(v), n) * p_boundaries * ds
+# L += s * dot(grad(v), n) * p_boundaries * ds
 
 F = a - L
 
@@ -111,6 +114,8 @@ output = File('ldgd.pvd', project_output=True)
 output.write(u_h, sigma_h)
 
 plot(sigma_h)
+plt.axis('off')
+plt.show()
 plot(u_h)
 plt.axis('off')
 plt.show()
