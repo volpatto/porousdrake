@@ -9,8 +9,9 @@ import porousdrake.setup.solvers_parameters as parameters
 
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -23,22 +24,22 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Solver options
 solvers_options = {
-    'cgls_full': cgls,
-    'cgls_div': cgls,
-    'mgls': cgls,
-    'mvh_full': cgls,
-    'mvh_div': cgls,
-    'mvh': cgls,
-    'dgls_full': dgls,
-    'dmgls_full': dgls,
-    'dmvh_full': dgls,
-    'sdhm_full': sdhm,
-    'hmvh_full': sdhm,
-    'hmvh': sdhm
+    "cgls_full": cgls,
+    "cgls_div": cgls,
+    "mgls": cgls,
+    "mvh_full": cgls,
+    "mvh_div": cgls,
+    "mvh": cgls,
+    "dgls_full": dgls,
+    "dmgls_full": dgls,
+    "dmvh_full": dgls,
+    "sdhm_full": sdhm,
+    "hmvh_full": sdhm,
+    "hmvh": sdhm,
 }
 
 # Identify discontinuous solvers for writing .pvd purpose
-discontinuous_solvers = ['dgls_full', 'dmgls_full', 'dmvh_full', 'sdhm_full', 'hmvh_full', 'hmvh']
+discontinuous_solvers = ["dgls_full", "dmgls_full", "dmvh_full", "sdhm_full", "hmvh_full", "hmvh"]
 
 if single_evaluation:
 
@@ -55,7 +56,7 @@ if single_evaluation:
         # beta_0=parameters.beta_0,
         # eta_u=parameters.eta_u,
         # eta_p=parameters.eta_p,
-        mesh_parameter=parameters.mesh_parameter
+        mesh_parameter=parameters.mesh_parameter,
     )
     plot(v1_sol.sub(0))
     plot(v2_sol.sub(0))
@@ -68,8 +69,8 @@ assert set(solvers_options.keys()).issubset(parameters.solvers_args.keys())
 
 # Solving velocity patch for the selected methods
 os.makedirs("velocity_patch/output", exist_ok=True)
-output_file_1 = File('velocity_patch/output/continuous_velocity_solutions.pvd')
-output_file_2 = File('velocity_patch/output/discontinuous_velocity_solutions.pvd')
+output_file_1 = File("velocity_patch/output/continuous_velocity_solutions.pvd")
+output_file_2 = File("velocity_patch/output/discontinuous_velocity_solutions.pvd")
 continuous_solutions = []
 discontinuous_solutions = []
 for current_solver in solvers_options:
@@ -81,14 +82,14 @@ for current_solver in solvers_options:
     kwargs = parameters.solvers_args[current_solver]
 
     # Appending the mesh parameter option to kwargs
-    kwargs['mesh_parameter'] = True
+    kwargs["mesh_parameter"] = True
 
     # Running the case
     current_solution = solver(mesh=mesh, degree=degree, **kwargs)
 
     # Renaming to identify the velocities properly
-    current_solution[1].rename('Macro v_x (%s)' % current_solver, 'label')
-    current_solution[3].rename('Micro v_x (%s)' % current_solver, 'label')
+    current_solution[1].rename("Macro v_x (%s)" % current_solver, "label")
+    current_solution[3].rename("Micro v_x (%s)" % current_solver, "label")
 
     # Appending the solution
     if current_solver in discontinuous_solvers:

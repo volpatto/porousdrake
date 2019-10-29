@@ -11,6 +11,7 @@ for double porosity/permeability model." arXiv preprint arXiv:1805.01389 (2018).
 """
 from firedrake import *
 import numpy as np
+
 try:
     import matplotlib.pyplot as plt
 except:
@@ -70,7 +71,7 @@ def alpha1():
 
 
 def invalpha1():
-    return 1. / alpha1()
+    return 1.0 / alpha1()
 
 
 def alpha2():
@@ -78,7 +79,7 @@ def alpha2():
 
 
 def invalpha2():
-    return 1. / alpha2()
+    return 1.0 / alpha2()
 
 
 un1_1 = -k1 / mu0
@@ -97,52 +98,56 @@ n = FacetNormal(mesh)
 h = CellDiameter(mesh)
 eta = Constant(10)
 
-aDPP = dot(w1, alpha1() * v1) * dx + \
-    dot(w2, alpha2() * v2) * dx - \
-    div(w1) * p1 * dx - \
-    div(w2) * p2 * dx + \
-    q1 * div(v1) * dx + \
-    q2 * div(v2) * dx + \
-    q1 * (invalpha1() / k1) * (p1 - p2) * dx - \
-    q2 * (invalpha2() / k2) * (p1 - p2) * dx - \
-    0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx - \
-    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
-LDPP = dot(w1, rhob1) * dx + \
-    dot(w2, rhob2) * dx - \
-    q1 * un1_1 * ds(1) - \
-    q2 * un2_1 * ds(1) - \
-    q1 * un1_2 * ds(2) - \
-    q2 * un2_2 * ds(2) - \
-    0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * rhob1) * dx - \
-    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * rhob2) * dx
+aDPP = (
+    dot(w1, alpha1() * v1) * dx
+    + dot(w2, alpha2() * v2) * dx
+    - div(w1) * p1 * dx
+    - div(w2) * p2 * dx
+    + q1 * div(v1) * dx
+    + q2 * div(v2) * dx
+    + q1 * (invalpha1() / k1) * (p1 - p2) * dx
+    - q2 * (invalpha2() / k2) * (p1 - p2) * dx
+    - 0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx
+    - 0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
+)
+LDPP = (
+    dot(w1, rhob1) * dx
+    + dot(w2, rhob2) * dx
+    - q1 * un1_1 * ds(1)
+    - q2 * un2_1 * ds(1)
+    - q1 * un1_2 * ds(2)
+    - q2 * un2_2 * ds(2)
+    - 0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * rhob1) * dx
+    - 0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * rhob2) * dx
+)
 # Nitsche's method
-aDPP += dot(w1, n) * p1 * ds + \
-        dot(w2, n) * p2 * ds - \
-        q1 * dot(v1, n) * ds - \
-        q2 * dot(v2, n) * ds
-aDPP += eta / h * inner(dot(w1, n), dot(v1, n)) * ds + \
-        eta / h * inner(dot(w2, n), dot(v2, n)) * ds
-LDPP += eta / h * dot(w1, n) * un1_1 * ds(1) + \
-        eta / h * dot(w2, n) * un2_1 * ds(1) + \
-        eta / h * dot(w1, n) * un1_2 * ds(2) + \
-        eta / h * dot(w2, n) * un2_2 * ds(2)
+aDPP += dot(w1, n) * p1 * ds + dot(w2, n) * p2 * ds - q1 * dot(v1, n) * ds - q2 * dot(v2, n) * ds
+aDPP += eta / h * inner(dot(w1, n), dot(v1, n)) * ds + eta / h * inner(dot(w2, n), dot(v2, n)) * ds
+LDPP += (
+    eta / h * dot(w1, n) * un1_1 * ds(1)
+    + eta / h * dot(w2, n) * un2_1 * ds(1)
+    + eta / h * dot(w1, n) * un1_2 * ds(2)
+    + eta / h * dot(w2, n) * un2_2 * ds(2)
+)
 
 solver_parameters = {
-    'ksp_type': 'lgmres',
-    'pc_type': 'lu',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-5,
-    'ksp_monitor_true_residual': True
+    "ksp_type": "lgmres",
+    "pc_type": "lu",
+    "mat_type": "aij",
+    "ksp_rtol": 1e-5,
+    "ksp_monitor_true_residual": True,
 }
 
 problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=[], constant_jacobian=False)
-solver_flow = LinearVariationalSolver(problem_flow, options_prefix='flow_', solver_parameters=solver_parameters)
+solver_flow = LinearVariationalSolver(
+    problem_flow, options_prefix="flow_", solver_parameters=solver_parameters
+)
 solver_flow.solve()
 
-v1file = File('Macro_Velocity_Vpatch.pvd')
-p1file = File('Macro_Pressure_Vpatch.pvd')
-v2file = File('Micro_Velocity_Vpatch.pvd')
-p2file = File('Micro_Pressure_Vpatch.pvd')
+v1file = File("Macro_Velocity_Vpatch.pvd")
+p1file = File("Macro_Pressure_Vpatch.pvd")
+v2file = File("Micro_Velocity_Vpatch.pvd")
+p2file = File("Micro_Pressure_Vpatch.pvd")
 
 v1file.write(DPP_solution.sub(0))
 p1file.write(DPP_solution.sub(1))

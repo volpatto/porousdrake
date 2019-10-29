@@ -11,6 +11,7 @@ for double porosity/permeability model." arXiv preprint arXiv:1805.01389 (2018).
 """
 from firedrake import *
 import numpy as np
+
 try:
     import matplotlib.pyplot as plt
 except:
@@ -42,7 +43,7 @@ def alpha1():
 
 
 def invalpha1():
-    return 1. / alpha1()
+    return 1.0 / alpha1()
 
 
 def alpha2():
@@ -50,7 +51,7 @@ def alpha2():
 
 
 def invalpha2():
-    return 1. / alpha2()
+    return 1.0 / alpha2()
 
 
 # Exact solution and source term projection
@@ -58,12 +59,12 @@ eta = sqrt(b_factor * (k1 + k2) / (k1 * k2))
 p_exact_1 = mu0 / pi * exp(pi * x) * sin(pi * y) - mu0 / (b_factor * k1) * exp(eta * y)
 p_exact_2 = mu0 / pi * exp(pi * x) * sin(pi * y) + mu0 / (b_factor * k2) * exp(eta * y)
 p_e_1 = Function(pSpace).interpolate(p_exact_1)
-p_e_1.rename('Exact macro pressure', 'label')
+p_e_1.rename("Exact macro pressure", "label")
 p_e_2 = Function(pSpace).interpolate(p_exact_2)
-p_e_2.rename('Exact micro pressure', 'label')
-v_e_1 = Function(velSpace, name='Exact macro velocity')
+p_e_2.rename("Exact micro pressure", "label")
+v_e_1 = Function(velSpace, name="Exact macro velocity")
 v_e_1.project(-(k1 / mu0) * grad(p_e_1))
-v_e_2 = Function(velSpace, name='Exact macro velocity')
+v_e_2 = Function(velSpace, name="Exact macro velocity")
 v_e_2.project(-(k2 / mu0) * grad(p_e_2))
 
 plot(v_e_1)
@@ -76,46 +77,52 @@ DPP_solution = Function(wSpace)
 rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
 f = Constant(0.0)
 
-aDPP = dot(w1, alpha1() * v1) * dx + \
-    dot(w2, alpha2() * v2) * dx - \
-    div(w1) * p1 * dx - \
-    div(w2) * p2 * dx + \
-    q1 * div(v1) * dx + \
-    q2 * div(v2) * dx + \
-    q1 * (b_factor * invalpha1() / k1) * (p1 - p2) * dx - \
-    q2 * (b_factor * invalpha2() / k2) * (p1 - p2) * dx - \
-    0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx - \
-    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
-LDPP = dot(w1, rhob1) * dx + \
-    dot(w2, rhob2) * dx - \
-    dot(w1, n) * p_e_1 * ds - \
-    dot(w2, n) * p_e_2 * ds - \
-    0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * rhob1) * dx - \
-    0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * rhob2) * dx
+aDPP = (
+    dot(w1, alpha1() * v1) * dx
+    + dot(w2, alpha2() * v2) * dx
+    - div(w1) * p1 * dx
+    - div(w2) * p2 * dx
+    + q1 * div(v1) * dx
+    + q2 * div(v2) * dx
+    + q1 * (b_factor * invalpha1() / k1) * (p1 - p2) * dx
+    - q2 * (b_factor * invalpha2() / k2) * (p1 - p2) * dx
+    - 0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * (alpha1() * v1 + grad(p1))) * dx
+    - 0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * (alpha2() * v2 + grad(p2))) * dx
+)
+LDPP = (
+    dot(w1, rhob1) * dx
+    + dot(w2, rhob2) * dx
+    - dot(w1, n) * p_e_1 * ds
+    - dot(w2, n) * p_e_2 * ds
+    - 0.5 * dot(alpha1() * w1 - grad(q1), invalpha1() * rhob1) * dx
+    - 0.5 * dot(alpha2() * w2 - grad(q2), invalpha2() * rhob2) * dx
+)
 
 solver_parameters = {
-    'ksp_type': 'lgmres',
-    'pc_type': 'lu',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-5,
-    'ksp_monitor_true_residual': True
+    "ksp_type": "lgmres",
+    "pc_type": "lu",
+    "mat_type": "aij",
+    "ksp_rtol": 1e-5,
+    "ksp_monitor_true_residual": True,
 }
 
 problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=[], constant_jacobian=False)
-solver_flow = LinearVariationalSolver(problem_flow, options_prefix='flow_', solver_parameters=solver_parameters)
+solver_flow = LinearVariationalSolver(
+    problem_flow, options_prefix="flow_", solver_parameters=solver_parameters
+)
 solver_flow.solve()
 
 plot(DPP_solution.sub(0))
 plot(DPP_solution.sub(2))
 plt.show()
 
-output_file = File('dpp_exact.pvd')
+output_file = File("dpp_exact.pvd")
 v1_sol = DPP_solution.sub(0)
-v1_sol.rename('Macro velocity', 'label')
+v1_sol.rename("Macro velocity", "label")
 p1_sol = DPP_solution.sub(1)
-p1_sol.rename('Macro pressure', 'label')
+p1_sol.rename("Macro pressure", "label")
 v2_sol = DPP_solution.sub(2)
-v2_sol.rename('Micro velocity', 'label')
+v2_sol.rename("Micro velocity", "label")
 p2_sol = DPP_solution.sub(3)
-p2_sol.rename('Micro pressure', 'label')
+p2_sol.rename("Micro pressure", "label")
 output_file.write(p1_sol, v1_sol, p2_sol, v2_sol, p_e_1, v_e_1, p_e_2, v_e_2)

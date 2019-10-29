@@ -1,8 +1,10 @@
 from firedrake import *
+
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -12,15 +14,15 @@ quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 plot(mesh)
-plt.axis('off')
+plt.axis("off")
 
 if quadrilateral:
-    velocity_family = 'RTCF'
+    velocity_family = "RTCF"
 else:
-    velocity_family = 'BDM'
+    velocity_family = "BDM"
 
 degree = 1
-pressure_family = 'CG'
+pressure_family = "CG"
 U = FunctionSpace(mesh, velocity_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = U * V
@@ -43,14 +45,14 @@ g = Constant((0.0, 0.0))
 # Exact solution and source term projection
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(V).interpolate(p_exact)
-sol_exact.rename('Exact pressure', 'label')
-sigma_e = Function(U, name='Exact velocity')
+sol_exact.rename("Exact pressure", "label")
+sigma_e = Function(U, name="Exact velocity")
 sigma_e.project(-(k / mu) * grad(p_exact))
 plot(sigma_e)
 source_expr = div(-(k / mu) * grad(p_exact))
 f = Function(V).interpolate(source_expr)
 plot(sol_exact)
-plt.axis('off')
+plt.axis("off")
 
 # Boundaries: Left (1), Right (2), Bottom(3), Top (4)
 vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
@@ -73,25 +75,25 @@ L += 0.5 * (mu / k) * f * div(v) * dx
 
 solver_parameters = {
     # 'ksp_type': 'tfqmr',
-    'ksp_type': 'gmres',
-    'pc_type': 'bjacobi',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-3,
-    'ksp_max_it': 2000,
-    'ksp_monitor': False
+    "ksp_type": "gmres",
+    "pc_type": "bjacobi",
+    "mat_type": "aij",
+    "ksp_rtol": 1e-3,
+    "ksp_max_it": 2000,
+    "ksp_monitor": False,
 }
 
 solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
 sigma_h, u_h = solution.split()
-sigma_h.rename('Velocity', 'label')
-u_h.rename('Pressure', 'label')
+sigma_h.rename("Velocity", "label")
+u_h.rename("Pressure", "label")
 
-output = File('cgls_hdiv_paper.pvd', project_output=True)
+output = File("cgls_hdiv_paper.pvd", project_output=True)
 output.write(sigma_h, u_h, sol_exact, sigma_e)
 
 plot(sigma_h)
 plot(u_h)
-plt.axis('off')
+plt.axis("off")
 plt.show()
 
 print("\n*** DoF = %i" % W.dim())

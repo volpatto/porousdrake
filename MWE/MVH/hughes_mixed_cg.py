@@ -1,8 +1,10 @@
 from firedrake import *
+
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -11,11 +13,11 @@ Lx, Ly = 1.0, 1.0
 quadrilateral = False
 mesh = UnitSquareMesh(nx, ny, quadrilateral=quadrilateral)
 plot(mesh)
-plt.axis('off')
+plt.axis("off")
 
 degree = 1
-velocity_family = 'CG'
-pressure_family = 'CG'
+velocity_family = "CG"
+pressure_family = "CG"
 U = VectorFunctionSpace(mesh, velocity_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = U * V
@@ -32,14 +34,14 @@ x, y = SpatialCoordinate(mesh)
 # Source term
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(V).interpolate(p_exact)
-sol_exact.rename('Exact pressure', 'label')
-sigma_e = Function(U, name='Exact velocity')
+sol_exact.rename("Exact pressure", "label")
+sigma_e = Function(U, name="Exact velocity")
 sigma_e.project(-grad(p_exact))
 plot(sigma_e)
 source_expr = div(-grad(p_exact))
 f = Function(V).interpolate(source_expr)
 plot(sol_exact)
-plt.axis('off')
+plt.axis("off")
 
 # Model parameters
 k = Constant(1.0)
@@ -60,31 +62,35 @@ bcs = [bc1, bc2, bc3, bc4]
 
 # Mixed classical terms
 a = (dot(sigma, (mu / k) * tau) - div(tau) * u + v * div(sigma)) * dx
-L = f * v * dx - dot(rho * g, tau) * dx - p_boundaries * dot(tau, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+L = (
+    f * v * dx
+    - dot(rho * g, tau) * dx
+    - p_boundaries * dot(tau, n) * (ds(1) + ds(2) + ds(3) + ds(4))
+)
 # Stabilizing terms
-a += 0.5 * inner((k / mu) * ((mu / k) * sigma + grad(u)), - (mu / k) * tau + grad(v)) * dx
-L += 0.5 * dot((k / mu) * rho * g, - (mu / k) * tau + grad(v)) * dx
+a += 0.5 * inner((k / mu) * ((mu / k) * sigma + grad(u)), -(mu / k) * tau + grad(v)) * dx
+L += 0.5 * dot((k / mu) * rho * g, -(mu / k) * tau + grad(v)) * dx
 
 solver_parameters = {
-    'ksp_type': 'gmres',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-3,
-    'ksp_max_it': 10000,
-    'ksp_monitor': False
+    "ksp_type": "gmres",
+    "mat_type": "aij",
+    "ksp_rtol": 1e-3,
+    "ksp_max_it": 10000,
+    "ksp_monitor": False,
 }
 
 solve(a == L, solution, bcs=bcs, solver_parameters=solver_parameters)
 # solve(a == L, solution, bcs=bcs)
 sigma_h, u_h = solution.split()
-sigma_h.rename('Velocity', 'label')
-u_h.rename('Pressure', 'label')
+sigma_h.rename("Velocity", "label")
+u_h.rename("Pressure", "label")
 
-output = File('hughes_paper.pvd', project_output=True)
+output = File("hughes_paper.pvd", project_output=True)
 output.write(sigma_h, u_h, sol_exact, sigma_e)
 
 plot(sigma_h)
 plot(u_h)
-plt.axis('off')
+plt.axis("off")
 plt.show()
 
 print("\n*** DoF = %i" % W.dim())

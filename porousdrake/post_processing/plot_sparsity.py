@@ -15,7 +15,7 @@ def plot_matrix(a_form, bcs=[], **kwargs):
     """Provides a plot of a matrix."""
     fig, ax = plt.subplots(1, 1)
 
-    A = assemble(a_form, bcs=bcs, mat_type='aij')
+    A = assemble(a_form, bcs=bcs, mat_type="aij")
     petsc_mat = A.M.handle
 
     size = petsc_mat.getSize()
@@ -24,7 +24,7 @@ def plot_matrix(a_form, bcs=[], **kwargs):
 
     n, m = size
     Mnp = np.array(Mij.getValues(range(n), range(m)))
-    Am = np.ma.masked_values(Mnp, 0, rtol=1E-13)
+    Am = np.ma.masked_values(Mnp, 0, rtol=1e-13)
 
     # Plot the matrix
     plot = ax.matshow(Am, cmap=my_cmap, **kwargs)
@@ -41,7 +41,7 @@ def plot_matrix_mixed(a_form, bcs=[], **kwargs):
     """Provides a plot of a mixed matrix."""
     fig, ax = plt.subplots(1, 1)
 
-    A = assemble(a_form, bcs=bcs, mat_type='aij')
+    A = assemble(a_form, bcs=bcs, mat_type="aij")
     petsc_mat = A.M.handle
 
     total_size = petsc_mat.getSize()
@@ -51,7 +51,7 @@ def plot_matrix_mixed(a_form, bcs=[], **kwargs):
 
     n, m = total_size
     Mnp = np.array(Mij.getValues(range(n), range(m)))
-    Am = np.ma.masked_values(Mnp, 0, rtol=1E-13)
+    Am = np.ma.masked_values(Mnp, 0, rtol=1e-13)
 
     # Plot the matrix
     plot = ax.matshow(Am, cmap=my_cmap, **kwargs)
@@ -61,8 +61,8 @@ def plot_matrix_mixed(a_form, bcs=[], **kwargs):
     ax.set_xticklabels([])
     ax.set_yticklabels([])
 
-    ax.axhline(y=f0_size[0] - 0.5, color='k')
-    ax.axvline(x=f0_size[0] - 0.5, color='k')
+    ax.axhline(y=f0_size[0] - 0.5, color="k")
+    ax.axvline(x=f0_size[0] - 0.5, color="k")
 
     return plot
 
@@ -71,7 +71,7 @@ def plot_matrix_hybrid_full(a_form, bcs=[], **kwargs):
     """Provides a plot of a full hybrid-mixed matrix."""
     fig, ax = plt.subplots(1, 1)
 
-    A = assemble(a_form, bcs=bcs, mat_type='aij')
+    A = assemble(a_form, bcs=bcs, mat_type="aij")
     petsc_mat = A.M.handle
 
     total_size = petsc_mat.getSize()
@@ -83,7 +83,7 @@ def plot_matrix_hybrid_full(a_form, bcs=[], **kwargs):
 
     n, m = total_size
     Mnp = np.array(Mij.getValues(range(n), range(m)))
-    Am = np.ma.masked_values(Mnp, 0, rtol=1E-13)
+    Am = np.ma.masked_values(Mnp, 0, rtol=1e-13)
 
     # Plot the matrix
     plot = ax.matshow(Am, cmap=my_cmap, **kwargs)
@@ -93,10 +93,10 @@ def plot_matrix_hybrid_full(a_form, bcs=[], **kwargs):
     ax.set_xticklabels([])
     ax.set_yticklabels([])
 
-    ax.axhline(y=f0_size[0] - 0.5, color='k')
-    ax.axvline(x=f0_size[0] - 0.5, color='k')
-    ax.axhline(y=f0_size[0] + f1_size[0] - 0.5, color='k')
-    ax.axvline(x=f0_size[0] + f1_size[0] - 0.5, color='k')
+    ax.axhline(y=f0_size[0] - 0.5, color="k")
+    ax.axvline(x=f0_size[0] - 0.5, color="k")
+    ax.axhline(y=f0_size[0] + f1_size[0] - 0.5, color="k")
+    ax.axvline(x=f0_size[0] + f1_size[0] - 0.5, color="k")
 
     return plot
 
@@ -117,7 +117,7 @@ def plot_matrix_hybrid_multiplier_spp(a_form, bcs=[], **kwargs):
 
     n, m = total_size
     Mnp = np.array(Mij.getValues(range(n), range(m)))
-    Am = np.ma.masked_values(Mnp, 0, rtol=1E-13)
+    Am = np.ma.masked_values(Mnp, 0, rtol=1e-13)
 
     # Plot the matrix
     plot = ax.matshow(Am, cmap=my_cmap, **kwargs)

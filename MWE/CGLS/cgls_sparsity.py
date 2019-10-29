@@ -1,9 +1,11 @@
 from firedrake import *
 from porousdrake.post_processing.plot_sparsity import plot_matrix_mixed
+
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -13,11 +15,11 @@ quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 plot(mesh)
-plt.axis('off')
+plt.axis("off")
 
 degree = 1
-pressure_family = 'CG'
-velocity_family = 'CG'
+pressure_family = "CG"
+velocity_family = "CG"
 U = VectorFunctionSpace(mesh, velocity_family, degree)
 V = FunctionSpace(mesh, pressure_family, degree)
 W = U * V
@@ -40,14 +42,14 @@ g = Constant((0.0, 0.0))
 # Exact solution and source term projection
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(V).interpolate(p_exact)
-sol_exact.rename('Exact pressure', 'label')
-sigma_e = Function(U, name='Exact velocity')
+sol_exact.rename("Exact pressure", "label")
+sigma_e = Function(U, name="Exact velocity")
 sigma_e.project(-(k / mu) * grad(p_exact))
 plot(sigma_e)
 source_expr = div(-(k / mu) * grad(p_exact))
 f = Function(V).interpolate(source_expr)
 plot(sol_exact)
-plt.axis('off')
+plt.axis("off")
 
 # Boundaries: Left (1), Right (2), Bottom(3), Top (4)
 vx = -2 * pi / Lx * cos(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
