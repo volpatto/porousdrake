@@ -9,6 +9,7 @@ for double porosity/permeability model." arXiv preprint arXiv:1805.01389 (2018).
 from firedrake import *
 import numpy as np
 import random
+
 try:
     import matplotlib.pyplot as plt
 except:
@@ -16,7 +17,7 @@ except:
 
 random.seed(222)
 nx, ny = 50, 20
-Lx, Ly = 1.0, .4
+Lx, Ly = 1.0, 0.4
 quadrilateral = True
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
@@ -37,7 +38,7 @@ k1_1 = 0.9
 
 class myk1(Expression):
     def eval(self, values, x):
-        if x[1] < Ly / 2. + tol:
+        if x[1] < Ly / 2.0 + tol:
             values[0] = k1_0
         else:
             values[0] = k1_1
@@ -51,7 +52,7 @@ k2_1 = 0.01 * k1_1
 
 class myk2(Expression):
     def eval(self, values, x):
-        if x[1] < Ly / 2. + tol:
+        if x[1] < Ly / 2.0 + tol:
             values[0] = k2_0
         else:
             values[0] = k2_1
@@ -61,19 +62,19 @@ k2 = interpolate(myk2(), kSpace)
 
 
 def alpha1(c):
-    return mu0 * exp(Rc * (1. - c)) / k1
+    return mu0 * exp(Rc * (1.0 - c)) / k1
 
 
 def invalpha1(c):
-    return 1. / alpha1(c)
+    return 1.0 / alpha1(c)
 
 
 def alpha2(c):
-    return mu0 * exp(Rc * (1. - c)) / k2
+    return mu0 * exp(Rc * (1.0 - c)) / k2
 
 
 def invalpha2(c):
-    return 1. / alpha2(c)
+    return 1.0 / alpha2(c)
 
 
 v_topbottom = Constant(0.0)
@@ -104,7 +105,7 @@ dt = 5e-5
 
 bcDPP = []
 
-bcleft_c = DirichletBC(uSpace, c_inj, 1, method='geometric')
+bcleft_c = DirichletBC(uSpace, c_inj, 1, method="geometric")
 bcAD = [bcleft_c]
 
 rhob1, rhob2 = Constant((0.0, 0.0)), Constant((0.0, 0.0))
@@ -113,82 +114,106 @@ f = Constant(0.0)
 
 n = FacetNormal(mesh)
 h = CellDiameter(mesh)
-h_avg = (h('+') + h('-')) / 2.
+h_avg = (h("+") + h("-")) / 2.0
 
 eta_p, eta_u = Constant(0.0), Constant(0.0)
 
-aDPP = dot(w1, alpha1(conc_k) * v1) * dx + \
-    dot(w2, alpha2(conc_k) * v2) * dx - \
-    div(w1) * p1 * dx - \
-    div(w2) * p2 * dx + \
-    q1 * div(v1) * dx + \
-    q2 * div(v2) * dx + \
-    q1 * (invalpha1(conc_k) / k1) * (p1 - p2) * dx - \
-    q2 * (invalpha2(conc_k) / k2) * (p1 - p2) * dx + \
-    jump(w1, n) * avg(p1) * dS + \
-    jump(w2, n) * avg(p2) * dS - \
-    avg(q1) * jump(v1, n) * dS - \
-    avg(q2) * jump(v2, n) * dS + \
-    dot(w1, n) * p1 * ds(3) + \
-    dot(w2, n) * p2 * ds(3) - \
-    q1 * dot(v1, n) * ds(3) - \
-    q2 * dot(v2, n) * ds(3) + \
-    dot(w1, n) * p1 * ds(4) + \
-    dot(w2, n) * p2 * ds(4) - \
-    q1 * dot(v1, n) * ds(4) - \
-    q2 * dot(v2, n) * ds(4) - \
-    0.5 * dot(alpha1(conc_k) * w1 - grad(q1), invalpha1(conc_k) * (alpha1(conc_k) * v1 + grad(p1))) * dx - \
-    0.5 * dot(alpha2(conc_k) * w2 - grad(q2), invalpha2(conc_k) * (alpha2(conc_k) * v2 + grad(p2))) * dx + \
-    (eta_u * h_avg) * avg(alpha1(conc_k)) * (jump(v1, n) * jump(w1, n)) * dS + \
-    (eta_u * h_avg) * avg(alpha2(conc_k)) * (jump(v2, n) * jump(w2, n)) * dS + \
-    (eta_p / h_avg) * avg(1. / alpha1(conc_k)) * dot(jump(q1, n), jump(p1, n)) * dS + \
-    (eta_p / h_avg) * avg(1. / alpha2(conc_k)) * dot(jump(q2, n), jump(p2, n)) * dS
+aDPP = (
+    dot(w1, alpha1(conc_k) * v1) * dx
+    + dot(w2, alpha2(conc_k) * v2) * dx
+    - div(w1) * p1 * dx
+    - div(w2) * p2 * dx
+    + q1 * div(v1) * dx
+    + q2 * div(v2) * dx
+    + q1 * (invalpha1(conc_k) / k1) * (p1 - p2) * dx
+    - q2 * (invalpha2(conc_k) / k2) * (p1 - p2) * dx
+    + jump(w1, n) * avg(p1) * dS
+    + jump(w2, n) * avg(p2) * dS
+    - avg(q1) * jump(v1, n) * dS
+    - avg(q2) * jump(v2, n) * dS
+    + dot(w1, n) * p1 * ds(3)
+    + dot(w2, n) * p2 * ds(3)
+    - q1 * dot(v1, n) * ds(3)
+    - q2 * dot(v2, n) * ds(3)
+    + dot(w1, n) * p1 * ds(4)
+    + dot(w2, n) * p2 * ds(4)
+    - q1 * dot(v1, n) * ds(4)
+    - q2 * dot(v2, n) * ds(4)
+    - 0.5
+    * dot(alpha1(conc_k) * w1 - grad(q1), invalpha1(conc_k) * (alpha1(conc_k) * v1 + grad(p1)))
+    * dx
+    - 0.5
+    * dot(alpha2(conc_k) * w2 - grad(q2), invalpha2(conc_k) * (alpha2(conc_k) * v2 + grad(p2)))
+    * dx
+    + (eta_u * h_avg) * avg(alpha1(conc_k)) * (jump(v1, n) * jump(w1, n)) * dS
+    + (eta_u * h_avg) * avg(alpha2(conc_k)) * (jump(v2, n) * jump(w2, n)) * dS
+    + (eta_p / h_avg) * avg(1.0 / alpha1(conc_k)) * dot(jump(q1, n), jump(p1, n)) * dS
+    + (eta_p / h_avg) * avg(1.0 / alpha2(conc_k)) * dot(jump(q2, n), jump(p2, n)) * dS
+)
 
-LDPP = dot(w1, rhob1) * dx + \
-    dot(w2, rhob2) * dx - \
-    dot(w1, n) * p_L * ds(1) - \
-    dot(w2, n) * p_L * ds(1) - \
-    dot(w1, n) * p_R * ds(2) - \
-    dot(w2, n) * p_R * ds(2) - \
-    0.5 * dot(alpha1(conc_k) * w1 - grad(q1), invalpha1(conc_k) * rhob1) * dx - \
-    0.5 * dot(alpha2(conc_k) * w2 - grad(q2), invalpha2(conc_k) * rhob2) * dx
+LDPP = (
+    dot(w1, rhob1) * dx
+    + dot(w2, rhob2) * dx
+    - dot(w1, n) * p_L * ds(1)
+    - dot(w2, n) * p_L * ds(1)
+    - dot(w1, n) * p_R * ds(2)
+    - dot(w2, n) * p_R * ds(2)
+    - 0.5 * dot(alpha1(conc_k) * w1 - grad(q1), invalpha1(conc_k) * rhob1) * dx
+    - 0.5 * dot(alpha2(conc_k) * w2 - grad(q2), invalpha2(conc_k) * rhob2) * dx
+)
 
-vnorm = sqrt(dot((DPP_solution.sub(0) + DPP_solution.sub(2)), (DPP_solution.sub(0) + DPP_solution.sub(2))))
+vnorm = sqrt(
+    dot((DPP_solution.sub(0) + DPP_solution.sub(2)), (DPP_solution.sub(0) + DPP_solution.sub(2)))
+)
 
-taw = h / (2. * vnorm) * dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(u))
+taw = h / (2.0 * vnorm) * dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(u))
 
-a_r = taw * (c1 + dt * (dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1)) - div(D * grad(c1)))) * dx
+a_r = (
+    taw
+    * (c1 + dt * (dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1)) - div(D * grad(c1))))
+    * dx
+)
 
 L_r = taw * (conc_k + dt * f) * dx
 
-aAD = a_r + u * c1 * dx + dt * (
-    u * dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1)) * dx + dot(grad(u), D * grad(c1)) * dx
+aAD = (
+    a_r
+    + u * c1 * dx
+    + dt
+    * (
+        u * dot((DPP_solution.sub(0) + DPP_solution.sub(2)), grad(c1)) * dx
+        + dot(grad(u), D * grad(c1)) * dx
+    )
 )
 
 LAD = L_r + u * conc_k * dx + dt * u * f * dx
 
-cfile = File('Concentration.pvd')
-v1file = File('Macro_Velocity.pvd')
-p1file = File('Macro_Pressure.pvd')
-v2file = File('Micro_Velocity.pvd')
-p2file = File('Micro_Pressure.pvd')
+cfile = File("Concentration.pvd")
+v1file = File("Macro_Velocity.pvd")
+p1file = File("Macro_Pressure.pvd")
+v2file = File("Micro_Velocity.pvd")
+p2file = File("Micro_Pressure.pvd")
 
 solver_parameters = {
-    'ksp_type': 'lgmres',
-    'pc_type': 'lu',
-    'mat_type': 'aij',
-    'ksp_rtol': 1e-5,
-    'ksp_monitor_true_residual': None
+    "ksp_type": "lgmres",
+    "pc_type": "lu",
+    "mat_type": "aij",
+    "ksp_rtol": 1e-5,
+    "ksp_monitor_true_residual": None,
 }
 
-problem_flow = LinearVariationalProblem(aDPP, LDPP, DPP_solution, bcs=bcDPP, constant_jacobian=False)
-solver_flow = LinearVariationalSolver(problem_flow, options_prefix='flow_', solver_parameters=solver_parameters)
+problem_flow = LinearVariationalProblem(
+    aDPP, LDPP, DPP_solution, bcs=bcDPP, constant_jacobian=False
+)
+solver_flow = LinearVariationalSolver(
+    problem_flow, options_prefix="flow_", solver_parameters=solver_parameters
+)
 
 t = dt
 while t <= T:
-    print('============================')
-    print('\ttime =', t)
-    print('============================')
+    print("============================")
+    print("\ttime =", t)
+    print("============================")
     c_0.t = t
 
     solver_flow.solve()
@@ -204,4 +229,4 @@ while t <= T:
 
     t += dt
 
-print('total time = ', t)
+print("total time = ", t)

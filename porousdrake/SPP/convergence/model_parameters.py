@@ -13,4 +13,4 @@ def alpha():
 
 
 def invalpha():
-    return 1. / alpha()
+    return 1.0 / alpha()

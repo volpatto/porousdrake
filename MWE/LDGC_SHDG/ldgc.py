@@ -1,10 +1,12 @@
 from firedrake import *
 from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
+
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -14,14 +16,14 @@ quadrilateral = False  # Only valid in simplex elements
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 plot(mesh)
-plt.axis('off')
+plt.axis("off")
 
 degree = 1
 k_plus = 0
-primal_family = 'DG'
-tracer_family = 'DGT'
+primal_family = "DG"
+tracer_family = "DGT"
 U = FunctionSpace(mesh, primal_family, degree + k_plus)
-V = VectorFunctionSpace(mesh, 'CG', degree + k_plus)
+V = VectorFunctionSpace(mesh, "CG", degree + k_plus)
 LagrangeElement = FiniteElement("Lagrange", triangle, degree)
 C0TraceElement = LagrangeElement["facet"]
 T = FunctionSpace(mesh, C0TraceElement)
@@ -45,14 +47,14 @@ g = Constant((0.0, 0.0))
 # Exact solution and source term projection
 p_exact = sin(2 * pi * x / Lx) * sin(2 * pi * y / Ly)
 sol_exact = Function(U).interpolate(p_exact)
-sol_exact.rename('Exact pressure', 'label')
-sigma_e = Function(V, name='Exact velocity')
+sol_exact.rename("Exact pressure", "label")
+sigma_e = Function(V, name="Exact velocity")
 sigma_e.project(-(k / mu) * grad(p_exact))
 plot(sigma_e)
 source_expr = div(-(k / mu) * grad(p_exact))
 f = Function(U).interpolate(source_expr)
 plot(sol_exact)
-plt.axis('off')
+plt.axis("off")
 
 # BCs
 p_boundaries = Constant(0.0)
@@ -73,12 +75,16 @@ a += s * (dot(jump(u, n), avg(grad(v))) - dot(jump(v, n), avg(grad(u)))) * dS
 a += (beta / h_avg) * dot(jump(u, n), jump(v, n)) * dS
 a += (beta / h) * u * v * ds
 # DG boundary condition terms
-L += s * dot(grad(v), n) * p_boundaries * ds \
-     + (beta / h) * p_boundaries * v * ds \
-     + v * dot(sigma_e, n) * ds
+L += (
+    s * dot(grad(v), n) * p_boundaries * ds
+    + (beta / h) * p_boundaries * v * ds
+    + v * dot(sigma_e, n) * ds
+)
 # Hybridization terms
-a += (-s * jump(grad(v), n) * (lambda_h('+') - avg(u)) + jump(grad(u), n) * (mu_h('+') - avg(v))) * dS
-a += (4 * beta / h_avg) * (lambda_h('+') - avg(u)) * (mu_h('+') - avg(v)) * dS
+a += (
+    -s * jump(grad(v), n) * (lambda_h("+") - avg(u)) + jump(grad(u), n) * (mu_h("+") - avg(v))
+) * dS
+a += (4 * beta / h_avg) * (lambda_h("+") - avg(u)) * (mu_h("+") - avg(v)) * dS
 
 F = a - L
 
@@ -108,18 +114,18 @@ PETSc.Sys.Print("Solver finished.\n")
 
 # Gathering solution
 u_h, lambda_h = solution.split()
-u_h.rename('Solution', 'label')
+u_h.rename("Solution", "label")
 
 # Post-processing solution
-sigma_h = Function(V, name='Projected velocity')
+sigma_h = Function(V, name="Projected velocity")
 sigma_h.project(-(k / mu) * grad(u_h))
 
-output = File('ldgc.pvd', project_output=True)
+output = File("ldgc.pvd", project_output=True)
 output.write(u_h, sigma_h)
 
 plot(sigma_h)
 plot(u_h)
-plt.axis('off')
+plt.axis("off")
 plt.show()
 
 print("\n*** DoF = %i" % W.dim())

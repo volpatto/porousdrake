@@ -81,21 +81,22 @@ from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 import numpy as np
 import matplotlib.pyplot as plt
-plt.rc('text', usetex=True)
-plt.rc('font', size=12)
+
+plt.rc("text", usetex=True)
+plt.rc("font", size=12)
 
 
 def analytical_solution(mesh, degree):
-    '''
+    """
     Analytical solutions for u and q
-    '''
+    """
 
     x = SpatialCoordinate(mesh)
     V_a = FunctionSpace(mesh, "DG", degree + 3)
     U_a = VectorFunctionSpace(mesh, "DG", degree + 3)
 
     u_a = Function(V_a, name="Analytic Scalar")
-    a_scalar = sin(pi*x[0])*sin(pi*x[1])
+    a_scalar = sin(pi * x[0]) * sin(pi * x[1])
     u_a.interpolate(a_scalar)
 
     q_a = Function(U_a, name="Analytic Flux")
@@ -108,9 +109,7 @@ def analytical_solution(mesh, degree):
 def solver_LDGH(mesh, degree, tau_order, a_scalar, a_flux, plot_sol=False):
 
     if tau_order is None or tau_order not in ("1", "1/h", "h"):
-        raise ValueError(
-            "Must specify tau to be of order '1', '1/h', or 'h'"
-        )
+        raise ValueError("Must specify tau to be of order '1', '1/h', or 'h'")
 
     assert degree > 0, "Provide a degree >= 1"
 
@@ -137,7 +136,7 @@ def solver_LDGH(mesh, degree, tau_order, a_scalar, a_flux, plot_sol=False):
         tau = Constant(1e0)
 
     elif tau_order == "1/h":
-        tau = 1/FacetArea(mesh)
+        tau = 1 / FacetArea(mesh)
 
     elif tau_order == "h":
         tau = FacetArea(mesh)
@@ -146,39 +145,47 @@ def solver_LDGH(mesh, degree, tau_order, a_scalar, a_flux, plot_sol=False):
         raise ValueError("Invalid choice of tau")
 
     # Numerical flux
-    qhat = q + tau*(u - uhat)*n
+    qhat = q + tau * (u - uhat) * n
 
     # Formulate the LDG-H method in UFL
-    a = ((dot(v, q) - div(v)*u)*dx
-         + uhat('+')*jump(v, n=n)*dS
-         + uhat*dot(v, n)*ds
-         - dot(grad(w), q)*dx
-         + jump(qhat, n=n)*w('+')*dS
-         + dot(qhat, n)*w*ds
-         # Transmission condition
-         + mu('+')*jump(qhat, n=n)*dS)
+    a = (
+        (dot(v, q) - div(v) * u) * dx
+        + uhat("+") * jump(v, n=n) * dS
+        + uhat * dot(v, n) * ds
+        - dot(grad(w), q) * dx
+        + jump(qhat, n=n) * w("+") * dS
+        + dot(qhat, n) * w * ds
+        # Transmission condition
+        + mu("+") * jump(qhat, n=n) * dS
+    )
 
-    L = w*f*dx
+    L = w * f * dx
     F = a - L
-    hybrid_params = {'mat_type': 'matfree',
-                     'ksp_type': 'preonly',
-                     'pc_type': 'python',
-                     'pc_python_type': 'firedrake.HybridizationPC',
-                     'hybridization': {'ksp_type': 'preonly',
-                        'pc_type': 'lu'}
-                     }
-    PETSc.Sys.Print("*******************************************\nSolving using static condensation.\n")
-    params = {'snes_type': 'ksponly',
-              'mat_type': 'matfree',
-              'pmat_type': 'matfree',
-              'ksp_type': 'preonly',
-              'pc_type': 'python',
-              # Use the static condensation PC for hybridized problems
-              # and use a direct solve on the reduced system for u_hat
-              'pc_python_type': 'scpc.HybridSCPC',
-              'hybrid_sc': {'ksp_type': 'preonly',
-                            'pc_type': 'lu',
-                            'pc_factor_mat_solver_package': 'mumps'}}
+    hybrid_params = {
+        "mat_type": "matfree",
+        "ksp_type": "preonly",
+        "pc_type": "python",
+        "pc_python_type": "firedrake.HybridizationPC",
+        "hybridization": {"ksp_type": "preonly", "pc_type": "lu"},
+    }
+    PETSc.Sys.Print(
+        "*******************************************\nSolving using static condensation.\n"
+    )
+    params = {
+        "snes_type": "ksponly",
+        "mat_type": "matfree",
+        "pmat_type": "matfree",
+        "ksp_type": "preonly",
+        "pc_type": "python",
+        # Use the static condensation PC for hybridized problems
+        # and use a direct solve on the reduced system for u_hat
+        "pc_python_type": "scpc.HybridSCPC",
+        "hybrid_sc": {
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_package": "mumps",
+        },
+    }
 
     bcs = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
     problem = NonlinearVariationalProblem(F, s, bcs=bcs)
@@ -189,12 +196,13 @@ def solver_LDGH(mesh, degree, tau_order, a_scalar, a_flux, plot_sol=False):
 
     # Computed flux, scalar, and trace
     q_h, u_h, uhat_h = s.split()
-    u_h.rename('Scalar', 'label')
-    q_h.rename('Flux', 'label')
+    u_h.rename("Scalar", "label")
+    q_h.rename("Flux", "label")
 
     # Here we plot the solution if it is demanded
-    if plot_sol==True:
+    if plot_sol == True:
         import matplotlib.pyplot as plt
+
         plot(q_h)
         plot(u_h)
         plt.show()
@@ -211,7 +219,7 @@ def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
 
     # We keep track of all metrics using a Python dictionary
     error_dictionary = {var_name: error}
-    
+
     return error_dictionary
 
 
@@ -244,11 +252,8 @@ def scalar_post_processing(mesh, degree, u_h, q_h):
     wp, phi = TestFunctions(Wpp)
 
     # Create mixed tensors:
-    K = Tensor((inner(grad(up), grad(wp)) +
-                inner(psi, wp) +
-                inner(up, phi))*dx)
-    F = Tensor((-inner(q_h, grad(wp)) +
-                inner(u_h, phi))*dx)
+    K = Tensor((inner(grad(up), grad(wp)) + inner(psi, wp) + inner(up, phi)) * dx)
+    F = Tensor((-inner(q_h, grad(wp)) + inner(u_h, phi)) * dx)
 
     E = K.inv * F
 
@@ -276,9 +281,7 @@ def flux_post_processing(mesh, degree, tau_order, u_h, q_h, uhat_h):
     # div(q_pp) converges faster than q_h.
 
     if tau_order is None or tau_order not in ("1", "1/h", "h"):
-        raise ValueError(
-            "Must specify tau to be of order '1', '1/h', or 'h'"
-        )
+        raise ValueError("Must specify tau to be of order '1', '1/h', or 'h'")
 
     assert degree > 0, "Provide a degree >= 1"
 
@@ -287,7 +290,7 @@ def flux_post_processing(mesh, degree, tau_order, u_h, q_h, uhat_h):
         tau = Constant(1e0)
 
     elif tau_order == "1/h":
-        tau = 1/FacetArea(mesh)
+        tau = 1 / FacetArea(mesh)
 
     elif tau_order == "h":
         tau = FacetArea(mesh)
@@ -298,7 +301,7 @@ def flux_post_processing(mesh, degree, tau_order, u_h, q_h, uhat_h):
     n = FacetNormal(mesh)
     T = FunctionSpace(mesh, "HDiv Trace", degree)
 
-    qhat_h = q_h + tau*(u_h - uhat_h)*n
+    qhat_h = q_h + tau * (u_h - uhat_h) * n
     local_RT = FiniteElement("RT", triangle, degree + 1)
     RTd = FunctionSpace(mesh, BrokenElement(local_RT))
     DGkn1 = VectorFunctionSpace(mesh, "DG", degree - 1)
@@ -309,14 +312,12 @@ def flux_post_processing(mesh, degree, tau_order, u_h, q_h, uhat_h):
     vp, mu = TestFunctions(Npp)
 
     # Assemble the local system and invert using Slate
-    A = Tensor(inner(n_p, vp)*dx +
-               jump(n_p, n=n)*mu*dS + dot(n_p, n)*mu*ds)
-    B = Tensor(inner(q_h, vp)*dx +
-               jump(qhat_h, n=n)*mu*dS + dot(qhat_h, n)*mu*ds)
+    A = Tensor(inner(n_p, vp) * dx + jump(n_p, n=n) * mu * dS + dot(n_p, n) * mu * ds)
+    B = Tensor(inner(q_h, vp) * dx + jump(qhat_h, n=n) * mu * dS + dot(qhat_h, n) * mu * ds)
 
     PETSc.Sys.Print("Local post-processing of the flux.\n")
     q_pp = assemble(A.inv * B)
-    q_pp.rename('Post-processed flux', 'label')
+    q_pp.rename("Post-processed flux", "label")
 
     # And check the error in our new flux
     flux_pp_error = errornorm(a_flux, q_pp, norm_type="L2")
@@ -324,13 +325,13 @@ def flux_post_processing(mesh, degree, tau_order, u_h, q_h, uhat_h):
     # To verify our new flux is HDiv conforming, we also
     # evaluate its jump over mesh interiors. This should be
     # approximately zero if everything worked correctly.
-    flux_pp_jump = assemble(jump(q_pp, n=n)*dS)
+    flux_pp_jump = assemble(jump(q_pp, n=n) * dS)
     PETSc.Sys.Print("Post-processing finished.\n")
 
     return q_pp, flux_pp_jump
 
 
-def pvd_writer(var_to_write, tau_order, nelx, nely, prefix = "LDGH"):
+def pvd_writer(var_to_write, tau_order, nelx, nely, prefix="LDGH"):
     if tau_order == "1/h":
         o = "hneg1"
     else:
@@ -344,11 +345,11 @@ def pvd_writer(var_to_write, tau_order, nelx, nely, prefix = "LDGH"):
 
 def writer_all_outputs(vars_to_write, tau_order, nelx, nely):
     for i in range(len(vars_to_write)):
-        pvd_writer(vars_to_write[i], tau_order, nelx, nely, prefix=('var%d' % i))
+        pvd_writer(vars_to_write[i], tau_order, nelx, nely, prefix=("var%d" % i))
     return
 
 
-def writer_outputs(u_h, q_h, u_pp, q_pp, u_a, q_a, tau_order, nelx, nely, prefix = "LDGH"):
+def writer_outputs(u_h, q_h, u_pp, q_pp, u_a, q_a, tau_order, nelx, nely, prefix="LDGH"):
     if tau_order == "1/h":
         o = "hneg1"
     else:
@@ -358,40 +359,54 @@ def writer_outputs(u_h, q_h, u_pp, q_pp, u_a, q_a, tau_order, nelx, nely, prefix
     return
 
 
-tau_order = '1'
-for deg in range(1,4):
+tau_order = "1"
+for deg in range(1, 4):
     scalar_errors = np.array([])
     flux_errors = np.array([])
     num_cells = np.array([])
     mesh_size = np.array([])
     degree = deg
-    for i in range(2,8):
-        nel_x, nel_y = 2.0**i, 2.0**i
+    for i in range(2, 8):
+        nel_x, nel_y = 2.0 ** i, 2.0 ** i
         mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=False)
-        num_cells = np.append(num_cells,mesh.num_cells())
+        num_cells = np.append(num_cells, mesh.num_cells())
         mesh_size = np.append(mesh_size, nel_x)
 
         a_scalar, a_flux, u_a, q_a = analytical_solution(mesh, degree)
         u_h, q_h, uhat_h = solver_LDGH(mesh, degree, tau_order, a_scalar, a_flux, plot_sol=False)
         error_dictionary = {}
-        error_dictionary.update(compute_error(u_h, a_scalar, 'scalar_error'))
-        scalar_errors = np.append(scalar_errors, error_dictionary['scalar_error'])
-        error_dictionary.update(compute_error(q_h, a_flux, 'flux_error'))
-        flux_errors = np.append(flux_errors, error_dictionary['flux_error'])
+        error_dictionary.update(compute_error(u_h, a_scalar, "scalar_error"))
+        scalar_errors = np.append(scalar_errors, error_dictionary["scalar_error"])
+        error_dictionary.update(compute_error(q_h, a_flux, "flux_error"))
+        flux_errors = np.append(flux_errors, error_dictionary["flux_error"])
     scalar_errors_log2 = np.log10(scalar_errors)
     flux_errors_log2 = np.log10(flux_errors)
     num_cells_log2 = np.log10(num_cells)
     mesh_size_log2 = np.log10(mesh_size)
     from scipy.stats import linregress
-    scalar_slope, intercept, r_value, p_value, stderr = linregress(mesh_size_log2, scalar_errors_log2)
-    print("\n--------------------------------------\nDegree %d: Scalar slope error %f" % (degree, np.abs(scalar_slope)))
+
+    scalar_slope, intercept, r_value, p_value, stderr = linregress(
+        mesh_size_log2, scalar_errors_log2
+    )
+    print(
+        "\n--------------------------------------\nDegree %d: Scalar slope error %f"
+        % (degree, np.abs(scalar_slope))
+    )
     flux_slope, intercept, r_value, p_value, stderr = linregress(mesh_size_log2, flux_errors_log2)
-    print("Degree %d: Flux slope error %f\n--------------------------------------\n" % (degree, np.abs(flux_slope)))
-    plt.loglog(mesh_size, scalar_errors, '-o', label=(r'k = %d; slope = %f' % (degree, np.abs(scalar_slope))))
-    np.savetxt(('errors_degree%d.dat' % deg), np.transpose([num_cells, scalar_errors]))
+    print(
+        "Degree %d: Flux slope error %f\n--------------------------------------\n"
+        % (degree, np.abs(flux_slope))
+    )
+    plt.loglog(
+        mesh_size,
+        scalar_errors,
+        "-o",
+        label=(r"k = %d; slope = %f" % (degree, np.abs(scalar_slope))),
+    )
+    np.savetxt(("errors_degree%d.dat" % deg), np.transpose([num_cells, scalar_errors]))
 
 plt.grid(True)
-plt.xlabel(r'$\log (h)$')
-plt.ylabel(r'$\log\left(||p-p_h||_{L^2(\Omega)}\right)$')
-plt.legend(loc='best')
+plt.xlabel(r"$\log (h)$")
+plt.ylabel(r"$\log\left(||p-p_h||_{L^2(\Omega)}\right)$")
+plt.legend(loc="best")
 plt.show()

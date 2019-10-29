@@ -7,10 +7,12 @@ import porousdrake.setup.solvers_parameters as parameters
 from porousdrake.post_processing.writers import write_pvd_mixed_formulations
 
 import sys
+
 try:
     import matplotlib.pyplot as plt
-    plt.rcParams['contour.corner_mask'] = False
-    plt.close('all')
+
+    plt.rcParams["contour.corner_mask"] = False
+    plt.close("all")
 except:
     warning("Matplotlib not imported")
 
@@ -38,17 +40,17 @@ solvers_options = {
     #    'dgls_full': dgls,
     #    'dgls_div': dgls,
     #    'dmgls': dgls,
-    'dmgls_full': dgls,
-    'dmvh_full': dgls,
-    'dmvh_div': dgls,
-    'dmvh': dgls,
-    'sdhm_full': sdhm,
-    'sdhm_div': sdhm,
-    'hmgls': sdhm,
-    'hmgls_full': sdhm,
-    'hmvh_full': sdhm,
-    'hmvh_div': sdhm,
-    'hmvh': sdhm
+    "dmgls_full": dgls,
+    "dmvh_full": dgls,
+    "dmvh_div": dgls,
+    "dmvh": dgls,
+    "sdhm_full": sdhm,
+    "sdhm_div": sdhm,
+    "hmgls": sdhm,
+    "hmgls_full": sdhm,
+    "hmvh_full": sdhm,
+    "hmvh_div": sdhm,
+    "hmvh": sdhm,
 }
 
 # Choosing the solver
@@ -56,7 +58,7 @@ solver = dgls
 
 # Convergence range
 n = [5, 10, 15, 20, 25, 30]
-#n = [4, 8, 16, 32, 64, 128]
+# n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
 if single_run:
@@ -70,7 +72,7 @@ if single_run:
         # beta_0=parameters.beta_0,
         eta_u=parameters.eta_u,
         eta_p=parameters.eta_p,
-        mesh_parameter=parameters.mesh_parameter
+        mesh_parameter=parameters.mesh_parameter,
     )
 
     plot(p1_sol)
@@ -82,7 +84,7 @@ if single_run:
     plot(v2_sol)
     plot(v_e_2)
     plt.show()
-    print('*** Single run OK ***\n')
+    print("*** Single run OK ***\n")
     # write_pvd_mixed_formulations('teste_import', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
     sys.exit()
 
@@ -93,16 +95,16 @@ for element in mesh_quad:
     for current_solver in solvers_options:
         for mesh_parameter in mesh_parameters:
             if element:
-                element_kind = 'quad'
+                element_kind = "quad"
             else:
-                element_kind = 'tri'
+                element_kind = "tri"
             if mesh_parameter:
-                mesh_par = ''
+                mesh_par = ""
             else:
-                mesh_par = 'meshless_par'
+                mesh_par = "meshless_par"
 
             # Setting the output file name
-            name = '%s_%s_%s_errors' % (current_solver, mesh_par, element_kind)
+            name = "%s_%s_%s_errors" % (current_solver, mesh_par, element_kind)
             PETSc.Sys.Print("*******************************************\n")
             PETSc.Sys.Print("*** Begin case: %s ***\n" % name)
 
@@ -111,7 +113,7 @@ for element in mesh_quad:
             kwargs = parameters.solvers_args[current_solver]
 
             # Appending the mesh parameter option to kwargs
-            kwargs['mesh_parameter'] = mesh_parameter
+            kwargs["mesh_parameter"] = mesh_parameter
 
             # Performing the convergence study
             processor.convergence_hp(
