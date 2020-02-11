@@ -12,10 +12,10 @@ try:
 
     plt.rcParams["contour.corner_mask"] = False
     plt.close("all")
-except:
+except ImportError:
     warning("Matplotlib not imported")
 
-single_evaluation = False
+single_evaluation = True
 nx, ny = 50, 30
 Lx, Ly = 5.0, 4.0
 quadrilateral = True
@@ -34,6 +34,7 @@ solvers_options = {
     "dmgls_full": dgls,
     "dmvh_full": dgls,
     "sdhm_full": sdhm,
+    "sdhm_div": sdhm,
     "hmvh_full": sdhm,
     "hmvh": sdhm,
 }
@@ -44,22 +45,18 @@ discontinuous_solvers = ["dgls_full", "dmgls_full", "dmvh_full", "sdhm_full", "h
 if single_evaluation:
 
     # Choosing the solver
-    solver = sdhm
+    selected_solver = "sdhm_div"
+    solver = solvers_options[selected_solver]
+    solver_kwargs = parameters.solvers_args[selected_solver]
 
     p_sol, v_sol = solver(
-        mesh=mesh,
-        degree=degree,
-        delta_0=parameters.delta_0,
-        delta_1=parameters.delta_1,
-        delta_2=parameters.delta_2,
-        delta_3=parameters.delta_3,
-        beta_0=parameters.beta_0,
-        # eta_u=parameters.eta_u,
-        # eta_p=parameters.eta_p,
-        mesh_parameter=parameters.mesh_parameter,
+        mesh=mesh, degree=degree, mesh_parameter=parameters.mesh_parameter, **solver_kwargs
     )
     plot(v_sol.sub(0))
     plt.show()
+
+    PETSc.Sys.Print(f"*** Single running done for {selected_solver} ***")
+    sys.exit(0)
 
 # Sanity check for keys among solvers_options and solvers_args
 assert set(solvers_options.keys()).issubset(parameters.solvers_args.keys())

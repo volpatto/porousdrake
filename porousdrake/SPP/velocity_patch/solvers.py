@@ -138,12 +138,10 @@ def dgls(
 ):
     if not solver_parameters:
         solver_parameters = {
-            "ksp_type": "lgmres",
-            "pc_type": "lu",
             "mat_type": "aij",
-            "ksp_rtol": 1e-12,
-            "ksp_atol": 1e-12,
-            "ksp_monitor_true_residual": None,
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_type": "mumps",
         }
 
     pressure_family = "DG"
@@ -235,18 +233,16 @@ def cgls(
     delta_1=Constant(-0.5),
     delta_2=Constant(0.5),
     delta_3=Constant(0.5),
-    eta_u=Constant(50),
+    eta_u=Constant(0),
     mesh_parameter=True,
     solver_parameters={},
 ):
     if not solver_parameters:
         solver_parameters = {
-            "ksp_type": "lgmres",
-            "pc_type": "lu",
             "mat_type": "aij",
-            "ksp_rtol": 1e-12,
-            "ksp_atol": 1e-12,
-            "ksp_monitor_true_residual": None,
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_type": "mumps",
         }
 
     pressure_family = "CG"
