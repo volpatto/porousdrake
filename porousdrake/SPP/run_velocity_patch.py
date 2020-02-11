@@ -4,7 +4,7 @@ from firedrake import COMM_WORLD
 import os
 import sys
 
-from porousdrake.SPP.velocity_patch.solvers import cgls, dgls, sdhm
+from porousdrake.SPP.velocity_patch.solvers import cgls, dgls, sdhm, lsh
 import porousdrake.setup.solvers_parameters as parameters
 
 try:
@@ -37,6 +37,7 @@ solvers_options = {
     "sdhm_div": sdhm,
     "hmvh_full": sdhm,
     "hmvh": sdhm,
+    "lsh": lsh,
 }
 
 # Identify discontinuous solvers for writing .pvd purpose
@@ -45,7 +46,7 @@ discontinuous_solvers = ["dgls_full", "dmgls_full", "dmvh_full", "sdhm_full", "h
 if single_evaluation:
 
     # Choosing the solver
-    selected_solver = "sdhm_full"
+    selected_solver = "lsh"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 

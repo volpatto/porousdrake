@@ -160,4 +160,11 @@ solvers_args = {
         "delta_3": Constant(0.0),
         "beta_0": beta_0,
     },
+    "lsh": {
+        "delta_0": Constant(1),
+        "delta_1": Constant(-0.5),
+        "delta_2": Constant(0.5),
+        "delta_3": Constant(0.5),
+        "beta_0": beta_0,
+    },
 }
