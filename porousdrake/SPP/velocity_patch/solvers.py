@@ -201,14 +201,14 @@ def lsh(
         delta_3 = delta_3 * h * h
 
     # Mixed classical terms (TODO: include gravity term)
-    # a = (
-    #     inner(alpha() * u, v + invalpha() * grad(q))
-    #     - div(v) * p
-    #     + inner(grad(p), invalpha() * grad(q))
-    # ) * dx
+    a = (
+        inner(alpha() * u, v + invalpha() * grad(q))
+        - div(v) * p
+        + inner(grad(p), invalpha() * grad(q))
+    ) * dx
     # Stabilizing terms
     ###
-    a = inner(alpha() * u + grad(p), v + invalpha() * grad(q)) * dx
+    # a = inner(alpha() * u + grad(p), v + invalpha() * grad(q)) * dx
     ###
     a += div(u) * div(v) * dx
     L = f * div(v) * dx
@@ -219,11 +219,12 @@ def lsh(
     a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
     # a += mu_h("+") * jump(u, n) * dS
     ###
-    a += beta_avg * (lambda_h("+") - p("+")) * (mu_h("+")) * dS
+    # a += beta_avg * (lambda_h("+") - p("+")) * (mu_h("+")) * dS  # this must be the correct one
+    a += beta_avg * invalpha()("+") * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
     # Weakly imposed BC from hybridization
-    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
-    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)
-    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n))) * (ds(3) + ds(4))
+    a += ((lambda_h - p) * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
+    a += ((lambda_h - p) * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)
+    a += ((lambda_h - p) * dot(v, n) + mu_h * (dot(u, n))) * (ds(3) + ds(4))
 
     F = a - L
 
