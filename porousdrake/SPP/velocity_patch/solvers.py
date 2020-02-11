@@ -124,6 +124,116 @@ def sdhm(
     return p_sol, v_sol
 
 
+def lsh(
+    mesh,
+    degree,
+    beta_0=Constant(1e-2),
+    delta_0=Constant(1.0),
+    delta_1=Constant(-0.5),
+    delta_2=Constant(0.5),
+    delta_3=Constant(0.5),
+    mesh_parameter=True,
+    solver_parameters={},
+):
+    if not solver_parameters:
+        solver_parameters = {
+            "snes_type": "ksponly",
+            "mat_type": "matfree",
+            "pmat_type": "matfree",
+            "ksp_type": "preonly",
+            "pc_type": "python",
+            # Use the static condensation PC for hybridized problems
+            # and use a direct solve on the reduced system for lambda_h
+            "pc_python_type": "firedrake.SCPC",
+            "pc_sc_eliminate_fields": "0, 1",
+            "condensed_field": {
+                "ksp_type": "preonly",
+                "pc_type": "lu",
+                "pc_factor_mat_solver_type": "mumps",
+            },
+        }
+
+    pressure_family = "DG"
+    velocity_family = "DG"
+    trace_family = "HDiv Trace"
+    U = VectorFunctionSpace(mesh, velocity_family, degree)
+    V = FunctionSpace(mesh, pressure_family, degree)
+    T = FunctionSpace(mesh, trace_family, degree)
+    W = U * V * T
+
+    # Trial and test functions
+    DPP_solution = Function(W)
+    u, p, lambda_h = split(DPP_solution)
+    v, q, mu_h = TestFunctions(W)
+
+    # Mesh entities
+    n = FacetNormal(mesh)
+    h = CellDiameter(mesh)
+    x, y = SpatialCoordinate(mesh)
+
+    # Permeability
+    k = conditional(
+        y <= 0.8,
+        80 * k_ref,
+        conditional(
+            y <= 1.6,
+            30 * k_ref,
+            conditional(y <= 2.4, 5 * k_ref, conditional(y <= 3.2, 50 * k_ref, 10 * k_ref)),
+        ),
+    )
+
+    def alpha():
+        return mu / k
+
+    def invalpha():
+        return 1.0 / alpha()
+
+    # Flux BCs
+    un_1 = -k / mu
+    un_2 = k / mu
+
+    # Stabilizing parameter
+    beta = beta_0 / h
+    beta_avg = beta_0 / h("+")
+    if mesh_parameter:
+        delta_2 = delta_2 * h * h
+        delta_3 = delta_3 * h * h
+
+    # Mixed classical terms (TODO: include gravity term)
+    a = (dot(alpha() * u, v) - div(v) * p - delta_0 * q * div(u)) * dx
+    # Stabilizing terms
+    ###
+    a += inner(invalpha() * (alpha() * u + grad(p)), grad(q)) * dx
+    ###
+    a += alpha() * div(u) * div(v) * dx
+    L = alpha() * f * div(v) * dx
+    ###
+    a += inner(invalpha() * curl(alpha() * u), curl(alpha() * v)) * dx
+    # Hybridization terms
+    ###
+    a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
+    ###
+    a += beta_avg * invalpha()("+") * (lambda_h("+") - p("+")) * (mu_h("+")) * dS
+    # Weakly imposed BC from hybridization
+    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
+    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)
+    a += (lambda_h * dot(v, n) + mu_h * (dot(u, n))) * (ds(3) + ds(4))
+
+    F = a - L
+
+    #  Solving SC below
+    PETSc.Sys.Print(
+        "*******************************************\nSolving using static condensation.\n"
+    )
+    problem_flow = NonlinearVariationalProblem(F, DPP_solution)
+    solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
+    solver_flow.solve()
+
+    # Returning numerical and exact solutions
+    p_sol, v_sol = _decompose_numerical_solution_hybrid(DPP_solution)
+    return p_sol, v_sol
+
+
 def dgls(
     mesh,
     degree,

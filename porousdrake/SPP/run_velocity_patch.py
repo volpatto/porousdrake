@@ -45,7 +45,7 @@ discontinuous_solvers = ["dgls_full", "dmgls_full", "dmvh_full", "sdhm_full", "h
 if single_evaluation:
 
     # Choosing the solver
-    selected_solver = "sdhm_div"
+    selected_solver = "sdhm_full"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
