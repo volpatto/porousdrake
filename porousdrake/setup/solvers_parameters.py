@@ -7,7 +7,7 @@ delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
 eta_u = Constant(50.0)
 eta_p = 10 * eta_u
-beta_0 = Constant(1.0e-15)
+beta_0 = Constant(1.0e5)
 mesh_parameter = True
 
 solvers_args = {

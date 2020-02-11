@@ -194,7 +194,8 @@ def lsh(
 
     # Stabilizing parameter
     beta = beta_0 / h
-    beta_avg = beta_0 / h("+")
+    # beta_avg = beta_0 / h("+")
+    beta_avg = beta_0
     if mesh_parameter:
         delta_2 = delta_2 * h * h
         delta_3 = delta_3 * h * h
@@ -212,12 +213,12 @@ def lsh(
     a += div(u) * div(v) * dx
     L = f * div(v) * dx
     ###
-    # a += inner(curl(alpha() * u), curl(alpha() * v)) * dx
+    a += inner(curl(alpha() * u), curl(alpha() * v)) * dx
     # Hybridization terms
     ###
     a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
     ###
-    a += beta_avg * (lambda_h("+") - p("+")) * (mu_h("+")) * dS
+    a += beta_avg * (p("+") - lambda_h("+")) * (mu_h("+")) * dS
     # Weakly imposed BC from hybridization
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)
