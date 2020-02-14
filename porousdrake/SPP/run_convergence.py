@@ -3,7 +3,7 @@ from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 
 from porousdrake.SPP.convergence import processor
-from porousdrake.SPP.convergence.solvers import cgls, dgls, sdhm
+from porousdrake.SPP.convergence.solvers import cgls, dgls, sdhm, lsh
 from porousdrake.setup import solvers_parameters as parameters
 
 # import postprocessing as pp
@@ -52,6 +52,7 @@ solvers_options = {
     "hmvh_full": sdhm,
     "hmvh_div": sdhm,
     "hmvh": sdhm,
+    "lsh": lsh,
 }
 
 # Convergence range
@@ -62,7 +63,7 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "cgls_full"
+    selected_solver = "lsh"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
