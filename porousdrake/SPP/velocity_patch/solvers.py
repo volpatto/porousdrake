@@ -103,7 +103,8 @@ def sdhm(
     ###
     a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
     ###
-    a += beta_avg * invalpha()("+") * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
+    # a += beta_avg * invalpha()("+") * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
+    a += beta_avg * invalpha()("+") * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
     # Weakly imposed BC from hybridization
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)
@@ -125,15 +126,7 @@ def sdhm(
 
 
 def lsh(
-    mesh,
-    degree,
-    beta_0=Constant(1e-2),
-    delta_0=Constant(1.0),
-    delta_1=Constant(-0.5),
-    delta_2=Constant(0.5),
-    delta_3=Constant(0.5),
-    mesh_parameter=True,
-    solver_parameters={},
+    mesh, degree, beta_0=Constant(0), mesh_parameter=True, solver_parameters={},
 ):
     if not solver_parameters:
         solver_parameters = {
@@ -157,7 +150,7 @@ def lsh(
     velocity_family = "DG"
     trace_family = "HDiv Trace"
     U = VectorFunctionSpace(mesh, velocity_family, degree)
-    V = FunctionSpace(mesh, pressure_family, degree)
+    V = FunctionSpace(mesh, pressure_family, degree + 1)
     T = FunctionSpace(mesh, trace_family, degree)
     W = U * V * T
 
@@ -197,8 +190,7 @@ def lsh(
     # beta_avg = beta_0 / h("+")
     beta_avg = beta_0
     if mesh_parameter:
-        delta_2 = delta_2 * h * h
-        delta_3 = delta_3 * h * h
+        beta_avg = beta_0 / h("+")
 
     # Mixed classical terms (TODO: include gravity term)
     a = (
@@ -218,7 +210,8 @@ def lsh(
     # a += mu_h("+") * jump(u, n) * dS
     ###
     # a += beta_avg * (lambda_h("+") - p("+")) * (mu_h("+")) * dS  # this must be the correct one
-    a += beta_avg * invalpha()("+") * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
+    # a += beta_avg * invalpha()("+") * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
+    a += beta_avg * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
     # Weakly imposed BC from hybridization
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_1)) * ds(1)
     a += (lambda_h * dot(v, n) + mu_h * (dot(u, n) - un_2)) * ds(2)

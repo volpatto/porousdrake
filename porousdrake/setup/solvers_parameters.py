@@ -7,8 +7,8 @@ delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
 eta_u = Constant(50.0)
 eta_p = 10 * eta_u
-beta_0 = Constant(1.0e0)
-mesh_parameter = True
+beta_0 = Constant(0.0e-15)
+mesh_parameter = False
 
 solvers_args = {
     "cgls_full": {
@@ -160,11 +160,5 @@ solvers_args = {
         "delta_3": Constant(0.0),
         "beta_0": beta_0,
     },
-    "lsh": {
-        "delta_0": Constant(1),
-        "delta_1": Constant(-0.5),
-        "delta_2": Constant(0.5),
-        "delta_3": Constant(0.5),
-        "beta_0": beta_0,
-    },
+    "lsh": {"beta_0": beta_0,},
 }
