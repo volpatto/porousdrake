@@ -17,7 +17,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-single_run = False
+single_run = True
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = True
@@ -54,26 +54,20 @@ solvers_options = {
     "hmvh": sdhm,
 }
 
-# Choosing the solver
-solver = cgls
-
 # Convergence range
 n = [5, 10, 15, 20, 25, 30]
 # n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
 if single_run:
+
+    # Choosing the solver
+    selected_solver = "cgls_full"
+    solver = solvers_options[selected_solver]
+    solver_kwargs = parameters.solvers_args[selected_solver]
+
     p_sol, v_sol, p_e, v_e = solver(
-        mesh=mesh,
-        degree=degree,
-        delta_0=parameters.delta_0,
-        delta_1=parameters.delta_1,
-        delta_2=parameters.delta_2,
-        delta_3=parameters.delta_3,
-        # beta_0=beta_0,
-        # eta_u=eta_u,
-        # eta_p=eta_p,
-        mesh_parameter=parameters.mesh_parameter,
+        mesh=mesh, degree=degree, mesh_parameter=parameters.mesh_parameter, **solver_kwargs
     )
 
     plot(p_sol)
