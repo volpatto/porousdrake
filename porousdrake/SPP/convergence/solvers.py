@@ -150,12 +150,10 @@ def lsh(
 
     # Stabilizing parameter
     beta = beta_0 / h
-    beta_avg = beta_0 / h("+")
-    # beta = beta_0
-    # beta_avg = beta_0
+    # beta_avg = beta_0 / h("+")
+    beta_avg = beta_0
     if mesh_parameter:
-        delta_2 = delta_2 * h * h
-        delta_3 = delta_3 * h * h
+        beta_avg = beta_0 / h("+")
 
     # Mixed classical terms (TODO: include gravity term)
     a = (

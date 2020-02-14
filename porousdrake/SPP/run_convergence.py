@@ -72,8 +72,14 @@ if single_run:
     )
 
     plot(p_sol)
+    plt.show()
+
     plot(p_e)
+    plt.show()
+
     plot(v_sol)
+    plt.show()
+
     plot(v_e)
     plt.show()
     print("*** Cold run OK ***\n")
