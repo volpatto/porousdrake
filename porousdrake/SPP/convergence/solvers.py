@@ -63,6 +63,9 @@ def sdhm(
     # Exact solution and source term projection
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
+    # Boundary conditions
+    bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary", method="geometric")
+
     # Stabilizing parameter
     beta = beta_0 / h
     beta_avg = beta_0 / h("+")
@@ -87,10 +90,16 @@ def sdhm(
     ###
     a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
     ###
-    a += beta_avg * invalpha()("+") * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
+    a += beta_avg * invalpha()("+") * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
     # Weakly imposed BC from hybridization
-    a += beta * invalpha() * (lambda_h - p_e) * mu_h * ds
-    a += (p_e * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
+    a += beta * invalpha() * (lambda_h - p_e) * mu_h * ds  # right one
+    # a += beta * invalpha() * (lambda_h - p_e) * (mu_h - q) * ds
+    # a += beta * invalpha() * (p_e - lambda_h) * (q - mu_h) * ds
+    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
+    # a += (p_e * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
+    a += (p_e * dot(v, n) + mu_h * dot(u, n)) * ds  # right one
+    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * dot(u, n)) * ds
+    # a += (lambda_h * dot(v, n) + mu_h * dot(u, n)) * ds
 
     F = a - L
 
@@ -99,7 +108,10 @@ def sdhm(
         "*******************************************\nSolving using static condensation.\n"
     )
     problem_flow = NonlinearVariationalProblem(F, DPP_solution)
-    solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
+    # solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
+    solver_flow = NonlinearVariationalSolver(
+        problem_flow, solver_parameters=solver_parameters, bcs=bcs
+    )
     solver_flow.solve()
 
     # Returning numerical and exact solutions
@@ -148,31 +160,56 @@ def lsh(
     # Exact solution and source term projection
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
+    # Boundary conditions
+    bcs = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
+    # bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
+
     # Stabilizing parameter
-    beta = beta_0 / h
+    # beta = beta_0 / h
+    beta = beta_0
     # beta_avg = beta_0 / h("+")
     beta_avg = beta_0
     if mesh_parameter:
         beta_avg = beta_0 / h("+")
 
+    ls_constant = Constant(1)
+    div_stabilizing = Constant(0) / (Constant(1) * h * h)
     # Mixed classical terms (TODO: include gravity term)
     a = (
-        inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q))
-    ) * dx
+        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        * ls_constant
+        * dx
+    )
+    a += div_stabilizing * ((div(u) - f) * q) * dx
+    # a += Constant(1e-10) * ((div(u) - f) * q) * dx
+    # a += (1 / (h * h)) * ((div(invalpha() * grad(p)) - f) * q) * dx
+    # a += (h * h) * ((div(u) - f) * q) * dx
     # Stabilizing terms
     ###
-    a += div(u) * div(v) * dx
-    L = f * div(v) * dx
+    a += ls_constant * div(u) * div(v) * dx
+    L = ls_constant * f * div(v) * dx
     ###
-    a += inner(curl(alpha() * u), curl(alpha() * v)) * dx
+    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
     # Hybridization terms
     ###
     a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
     ###
-    a += beta_avg * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
+    a += beta_avg * invalpha() * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
     # Weakly imposed BC from hybridization
-    a += beta * invalpha() * (lambda_h - p_e) * mu_h * ds
+    huge_number = 1e10
+    nitsche_penalty = Constant(huge_number)
+    a += (nitsche_penalty / h) * p * q * ds
+    L += (nitsche_penalty / h) * p_e * q * ds
+    a += nitsche_penalty * invalpha() * (lambda_h - p_e) * mu_h * ds  # from SDHM
+
+    # a += (Constant(0) / h) * (p - Constant(0)) * q * ds
+    # a += Constant(1e10) * (p - Constant(0)) * q * ds
+    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
+    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(u, n))) * ds
+    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(v_e, n))) * ds
+    # a += (p_e * dot(v, n) + mu_h * dot(u, n)) * ds  # from SDHM
     a += (p_e * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
+    # a += p_e * dot(v, n) * ds
 
     F = a - L
 
@@ -181,6 +218,7 @@ def lsh(
         "*******************************************\nSolving using static condensation.\n"
     )
     problem_flow = NonlinearVariationalProblem(F, DPP_solution)
+    # solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters, bcs=bcs)
     solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
     solver_flow.solve()
 
@@ -206,8 +244,8 @@ def dgls(
             "ksp_type": "lgmres",
             "pc_type": "lu",
             "mat_type": "aij",
-            "ksp_rtol": 1e-12,
-            "ksp_atol": 1e-12,
+            "ksp_rtol": 1e-15,
+            "ksp_atol": 1e-15,
             "ksp_monitor_true_residual": None,
         }
 
@@ -260,6 +298,95 @@ def dgls(
 
     #  Solving
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
+    solver_flow = LinearVariationalSolver(
+        problem_flow, options_prefix="dpp_flow", solver_parameters=solver_parameters
+    )
+    solver_flow.solve()
+
+    # Returning numerical and exact solutions
+    p_sol, v_sol = _decompose_numerical_solution_mixed(DPP_solution)
+    return p_sol, v_sol, p_e, v_e
+
+
+def dls(
+    mesh,
+    degree,
+    eta_p=Constant(0.0),
+    eta_u=Constant(1.0),
+    mesh_parameter=True,
+    solver_parameters={},
+):
+    if not solver_parameters:
+        solver_parameters = {
+            "ksp_type": "lgmres",
+            "pc_type": "lu",
+            "mat_type": "aij",
+            "ksp_rtol": 1e-15,
+            "ksp_atol": 1e-15,
+            "ksp_monitor_true_residual": None,
+        }
+
+    pressure_family = "DG"
+    velocity_family = "DG"
+    U = VectorFunctionSpace(mesh, velocity_family, degree)
+    V = FunctionSpace(mesh, pressure_family, degree)
+    W = U * V
+
+    # Trial and test functions
+    DPP_solution = Function(W)
+    u, p = TrialFunctions(W)
+    v, q = TestFunctions(W)
+
+    # Mesh entities
+    n = FacetNormal(mesh)
+    h = CellDiameter(mesh)
+
+    # Exact solution and source term projection
+    p_e, v_e, f = decompose_exact_solution(mesh, degree)
+
+    # Boundary conditions
+    # bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary", method="geometric")
+    bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary")
+    # bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
+
+    # Average cell size and mesh dependent stabilization
+    h_avg = (h("+") + h("-")) / 2.0
+
+    # Stabilizing parameter
+    ls_constant = Constant(1.0)
+    div_stabilizing = Constant(0) / (Constant(1) * h * h)
+
+    # Mixed classical terms
+    a = (
+        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        * ls_constant
+        * dx
+    )
+    a += div_stabilizing * div(u) * q * dx
+    a += ls_constant * div(u) * div(v) * dx
+    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
+    L = ls_constant * f * div(v) * dx
+    L += div_stabilizing * f * q * dx
+
+    # DG terms
+    # These below comes from Arnold's analysis. We are using Badia & Codina stabilization approach instead.
+    # a += jump(invalpha() * grad(p), n) * jump(invalpha() * grad(q), n) * dS
+    # a += inner(jump(p, n), jump(q, n)) * dS
+    # DG edge stabilizing terms
+    # Below Badia & Codina approach is applied
+    a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS + (eta_p / h_avg) * avg(
+        1.0 / alpha()
+    ) * dot(jump(q, n), jump(p, n)) * dS
+
+    # Weakly imposed BC
+    huge_number = 1e10
+    nitsche_penalty = Constant(huge_number)
+    a += (nitsche_penalty / h) * p * q * ds
+    L += (nitsche_penalty / h) * p_e * q * ds
+
+    #  Solving
+    problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=bcs, constant_jacobian=False)
+    # problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
     solver_flow = LinearVariationalSolver(
         problem_flow, options_prefix="dpp_flow", solver_parameters=solver_parameters
     )
@@ -335,10 +462,73 @@ def cgls(
         - delta_1 * dot(delta_0 * alpha() * v + grad(q), invalpha() * rhob) * dx
     )
 
+    #  Solving
+    problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
+    solver_flow = LinearVariationalSolver(
+        problem_flow, options_prefix="dpp_flow", solver_parameters=solver_parameters
+    )
+    solver_flow.solve()
+
+    # Returning numerical and exact solutions
+    p_sol, v_sol = _decompose_numerical_solution_mixed(DPP_solution)
+    return p_sol, v_sol, p_e, v_e
+
+
+def clsq(
+    mesh, degree, mesh_parameter=True, solver_parameters={},
+):
+    if not solver_parameters:
+        solver_parameters = {
+            "ksp_type": "lgmres",
+            "pc_type": "lu",
+            "mat_type": "aij",
+            "ksp_rtol": 1e-15,
+            "ksp_atol": 1e-15,
+            "ksp_monitor_true_residual": None,
+        }
+
+    pressure_family = "CG"
+    velocity_family = "CG"
+    U = VectorFunctionSpace(mesh, velocity_family, degree)
+    V = FunctionSpace(mesh, pressure_family, degree)
+    W = U * V
+
+    # Trial and test functions
+    DPP_solution = Function(W)
+    u, p = TrialFunctions(W)
+    v, q = TestFunctions(W)
+
+    # Mesh entities
+    n = FacetNormal(mesh)
+    h = CellDiameter(mesh)
+
+    # Exact solution and source term projection
+    p_e, v_e, f = decompose_exact_solution(mesh, degree)
+
+    # Stabilizing parameter
+    ls_constant = Constant(1.0)
+    div_stabilizing = Constant(0) / (Constant(1) * h * h)
+
+    # Mixed classical terms
+    a = (
+        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        * ls_constant
+        * dx
+    )
+    a += div_stabilizing * div(u) * q * dx
+    a += ls_constant * div(u) * div(v) * dx
+    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
+    L = ls_constant * f * div(v) * dx
+    L += div_stabilizing * f * q * dx
+
     # Weakly imposed BC
-    L += -dot(v, n) * p_e * ds
+    huge_number = 1e10
+    nitsche_penalty = Constant(huge_number)
+    a += (nitsche_penalty / h) * p * q * ds
+    L += (nitsche_penalty / h) * p_e * q * ds
 
     #  Solving
+    # problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=bcs, constant_jacobian=False)
     problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
     solver_flow = LinearVariationalSolver(
         problem_flow, options_prefix="dpp_flow", solver_parameters=solver_parameters

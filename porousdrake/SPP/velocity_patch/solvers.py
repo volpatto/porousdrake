@@ -186,8 +186,6 @@ def lsh(
     un_2 = k / mu
 
     # Stabilizing parameter
-    beta = beta_0 / h
-    # beta_avg = beta_0 / h("+")
     beta_avg = beta_0
     if mesh_parameter:
         beta_avg = beta_0 / h("+")

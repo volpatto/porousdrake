@@ -3,11 +3,15 @@ from firedrake.petsc import PETSc
 from firedrake import COMM_WORLD
 
 from porousdrake.SPP.convergence import processor
-from porousdrake.SPP.convergence.solvers import cgls, dgls, sdhm, lsh
+from porousdrake.SPP.convergence.solvers import cgls, dgls, sdhm, lsh, dls, clsq
 from porousdrake.setup import solvers_parameters as parameters
 
-# import postprocessing as pp
+import porousdrake.post_processing.writers as pp
 import sys
+import os
+
+temp_dir_to_save_results = "./results_temp"
+os.makedirs(temp_dir_to_save_results, exist_ok=True)
 
 try:
     import matplotlib.pyplot as plt
@@ -53,6 +57,8 @@ solvers_options = {
     "hmvh_div": sdhm,
     "hmvh": sdhm,
     "lsh": lsh,
+    "dls": dls,
+    "clsq": clsq,
 }
 
 # Convergence range
@@ -63,7 +69,7 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "lsh"
+    selected_solver = "clsq"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
@@ -72,18 +78,25 @@ if single_run:
     )
 
     plot(p_sol)
+    p_sol.rename(f"{selected_solver}_p")
     plt.show()
 
     plot(p_e)
+    p_e.rename(f"exact_p")
     plt.show()
 
     plot(v_sol)
+    v_sol.rename(f"{selected_solver}_v")
     plt.show()
 
     plot(v_e)
+    v_e.rename(f"exact_v")
     plt.show()
     print("*** Cold run OK ***\n")
-    # pp.write_pvd_mixed_formulations('teste_nohup', mesh, degree, p1_sol, v1_sol, p2_sol, v2_sol)
+    outfile = File(f"{temp_dir_to_save_results}/{selected_solver}.pvd")
+    outfile.write(p_sol, v_sol, p_e, v_e)
+
+    # pp.write_pvd_mixed_formulations(f'{temp_dir_to_save_results}/dls.pvd', mesh, degree, p_sol, v_sol, p2_sol, v2_sol)
     sys.exit()
 
 # Sanity check for keys among solvers_options and solvers_args
@@ -121,7 +134,7 @@ for element in mesh_quad:
                 numel_xy=n,
                 quadrilateral=quadrilateral,
                 name=name,
-                **kwargs
+                **kwargs,
             )
             PETSc.Sys.Print("\n*** End case: %s ***" % name)
             PETSc.Sys.Print("*******************************************\n")

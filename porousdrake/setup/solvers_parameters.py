@@ -5,9 +5,11 @@ delta_0 = Constant(1)
 delta_1 = Constant(-0.5)
 delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
-eta_u = Constant(50.0)
-eta_p = 10 * eta_u
-beta_0 = Constant(0.0e-15)
+eta_u = Constant(100.0)
+# eta_p = Constant(1e-10)
+eta_p = Constant(1) * eta_u
+beta_0 = Constant(1.0e-20)
+# beta_0 = Constant(0)
 mesh_parameter = False
 
 solvers_args = {
@@ -160,5 +162,7 @@ solvers_args = {
         "delta_3": Constant(0.0),
         "beta_0": beta_0,
     },
-    "lsh": {"beta_0": beta_0,},
+    "lsh": {"beta_0": beta_0},
+    "dls": {"eta_u": eta_u, "eta_p": eta_p,},
+    "clsq": dict(),
 }
