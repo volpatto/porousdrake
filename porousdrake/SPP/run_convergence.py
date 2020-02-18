@@ -24,7 +24,7 @@ except:
 single_run = True
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
-quadrilateral = False
+quadrilateral = True
 degree = 1
 last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)

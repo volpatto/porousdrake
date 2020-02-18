@@ -133,14 +133,6 @@ def lsh(
             # and use a direct solve on the reduced system for lambda_h
             "pc_python_type": "firedrake.SCPC",
             "pc_sc_eliminate_fields": "0, 1",
-            # "condensed_field": {
-            #     "ksp_type": "lgmres",
-            #     "pc_type": "ilu",
-            #     "mat_type": "aij",
-            #     "ksp_rtol": 1e-15,
-            #     "ksp_atol": 1e-15,
-            #     "ksp_monitor_true_residual": None,
-            # }
             "condensed_field": {
                 "ksp_type": "preonly",
                 "pc_type": "lu",
@@ -168,60 +160,38 @@ def lsh(
     # Exact solution and source term projection
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
-    # Boundary conditions
-    bcs = DirichletBC(W.sub(2), Constant(0.0), "on_boundary")
-    # bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
-
     # Stabilizing parameter
-    beta = beta_avg = beta_0
-    # beta = beta_0
-    # beta_avg = beta_0 / h("+")
+    beta = beta_0
     if mesh_parameter:
-        beta = beta_0 / h
-        beta_avg = beta_0 / h("+")
-
+        beta = beta / h
     ls_constant = Constant(1)
-    div_stabilizing = Constant(1)  # / (Constant(1) * h * h)
-    # Mixed classical terms (TODO: include gravity term)
+
+    # Numerical flux trace
+    u_hat = u + beta * (p - lambda_h) * n
+
+    # Flux least-squares
     a = (
         (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
         * ls_constant
         * dx
     )
-    # a += div_stabilizing * ((div(u) - f) * q) * dx
-    a += -inner(u, grad(q)) * dx
-    a += inner(jump(u, n), q("+")) * dS
-    # a += Constant(1e-10) * ((div(u) - f) * q) * dx
-    # a += (1 / (h * h)) * ((div(invalpha() * grad(p)) - f) * q) * dx
-    # a += (h * h) * ((div(u) - f) * q) * dx
-    # Stabilizing terms
-    ###
+    a += ls_constant * jump(u_hat, n=n) * q("+") * dS
+    a += ls_constant * dot(u_hat, n) * q * ds
+    a += ls_constant * lambda_h("+") * jump(v, n=n) * dS
+    a += ls_constant * lambda_h * dot(v, n) * ds
+
+    # Mass balance least-square
     a += ls_constant * div(u) * div(v) * dx
     L = ls_constant * f * div(v) * dx
-    L += f * q * dx
-    ###
-    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
-    # Hybridization terms
-    ###
-    a += lambda_h("+") * jump(v, n) * dS + mu_h("+") * jump(u, n) * dS
-    ###
-    a += beta_avg * invalpha() * (p("+") - lambda_h("+")) * (q("+") - mu_h("+")) * dS
-    # Weakly imposed BC from hybridization
-    huge_number = 1e10
-    nitsche_penalty = Constant(huge_number)
-    a += (nitsche_penalty / h) * p * q * ds
-    L += (nitsche_penalty / h) * p_e * q * ds
-    # a += nitsche_penalty * invalpha() * (lambda_h - p) * mu_h * ds
-    a += beta * invalpha() * (lambda_h - p_e) * mu_h * ds  # from SDHM
 
-    # a += (Constant(0) / h) * (p - Constant(0)) * q * ds
-    # a += Constant(1e10) * (p - Constant(0)) * q * ds
-    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
-    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(u, n))) * ds
-    # a += ((p_e - lambda_h) * dot(v, n) + mu_h * (dot(v_e, n))) * ds
-    a += (p_e * dot(v, n) + (mu_h - q) * dot(u, n)) * ds  # from SDHM
-    # a += (p_e * dot(v, n) + mu_h * (dot(u, n) - dot(v_e, n))) * ds
-    # a += p_e * dot(v, n) * ds
+    # Irrotational least-squares
+    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
+
+    # Hybridization terms
+    a += mu_h("+") * jump(u_hat, n=n) * dS
+
+    # Weakly imposed BC from hybridization
+    a += mu_h * (lambda_h - p_e) * ds
 
     F = a - L
 
@@ -230,7 +200,6 @@ def lsh(
         "*******************************************\nSolving using static condensation.\n"
     )
     problem_flow = NonlinearVariationalProblem(F, DPP_solution)
-    # solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters, bcs=bcs)
     solver_flow = NonlinearVariationalSolver(problem_flow, solver_parameters=solver_parameters)
     solver_flow.solve()
 
