@@ -5,12 +5,12 @@ delta_0 = Constant(1)
 delta_1 = Constant(-0.5)
 delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
-eta_u = Constant(100.0)
+eta_u = Constant(1e3)
 # eta_p = Constant(1e-10)
-eta_p = Constant(1) * eta_u
+eta_p = Constant(10) * eta_u
 beta_0 = Constant(1.0e0)
 # beta_0 = Constant(0)
-mesh_parameter = True
+mesh_parameter = False
 
 solvers_args = {
     "cgls_full": {
