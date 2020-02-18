@@ -164,7 +164,7 @@ def lsh(
     beta = beta_0
     if mesh_parameter:
         beta = beta / h
-    ls_constant = Constant(1 / 2)
+    ls_constant = Constant(1)
 
     # Numerical flux trace
     u_hat = u + beta * (p - lambda_h) * n
