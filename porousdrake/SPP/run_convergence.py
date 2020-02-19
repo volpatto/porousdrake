@@ -21,7 +21,7 @@ try:
 except:
     warning("Matplotlib not imported")
 
-single_run = True
+single_run = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = False
@@ -31,7 +31,8 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
 mesh_quad = [False, True]  # Triangles, Quads
-mesh_parameters = [True, False]
+#mesh_parameters = [True, False]
+mesh_parameters = [False]
 
 # Solver options
 solvers_options = {
@@ -56,13 +57,14 @@ solvers_options = {
     # "hmvh_full": sdhm,
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
-    "lsh": lsh,
+    #"lsh": lsh,
     "dls": dls,
-    "clsq": clsq,
+    #"clsq": clsq,
 }
 
 # Convergence range
-n = [5, 10, 15, 20, 25, 30]
+#n = [5, 10, 15, 20, 25, 30]
+n = [10, 15, 20, 25, 30, 35]
 # n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
@@ -78,23 +80,23 @@ if single_run:
     )
 
     plot(p_sol)
-    p_sol.rename(f"{selected_solver}_p")
-    plt.show()
+    #p_sol.rename(f"{selected_solver}_p")
+    #plt.show()
 
     plot(p_e)
-    p_e.rename(f"exact_p")
-    plt.show()
+    #p_e.rename(f"exact_p")
+    #plt.show()
 
     plot(v_sol)
-    v_sol.rename(f"{selected_solver}_v")
-    plt.show()
+    #v_sol.rename(f"{selected_solver}_v")
+    #plt.show()
 
     plot(v_e)
-    v_e.rename(f"exact_v")
-    plt.show()
+    #v_e.rename(f"exact_v")
+    #plt.show()
     print("*** Cold run OK ***\n")
-    outfile = File(f"{temp_dir_to_save_results}/{selected_solver}.pvd")
-    outfile.write(p_sol, v_sol, p_e, v_e)
+    #outfile = File(f"{temp_dir_to_save_results}/{selected_solver}.pvd")
+    #outfile.write(p_sol, v_sol, p_e, v_e)
 
     # pp.write_pvd_mixed_formulations(f'{temp_dir_to_save_results}/dls.pvd', mesh, degree, p_sol, v_sol, p2_sol, v2_sol)
     sys.exit()

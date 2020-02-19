@@ -10,7 +10,7 @@ eta_u = Constant(5e2)
 eta_p = Constant(1e1) * eta_u
 beta_0 = Constant(1.0e0)
 # beta_0 = Constant(0)
-mesh_parameter = False
+mesh_parameter = True
 
 solvers_args = {
     "cgls_full": {

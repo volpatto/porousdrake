@@ -187,6 +187,9 @@ def lsh(
     # Irrotational least-squares
     a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
+    # Stabilizing terms
+    a += (div(u) - f) * q * dx
+
     # Hybridization terms
     a += mu_h("+") * jump(u_hat, n=n) * dS
 
@@ -225,8 +228,8 @@ def dgls(
             "ksp_type": "lgmres",
             "pc_type": "lu",
             "mat_type": "aij",
-            "ksp_rtol": 1e-15,
-            "ksp_atol": 1e-15,
+            "ksp_rtol": 1e-20,
+            "ksp_atol": 1e-20,
             "ksp_monitor_true_residual": None,
         }
 
@@ -299,11 +302,16 @@ def dls(
 ):
     if not solver_parameters:
         solver_parameters = {
-            "ksp_type": "lgmres",
-            "pc_type": "lu",
+            #"ksp_type": "lgmres",
+            #"pc_type": "lu",
+            #"mat_type": "aij",
+            #"ksp_rtol": 1e-18,
+            #"ksp_atol": 1e-18,
+            #"ksp_monitor_true_residual": None,
             "mat_type": "aij",
-            "ksp_rtol": 1e-15,
-            "ksp_atol": 1e-15,
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_type": "mumps",
             "ksp_monitor_true_residual": None,
         }
 
@@ -326,8 +334,8 @@ def dls(
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
     # Boundary conditions
-    # bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary", method="geometric")
-    bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary")
+    bcs = DirichletBC(W.sub(1), project(p_e, W.sub(1)), "on_boundary", method="geometric")
+    # bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary")
     # bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
 
     # Average cell size and mesh dependent stabilization
@@ -335,7 +343,7 @@ def dls(
 
     # Stabilizing parameter
     ls_constant = Constant(1.0)
-    div_stabilizing = Constant(0) / (Constant(1) * h * h)
+    div_stabilizing = Constant(0)  #/ (Constant(1) * h * h)
 
     # Mixed classical terms
     a = (
@@ -360,7 +368,7 @@ def dls(
     ) * dot(jump(q, n), jump(p, n)) * dS
 
     # Weakly imposed BC
-    huge_number = 1e10
+    huge_number = 0e10
     nitsche_penalty = Constant(huge_number)
     a += (nitsche_penalty / h) * p * q * ds
     L += (nitsche_penalty / h) * p_e * q * ds
@@ -390,11 +398,16 @@ def cgls(
 ):
     if not solver_parameters:
         solver_parameters = {
-            "ksp_type": "lgmres",
-            "pc_type": "lu",
+            #"ksp_type": "lgmres",
+            #"pc_type": "lu",
+            #"mat_type": "aij",
+            #"ksp_rtol": 1e-12,
+            #"ksp_atol": 1e-12,
+            #"ksp_monitor_true_residual": None,
             "mat_type": "aij",
-            "ksp_rtol": 1e-12,
-            "ksp_atol": 1e-12,
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_type": "mumps",
             "ksp_monitor_true_residual": None,
         }
 
@@ -460,11 +473,14 @@ def clsq(
 ):
     if not solver_parameters:
         solver_parameters = {
-            "ksp_type": "lgmres",
-            "pc_type": "lu",
+            #"ksp_type": "lgmres",
+            #"pc_type": "lu",
+            #"ksp_rtol": 1e-18,
+            #"ksp_atol": 1e-18,
             "mat_type": "aij",
-            "ksp_rtol": 1e-15,
-            "ksp_atol": 1e-15,
+            "ksp_type": "preonly",
+            "pc_type": "lu",
+            "pc_factor_mat_solver_type": "mumps",
             "ksp_monitor_true_residual": None,
         }
 
@@ -486,9 +502,12 @@ def clsq(
     # Exact solution and source term projection
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
+    # Strong boundary conditions
+    bcs = DirichletBC(W.sub(1), project(p_e, V), "on_boundary")
+
     # Stabilizing parameter
     ls_constant = Constant(1.0)
-    div_stabilizing = Constant(0) / (Constant(1) * h * h)
+    div_stabilizing = Constant(0)  #/ (Constant(1) * h * h)
 
     # Mixed classical terms
     a = (
@@ -503,14 +522,14 @@ def clsq(
     L += div_stabilizing * f * q * dx
 
     # Weakly imposed BC
-    huge_number = 1e10
+    huge_number = 0e10
     nitsche_penalty = Constant(huge_number)
     a += (nitsche_penalty / h) * p * q * ds
     L += (nitsche_penalty / h) * p_e * q * ds
 
     #  Solving
-    # problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=bcs, constant_jacobian=False)
-    problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
+    problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=bcs, constant_jacobian=False)
+    # problem_flow = LinearVariationalProblem(a, L, DPP_solution, bcs=[], constant_jacobian=False)
     solver_flow = LinearVariationalSolver(
         problem_flow, options_prefix="dpp_flow", solver_parameters=solver_parameters
     )
