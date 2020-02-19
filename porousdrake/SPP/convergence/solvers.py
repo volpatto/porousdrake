@@ -343,23 +343,25 @@ def dls(
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
     # Boundary conditions
-    bcs = DirichletBC(W.sub(1), project(p_e, W.sub(1)), "on_boundary", method="geometric")
+    # bcs = DirichletBC(W.sub(1), project(p_e, W.sub(1)), "on_boundary", method="geometric")
     # bcs = DirichletBC(W.sub(1), Constant(0.0), "on_boundary")
-    # bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
+    bcs = DirichletBC(W.sub(0), project(v_e, W.sub(0)), "on_boundary", method="geometric")
 
     # Average cell size and mesh dependent stabilization
-    h_avg = (h("+") + h("-")) / 2.0
+    # h_avg = (h("+") + h("-")) / 2.0
+    h_avg = avg(h)
 
     # Stabilizing parameter
     ls_constant = Constant(1.0)
     div_stabilizing = Constant(0)  # / (Constant(1) * h * h)
 
     # Mixed classical terms
-    a = (
-        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
-        * ls_constant
-        * dx
-    )
+    # a = (
+    #     (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+    #     * ls_constant
+    #     * dx
+    # )
+    a = inner(alpha() * u + grad(p), v + invalpha() * grad(q)) * dx
     a += div_stabilizing * div(u) * q * dx
     a += ls_constant * div(u) * div(v) * dx
     a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
@@ -372,12 +374,11 @@ def dls(
     # a += inner(jump(p, n), jump(q, n)) * dS
     # DG edge stabilizing terms
     # Below Badia & Codina approach is applied
-    a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS + (eta_p / h_avg) * avg(
-        1.0 / alpha()
-    ) * dot(jump(q, n), jump(p, n)) * dS
+    a += (eta_u / h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS
+    a += (eta_p / h_avg) * avg(invalpha()) * dot(jump(q, n), jump(p, n)) * dS
 
     # Weakly imposed BC
-    huge_number = 0e10
+    huge_number = 1e10
     nitsche_penalty = Constant(huge_number)
     a += (nitsche_penalty / h) * p * q * ds
     L += (nitsche_penalty / h) * p_e * q * ds
@@ -512,18 +513,19 @@ def clsq(
     p_e, v_e, f = decompose_exact_solution(mesh, degree)
 
     # Strong boundary conditions
-    bcs = DirichletBC(W.sub(1), project(p_e, V), "on_boundary")
+    bcs = DirichletBC(W.sub(0), project(v_e, U), "on_boundary")
 
     # Stabilizing parameter
     ls_constant = Constant(1.0)
     div_stabilizing = Constant(0)  # / (Constant(1) * h * h)
 
     # Mixed classical terms
-    a = (
-        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
-        * ls_constant
-        * dx
-    )
+    # a = (
+    #     (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+    #     * ls_constant
+    #     * dx
+    # )
+    a = inner(alpha() * u + grad(p), v + invalpha() * grad(q)) * dx
     a += div_stabilizing * div(u) * q * dx
     a += ls_constant * div(u) * div(v) * dx
     a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
@@ -531,7 +533,7 @@ def clsq(
     L += div_stabilizing * f * q * dx
 
     # Weakly imposed BC
-    huge_number = 0e10
+    huge_number = 1e10
     nitsche_penalty = Constant(huge_number)
     a += (nitsche_penalty / h) * p * q * ds
     L += (nitsche_penalty / h) * p_e * q * ds
