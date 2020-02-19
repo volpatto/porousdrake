@@ -8,7 +8,7 @@ delta_3 = Constant(0.5)
 eta_u = Constant(5e2)
 # eta_p = Constant(1e-10)
 eta_p = Constant(1e1) * eta_u
-beta_0 = Constant(1.0e0)
+beta_0 = Constant(0.0e2)
 # beta_0 = Constant(0)
 mesh_parameter = True
 

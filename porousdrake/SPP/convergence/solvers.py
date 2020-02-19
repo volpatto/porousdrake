@@ -188,7 +188,11 @@ def lsh(
     a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
     # Stabilizing terms
-    a += (div(u) - f) * q * dx
+    stabilizing_constant = Constant(0)
+    a += stabilizing_constant * (div(u) - f) * q * dx
+    a += (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
+    a += dot(u_hat('+'), n('+')) * dot(v('+'), n('+')) * dS
+    a += dot(u - v_e, n) * dot(v, n) * ds
 
     # Hybridization terms
     a += mu_h("+") * jump(u_hat, n=n) * dS

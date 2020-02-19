@@ -57,8 +57,8 @@ solvers_options = {
     # "hmvh_full": sdhm,
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
-    #"lsh": lsh,
-    "dls": dls,
+    "lsh": lsh,
+    # "dls": dls,
     #"clsq": clsq,
 }
 
@@ -71,7 +71,7 @@ n = [10, 15, 20, 25, 30, 35]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "dls"
+    selected_solver = "lsh"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
