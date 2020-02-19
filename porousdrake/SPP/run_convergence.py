@@ -18,10 +18,12 @@ try:
 
     plt.rcParams["contour.corner_mask"] = False
     plt.close("all")
-except:
+except ImportError:
     warning("Matplotlib not imported")
 
-single_run = False
+single_run = True
+single_run_plot = True
+single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
 quadrilateral = False
@@ -31,8 +33,8 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
 mesh_quad = [False, True]  # Triangles, Quads
-#mesh_parameters = [True, False]
-mesh_parameters = [False]
+# mesh_parameters = [True, False]
+mesh_parameters = [True]
 
 # Solver options
 solvers_options = {
@@ -58,12 +60,15 @@ solvers_options = {
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
     "lsh": lsh,
+    "lsh_mass": lsh,
+    "lsh_lambda": lsh,
+    "lsh_full": lsh,
     # "dls": dls,
-    #"clsq": clsq,
+    # "clsq": clsq,
 }
 
 # Convergence range
-#n = [5, 10, 15, 20, 25, 30]
+# n = [5, 10, 15, 20, 25, 30]
 n = [10, 15, 20, 25, 30, 35]
 # n = [4, 8, 16, 32, 64, 128]
 
@@ -79,26 +84,28 @@ if single_run:
         mesh=mesh, degree=degree, mesh_parameter=parameters.mesh_parameter, **solver_kwargs
     )
 
-    plot(p_sol)
-    #p_sol.rename(f"{selected_solver}_p")
-    #plt.show()
+    if single_run_plot:
+        plot(p_sol)
+        plt.show()
 
-    plot(p_e)
-    #p_e.rename(f"exact_p")
-    #plt.show()
+        plot(p_e)
+        plt.show()
 
-    plot(v_sol)
-    #v_sol.rename(f"{selected_solver}_v")
-    #plt.show()
+        plot(v_sol)
+        plt.show()
 
-    plot(v_e)
-    #v_e.rename(f"exact_v")
-    #plt.show()
+        plot(v_e)
+        plt.show()
+
+    if single_run_write_results:
+        p_sol.rename("%s_p" % selected_solver)
+        p_e.rename("exact_p")
+        v_sol.rename("%s_v" % selected_solver)
+        v_e.rename("exact_v")
+        outfile = File("%s/%s.pvd" % (temp_dir_to_save_results, selected_solver))
+        outfile.write(p_sol, v_sol, p_e, v_e)
+
     print("*** Cold run OK ***\n")
-    #outfile = File(f"{temp_dir_to_save_results}/{selected_solver}.pvd")
-    #outfile.write(p_sol, v_sol, p_e, v_e)
-
-    # pp.write_pvd_mixed_formulations(f'{temp_dir_to_save_results}/dls.pvd', mesh, degree, p_sol, v_sol, p2_sol, v2_sol)
     sys.exit()
 
 # Sanity check for keys among solvers_options and solvers_args

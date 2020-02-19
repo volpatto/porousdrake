@@ -120,7 +120,13 @@ def sdhm(
 
 
 def lsh(
-    mesh, degree, beta_0=Constant(0), mesh_parameter=True, solver_parameters={},
+    mesh,
+    degree,
+    beta_0=Constant(0),
+    stabilizing_mass_constant=Constant(0),
+    ls_lambda_constant=Constant(0),
+    mesh_parameter=True,
+    solver_parameters={},
 ):
     if not solver_parameters:
         solver_parameters = {
@@ -187,12 +193,11 @@ def lsh(
     # Irrotational least-squares
     a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
-    # Stabilizing terms
-    stabilizing_constant = Constant(0)
-    a += stabilizing_constant * (div(u) - f) * q * dx
-    a += (lambda_h('+') - p('+')) * (mu_h('+') - q('+')) * dS
-    a += dot(u_hat('+'), n('+')) * dot(v('+'), n('+')) * dS
-    a += dot(u - v_e, n) * dot(v, n) * ds
+    # Volumetric stabilizing terms
+    a += stabilizing_mass_constant * (div(u) - f) * q * dx
+
+    # Edge least-squares stabilizing term
+    a += ls_lambda_constant * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
 
     # Hybridization terms
     a += mu_h("+") * jump(u_hat, n=n) * dS
@@ -306,12 +311,12 @@ def dls(
 ):
     if not solver_parameters:
         solver_parameters = {
-            #"ksp_type": "lgmres",
-            #"pc_type": "lu",
-            #"mat_type": "aij",
-            #"ksp_rtol": 1e-18,
-            #"ksp_atol": 1e-18,
-            #"ksp_monitor_true_residual": None,
+            # "ksp_type": "lgmres",
+            # "pc_type": "lu",
+            # "mat_type": "aij",
+            # "ksp_rtol": 1e-18,
+            # "ksp_atol": 1e-18,
+            # "ksp_monitor_true_residual": None,
             "mat_type": "aij",
             "ksp_type": "preonly",
             "pc_type": "lu",
@@ -347,7 +352,7 @@ def dls(
 
     # Stabilizing parameter
     ls_constant = Constant(1.0)
-    div_stabilizing = Constant(0)  #/ (Constant(1) * h * h)
+    div_stabilizing = Constant(0)  # / (Constant(1) * h * h)
 
     # Mixed classical terms
     a = (
@@ -402,12 +407,12 @@ def cgls(
 ):
     if not solver_parameters:
         solver_parameters = {
-            #"ksp_type": "lgmres",
-            #"pc_type": "lu",
-            #"mat_type": "aij",
-            #"ksp_rtol": 1e-12,
-            #"ksp_atol": 1e-12,
-            #"ksp_monitor_true_residual": None,
+            # "ksp_type": "lgmres",
+            # "pc_type": "lu",
+            # "mat_type": "aij",
+            # "ksp_rtol": 1e-12,
+            # "ksp_atol": 1e-12,
+            # "ksp_monitor_true_residual": None,
             "mat_type": "aij",
             "ksp_type": "preonly",
             "pc_type": "lu",
@@ -477,10 +482,10 @@ def clsq(
 ):
     if not solver_parameters:
         solver_parameters = {
-            #"ksp_type": "lgmres",
-            #"pc_type": "lu",
-            #"ksp_rtol": 1e-18,
-            #"ksp_atol": 1e-18,
+            # "ksp_type": "lgmres",
+            # "pc_type": "lu",
+            # "ksp_rtol": 1e-18,
+            # "ksp_atol": 1e-18,
             "mat_type": "aij",
             "ksp_type": "preonly",
             "pc_type": "lu",
@@ -511,7 +516,7 @@ def clsq(
 
     # Stabilizing parameter
     ls_constant = Constant(1.0)
-    div_stabilizing = Constant(0)  #/ (Constant(1) * h * h)
+    div_stabilizing = Constant(0)  # / (Constant(1) * h * h)
 
     # Mixed classical terms
     a = (
