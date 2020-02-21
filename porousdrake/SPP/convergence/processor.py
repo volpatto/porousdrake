@@ -31,7 +31,7 @@ def convergence_hp(
     solver,
     min_degree=1,
     max_degree=4,
-    numel_xy=[2, 4, 8, 16, 32, 64, 128, 256],
+    numel_xy=(2, 4, 8, 16, 32, 64, 128, 256),
     norm_type="L2",
     quadrilateral=True,
     name="",
