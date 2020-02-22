@@ -203,7 +203,8 @@ def lsh(
     a += mu_h("+") * jump(u_hat, n=n) * dS
 
     # Weakly imposed BC from hybridization
-    a += mu_h * (lambda_h - p_e) * ds
+    # a += mu_h * (lambda_h - p_e) * ds
+    a += (mu_h - q) * (lambda_h - p_e) * ds
 
     F = a - L
 
@@ -374,7 +375,7 @@ def dls(
     # a += inner(jump(p, n), jump(q, n)) * dS
     # DG edge stabilizing terms
     # Below Badia & Codina approach is applied
-    a += (eta_u / h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS
+    a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS
     a += (eta_p / h_avg) * avg(invalpha()) * dot(jump(q, n), jump(p, n)) * dS
 
     # Weakly imposed BC

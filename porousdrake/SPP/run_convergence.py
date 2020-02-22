@@ -33,8 +33,8 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
 mesh_quad = [False, True]  # Triangles, Quads
-# mesh_parameters = [True, False]
-mesh_parameters = [True]
+mesh_parameters = [True, False]
+# mesh_parameters = [True]
 
 # Solver options
 solvers_options = {
@@ -63,13 +63,13 @@ solvers_options = {
     "lsh_mass": lsh,
     "lsh_lambda": lsh,
     "lsh_full": lsh,
-    "dls": dls,
-    "clsq": clsq,
+    # "dls": dls,
+    # "clsq": clsq,
 }
 
 # Convergence range
-# n = [5, 10, 15, 20, 25, 30]
-n = [10, 15, 20, 25, 30, 35]
+n = [5, 10, 15, 20, 25, 30]
+#n = [10, 15, 20, 25, 30, 35]
 # n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
