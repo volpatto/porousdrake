@@ -1,0 +1,1487 @@
+*******************************************
+
+*** Begin case: lsh_full__tri_errors ***
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.984885
+
+--------------------------------------
+Degree 1: v slope error 2.183978
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.906147
+
+--------------------------------------
+Degree 2: v slope error 2.645325
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.000450
+
+--------------------------------------
+Degree 3: v slope error 3.653562
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.007716
+
+--------------------------------------
+Degree 4: v slope error 4.610643
+
+*** End case: lsh_full__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh__tri_errors ***
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.964778
+
+--------------------------------------
+Degree 1: v slope error 2.117694
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.908056
+
+--------------------------------------
+Degree 2: v slope error 2.631317
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.001504
+
+--------------------------------------
+Degree 3: v slope error 3.628087
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.005065
+
+--------------------------------------
+Degree 4: v slope error 4.582185
+
+*** End case: lsh__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: dls__tri_errors ***
+
+
+--------------------------------------
+Degree 1: p slope error 2.008847
+
+--------------------------------------
+Degree 1: v slope error 1.036102
+
+--------------------------------------
+Degree 2: p slope error 3.279256
+
+--------------------------------------
+Degree 2: v slope error 2.634846
+
+--------------------------------------
+Degree 3: p slope error 4.037682
+
+--------------------------------------
+Degree 3: v slope error 4.229468
+
+--------------------------------------
+Degree 4: p slope error 5.163927
+
+--------------------------------------
+Degree 4: v slope error 4.714164
+
+*** End case: dls__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh_lambda__tri_errors ***
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.964173
+
+--------------------------------------
+Degree 1: v slope error 2.138134
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.929057
+
+--------------------------------------
+Degree 2: v slope error 2.653342
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.001680
+
+--------------------------------------
+Degree 3: v slope error 3.647617
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.007319
+
+--------------------------------------
+Degree 4: v slope error 4.602663
+
+*** End case: lsh_lambda__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh_mass__tri_errors ***
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.959846
+
+--------------------------------------
+Degree 1: v slope error 2.141913
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.888521
+
+--------------------------------------
+Degree 2: v slope error 2.622988
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.000423
+
+--------------------------------------
+Degree 3: v slope error 3.635361
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.005363
+
+--------------------------------------
+Degree 4: v slope error 4.591156
+
+*** End case: lsh_mass__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: clsq__tri_errors ***
+
+
+--------------------------------------
+Degree 1: p slope error 1.914688
+
+--------------------------------------
+Degree 1: v slope error 1.945902
+
+--------------------------------------
+Degree 2: p slope error 3.080616
+
+--------------------------------------
+Degree 2: v slope error 2.933865
+
+--------------------------------------
+Degree 3: p slope error 4.045778
+
+--------------------------------------
+Degree 3: v slope error 4.032086
+
+--------------------------------------
+Degree 4: p slope error 4.977863
+
+--------------------------------------
+Degree 4: v slope error 4.943765
+
+*** End case: clsq__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh_full__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.992424
+
+--------------------------------------
+Degree 1: v slope error 2.017015
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.826204
+
+--------------------------------------
+Degree 2: v slope error 2.763922
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.028422
+
+--------------------------------------
+Degree 3: v slope error 3.996970
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.061030
+
+--------------------------------------
+Degree 4: v slope error 5.018224
+
+*** End case: lsh_full__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.981594
+
+--------------------------------------
+Degree 1: v slope error 1.989819
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.836583
+
+--------------------------------------
+Degree 2: v slope error 2.754783
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.031737
+
+--------------------------------------
+Degree 3: v slope error 3.991810
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.063198
+
+--------------------------------------
+Degree 4: v slope error 5.008558
+
+*** End case: lsh__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: dls__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 1: p slope error 1.942222
+
+--------------------------------------
+Degree 1: v slope error 1.986464
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 2: p slope error 3.211976
+
+--------------------------------------
+Degree 2: v slope error 2.564500
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 3: p slope error 4.118570
+
+--------------------------------------
+Degree 3: v slope error 4.230405
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 4: p slope error 4.134266
+
+--------------------------------------
+Degree 4: v slope error 4.951981
+
+*** End case: dls__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh_lambda__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.981693
+
+--------------------------------------
+Degree 1: v slope error 1.990088
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.830396
+
+--------------------------------------
+Degree 2: v slope error 2.764330
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.028883
+
+--------------------------------------
+Degree 3: v slope error 3.997125
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.062344
+
+--------------------------------------
+Degree 4: v slope error 5.018275
+
+*** End case: lsh_lambda__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: lsh_mass__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 1: p slope error 1.977280
+
+--------------------------------------
+Degree 1: v slope error 1.996024
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 2: p slope error 2.831870
+
+--------------------------------------
+Degree 2: v slope error 2.754080
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 3: p slope error 4.031329
+
+--------------------------------------
+Degree 3: v slope error 3.991638
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+*******************************************
+Solving using static condensation.
+
+
+--------------------------------------
+Degree 4: p slope error 5.061940
+
+--------------------------------------
+Degree 4: v slope error 5.008525
+
+*** End case: lsh_mass__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: clsq__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 1: p slope error 1.976317
+
+--------------------------------------
+Degree 1: v slope error 1.982912
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 2: p slope error 2.976249
+
+--------------------------------------
+Degree 2: v slope error 2.955982
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 3: p slope error 4.015282
+
+--------------------------------------
+Degree 3: v slope error 3.990165
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+
+--------------------------------------
+Degree 4: p slope error 4.967488
+
+--------------------------------------
+Degree 4: v slope error 4.992748
+
+*** End case: clsq__quad_errors ***
+*******************************************
