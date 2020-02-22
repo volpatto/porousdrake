@@ -176,13 +176,18 @@ def lsh(
     u_hat = u + beta * (p - lambda_h) * n
 
     # Flux least-squares
+    # a = (
+        # (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        # * ls_constant
+        # * dx
+    # )
     a = (
-        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        (inner(alpha() * u, v) + inner(u, grad(q)) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
         * ls_constant
         * dx
     )
-    a += ls_constant * jump(u_hat, n=n) * q("+") * dS
-    a += ls_constant * dot(u_hat, n) * q * ds
+    # a += ls_constant * jump(u_hat, n=n) * q("+") * dS
+    # a += ls_constant * dot(u_hat, n) * q * ds
     a += ls_constant * lambda_h("+") * jump(v, n=n) * dS
     a += ls_constant * lambda_h * dot(v, n) * ds
 
