@@ -21,8 +21,8 @@ try:
 except ImportError:
     warning("Matplotlib not imported")
 
-single_run = True
-single_run_plot = True
+single_run = False
+single_run_plot = False
 single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
@@ -33,8 +33,8 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
 mesh_quad = [False, True]  # Triangles, Quads
-mesh_parameters = [True, False]
-# mesh_parameters = [True]
+# mesh_parameters = [True, False]
+mesh_parameters = [True]
 
 # Solver options
 solvers_options = {
@@ -59,10 +59,10 @@ solvers_options = {
     # "hmvh_full": sdhm,
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
-    "lsh": lsh,
-    "lsh_mass": lsh,
-    "lsh_lambda": lsh,
-    "lsh_full": lsh,
+    # "lsh": lsh,
+    # "lsh_mass": lsh,
+    # "lsh_lambda": lsh,
+    # "lsh_full": lsh,
     "dls": dls,
     # "clsq": clsq,
 }
