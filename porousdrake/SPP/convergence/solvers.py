@@ -123,6 +123,9 @@ def lsh(
     mesh,
     degree,
     beta_0=Constant(0),
+    delta_1=Constant(1),
+    delta_2=Constant(1),
+    delta_3=Constant(1),
     stabilizing_mass_constant=Constant(0),
     ls_lambda_constant=Constant(0),
     mesh_parameter=True,
@@ -170,7 +173,6 @@ def lsh(
     beta = beta_0
     if mesh_parameter:
         beta = beta / h
-    ls_constant = Constant(1)
 
     # Numerical flux trace
     u_hat = u + beta * (p - lambda_h) * n
@@ -178,20 +180,20 @@ def lsh(
     # Flux least-squares
     a = (
         (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
-        * ls_constant
+        * delta_1
         * dx
     )
-    a += ls_constant * jump(u_hat, n=n) * q("+") * dS
-    a += ls_constant * dot(u_hat, n) * q * ds
-    a += ls_constant * lambda_h("+") * jump(v, n=n) * dS
-    a += ls_constant * lambda_h * dot(v, n) * ds
+    a += delta_1 * jump(u_hat, n=n) * q("+") * dS
+    a += delta_1 * dot(u_hat, n) * q * ds
+    a += delta_1 * lambda_h("+") * jump(v, n=n) * dS
+    a += delta_1 * lambda_h * dot(v, n) * ds
 
     # Mass balance least-square
-    a += ls_constant * div(u) * div(v) * dx
-    L = ls_constant * f * div(v) * dx
+    a += delta_2 * div(u) * div(v) * dx
+    L = delta_2 * f * div(v) * dx
 
     # Irrotational least-squares
-    a += ls_constant * inner(curl(alpha() * u), curl(alpha() * v)) * dx
+    a += delta_3 * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
     # Volumetric stabilizing terms
     a += stabilizing_mass_constant * (div(u) - f) * q * dx

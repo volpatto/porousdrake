@@ -21,12 +21,12 @@ try:
 except ImportError:
     warning("Matplotlib not imported")
 
-single_run = False
-single_run_plot = False
+single_run = True
+single_run_plot = True
 single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
-quadrilateral = False
+quadrilateral = True
 degree = 1
 last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
@@ -59,11 +59,11 @@ solvers_options = {
     # "hmvh_full": sdhm,
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
-    # "lsh": lsh,
-    # "lsh_mass": lsh,
-    # "lsh_lambda": lsh,
-    # "lsh_full": lsh,
-    "dls": dls,
+    "lsh": lsh,
+    "lsh_mass": lsh,
+    "lsh_lambda": lsh,
+    "lsh_full": lsh,
+    # "dls": dls,
     # "clsq": clsq,
 }
 
@@ -76,7 +76,7 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "dls"
+    selected_solver = "lsh_full"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
