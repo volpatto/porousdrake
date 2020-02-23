@@ -5,12 +5,12 @@ delta_0 = Constant(1)
 delta_1 = Constant(-0.5)
 delta_2 = Constant(0.5)
 delta_3 = Constant(0.5)
-eta_u = Constant(5e1)  # * eta_p
-eta_p = Constant(1e1) * eta_u
+eta_p = Constant(1e0)  # * eta_u
+eta_u = Constant(1e1) * eta_p
 beta_0 = Constant(1.0e0)
 stabilizing_mass_constant = Constant(0)
 ls_lambda_constant = Constant(0)
-mesh_parameter = False
+mesh_parameter = True
 
 solvers_args = {
     "cgls_full": {
@@ -182,6 +182,6 @@ solvers_args = {
         "stabilizing_mass_constant": Constant(1),
         "ls_lambda_constant": Constant(1),
     },
-    "dls": {"eta_u": eta_u, "eta_p": eta_p,},
+    "dls": {"eta_u": eta_u, "eta_p": eta_p, "curl_weight": Constant(1)},
     "clsq": dict(),
 }
