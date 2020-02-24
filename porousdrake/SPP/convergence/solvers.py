@@ -378,8 +378,8 @@ def dls(
     # a += inner(jump(p, n), jump(q, n)) * dS
     # DG edge stabilizing terms
     # Below Badia & Codina approach is applied
-    a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n) * jump(v, n)) * dS
-    a += (eta_p / h_avg) * avg(invalpha()) * dot(jump(q, n), jump(p, n)) * dS
+    a += (eta_u * h_avg) * avg(alpha()) * (jump(u, n=n) * jump(v, n=n)) * dS
+    a += (eta_p / h_avg) * avg(invalpha()) * dot(jump(q, n=n), jump(p, n=n)) * dS
 
     # Weakly imposed BC
     huge_number = 1e10
@@ -510,7 +510,6 @@ def clsq(
     v, q = TestFunctions(W)
 
     # Mesh entities
-    n = FacetNormal(mesh)
     h = CellDiameter(mesh)
 
     # Exact solution and source term projection

@@ -85,10 +85,10 @@ if single_run:
     )
 
     if single_run_plot:
-        plot(p_sol)
+        plot(p_sol, shading="gouraud")
         plt.show()
 
-        plot(p_e)
+        plot(p_e, shading="gouraud")
         plt.show()
 
         plot(v_sol)
