@@ -178,13 +178,24 @@ def lsh(
     u_hat = u + beta * (p - lambda_h) * n
 
     # Flux least-squares
+    # a = (
+    #     (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+    #     * delta_1
+    #     * dx
+    # )
     a = (
-        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
+        (
+            inner(alpha() * u, v)
+            + inner(u, grad(q))
+            - p * div(v)
+            + inner(grad(p), invalpha() * grad(q))
+        )
         * delta_1
         * dx
     )
-    a += delta_1 * jump(u_hat, n=n) * q("+") * dS
-    a += delta_1 * dot(u_hat, n) * q * ds
+    balance_constant = Constant(2)
+    a += balance_constant * delta_1 * jump(u_hat, n=n) * q("+") * dS
+    a += balance_constant * delta_1 * dot(u_hat, n) * q * ds
     a += delta_1 * lambda_h("+") * jump(v, n=n) * dS
     a += delta_1 * lambda_h * dot(v, n) * ds
 
@@ -196,7 +207,9 @@ def lsh(
     a += delta_3 * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
     # Volumetric stabilizing terms
-    a += stabilizing_mass_constant * (div(u) - f) * q * dx
+    # a += stabilizing_mass_constant * (div(u) - f) * q * dx
+    a += -balance_constant * stabilizing_mass_constant * inner(u, grad(q)) * dx
+    L += balance_constant * stabilizing_mass_constant * f * q * dx
 
     # Edge least-squares stabilizing term
     a += ls_lambda_constant * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS

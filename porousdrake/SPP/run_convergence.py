@@ -26,7 +26,7 @@ single_run_plot = True
 single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
-quadrilateral = True
+quadrilateral = False
 degree = 1
 last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
@@ -76,7 +76,7 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "lsh_full"
+    selected_solver = "lsh_mass"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
