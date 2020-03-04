@@ -21,8 +21,8 @@ try:
 except ImportError:
     warning("Matplotlib not imported")
 
-single_run = True
-single_run_plot = True
+single_run = False
+single_run_plot = False
 single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0

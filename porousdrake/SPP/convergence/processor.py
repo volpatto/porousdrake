@@ -12,20 +12,8 @@ try:
 
     plt.rcParams["contour.corner_mask"] = False
     plt.close("all")
-except:
+except ImportError:
     warning("Matplotlib not imported")
-
-
-def compute_error(computed_sol, analytical_sol, var_name, norm_type="L2"):
-    # Now we compute the various metrics. First we
-    # simply compute the L2 error between the analytic
-    # solutions and the computed ones.
-    error = errornorm(analytical_sol, computed_sol, norm_type=norm_type)
-
-    # We keep track of all metrics using a Python dictionary
-    error_dictionary = {var_name: error}
-
-    return error_dictionary
 
 
 def convergence_hp(
@@ -61,13 +49,13 @@ def convergence_hp(
 
             p_sol, v_sol, p_e, v_e = solver(mesh=mesh, degree=degree, **kwargs)
 
-            current_error_p = compute_error(p_sol, p_e, "p_error", norm_type="L2")
+            current_error_p = errornorm(p_sol, p_e, norm_type="L2")
             p_errors = np.append(p_errors, current_error_p)
 
-            current_error_v = compute_error(v_sol, v_e, "v_error", norm_type="L2")
+            current_error_v = errornorm(v_sol, v_e, norm_type="L2")
             v_errors = np.append(v_errors, current_error_v)
 
-            current_error_v_hdiv = compute_error(v_sol, v_e, "v_error_hdiv", norm_type="Hdiv")
+            current_error_v_hdiv = errornorm(v_sol, v_e, norm_type="Hdiv")
             v_errors_hdiv = np.append(v_errors_hdiv, current_error_v_hdiv)
 
             computed_errors_dict["Element"].append(element_kind)
