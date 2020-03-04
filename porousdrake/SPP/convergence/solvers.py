@@ -178,24 +178,31 @@ def lsh(
     u_hat = u + beta * (p - lambda_h) * n
 
     # Flux least-squares
-    # a = (
-    #     (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
-    #     * delta_1
-    #     * dx
-    # )
     a = (
-        (
-            inner(alpha() * u, v)
-            + inner(u, grad(q))
-            - p * div(v)
-            + inner(grad(p), invalpha() * grad(q))
-        )
+        (inner(alpha() * u, v) - q * div(u) - p * div(v) + inner(grad(p), invalpha() * grad(q)))
         * delta_1
         * dx
     )
-    balance_constant = Constant(2)
-    a += balance_constant * delta_1 * jump(u_hat, n=n) * q("+") * dS
-    a += balance_constant * delta_1 * dot(u_hat, n) * q * ds
+    # a = (
+    #     (
+    #         inner(alpha() * u, v)
+    #         + inner(u, grad(q))
+    #         - p * div(v)
+    #         + inner(grad(p), invalpha() * grad(q))
+    #     )
+    #     * delta_1
+    #     * dx
+    # )
+    # a = (
+    #         (inner(alpha() * u, v) - q * div(u) + inner(grad(p), v) + inner(grad(p), invalpha() * grad(q)))
+    #         * delta_1
+    #         * dx
+    # )
+    balance_constant = Constant(1)
+    a += delta_1 * jump(u_hat, n=n) * q("+") * dS
+    a += delta_1 * dot(u_hat, n) * q * ds
+    # a += balance_constant * delta_1 * jump(u_hat, n=n) * q("+") * dS
+    # a += balance_constant * delta_1 * dot(u_hat, n) * q * ds
     a += delta_1 * lambda_h("+") * jump(v, n=n) * dS
     a += delta_1 * lambda_h * dot(v, n) * ds
 
@@ -219,7 +226,8 @@ def lsh(
 
     # Weakly imposed BC from hybridization
     # a += mu_h * (lambda_h - p_e) * ds
-    a += (mu_h - q) * (lambda_h - p_e) * ds
+    a += (mu_h - q) * (lambda_h - p_e) * ds  # maybe this is not a good way to impose BC
+    L += delta_1 * p_e * dot(v, n) * ds  # study if this is a good BC imposition
 
     F = a - L
 

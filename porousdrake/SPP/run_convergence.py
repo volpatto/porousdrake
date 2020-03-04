@@ -76,15 +76,17 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "lsh_mass"
+    selected_solver = "lsh_lambda"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
+    PETSc.Sys.Print("*** Solver: %s ***" % selected_solver)
     p_sol, v_sol, p_e, v_e = solver(
         mesh=mesh, degree=degree, mesh_parameter=parameters.mesh_parameter, **solver_kwargs
     )
 
     if single_run_plot:
+        PETSc.Sys.Print("*** Post-processing: plotting ***")
         plot(p_sol, shading="gouraud")
         plt.show()
 
@@ -105,7 +107,7 @@ if single_run:
         outfile = File("%s/%s.pvd" % (temp_dir_to_save_results, selected_solver))
         outfile.write(p_sol, v_sol, p_e, v_e)
 
-    print("*** Cold run OK ***\n")
+    PETSc.Sys.Print("*** Cold run OK ***\n")
     sys.exit()
 
 # Sanity check for keys among solvers_options and solvers_args
