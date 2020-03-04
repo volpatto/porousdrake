@@ -44,8 +44,10 @@ def convergence_hp(
         for n in numel_xy:
             nel_x = nel_y = n
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=quadrilateral)
-            num_cells = np.append(num_cells, mesh.num_cells())
-            mesh_size = np.append(mesh_size, 1.0 / n)
+            current_num_cells = mesh.num_cells()
+            num_cells = np.append(num_cells, current_num_cells)
+            current_mesh_size = 1.0 / n
+            mesh_size = np.append(mesh_size, current_mesh_size)
 
             p_sol, v_sol, p_e, v_e = solver(mesh=mesh, degree=degree, **kwargs)
 
@@ -60,8 +62,8 @@ def convergence_hp(
 
             computed_errors_dict["Element"].append(element_kind)
             computed_errors_dict["Degree"].append(degree)
-            computed_errors_dict["Cells"].append(num_cells)
-            computed_errors_dict["Mesh size"].append(mesh_size)
+            computed_errors_dict["Cells"].append(current_num_cells)
+            computed_errors_dict["Mesh size"].append(current_mesh_size)
             computed_errors_dict["l2-error p"].append(current_error_p)
             computed_errors_dict["l2-error u"].append(current_error_v)
             computed_errors_dict["Hdiv-error u"].append(current_error_v_hdiv)
