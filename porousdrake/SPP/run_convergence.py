@@ -32,7 +32,8 @@ last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
-mesh_quad = [False, True]  # Triangles, Quads
+# mesh_quad = [False, True]  # Triangles, Quads
+mesh_quad = [True]  # Triangles, Quads
 mesh_parameters = [True, False]
 # mesh_parameters = [True]
 
@@ -68,8 +69,8 @@ solvers_options = {
 }
 
 # Convergence range
-n = [5, 10, 15, 20, 25, 30]
-# n = [10, 15, 20, 25, 30, 35]
+# n = [5, 10, 15, 20, 25, 30]
+n = [10, 15, 20, 25, 30, 35]
 # n = [4, 8, 16, 32, 64, 128]
 
 # Cold run
