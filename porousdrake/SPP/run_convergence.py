@@ -32,8 +32,8 @@ last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
-# mesh_quad = [False, True]  # Triangles, Quads
-mesh_quad = [True]  # Triangles, Quads
+mesh_quad = [False, True]  # Triangles, Quads
+# mesh_quad = [True]  # Quads
 mesh_parameters = [True, False]
 # mesh_parameters = [True]
 
