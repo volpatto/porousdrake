@@ -226,7 +226,9 @@ def lsh(
 
     # Weakly imposed BC from hybridization
     # a += mu_h * (lambda_h - p_e) * ds
-    a += (mu_h - q) * (lambda_h - p_e) * ds  # maybe this is not a good way to impose BC
+    a += (
+        (mu_h - q) * (lambda_h - p_e) * ds
+    )  # maybe this is not a good way to impose BC, but this necessary
     L += delta_1 * p_e * dot(v, n) * ds  # study if this is a good BC imposition
 
     F = a - L

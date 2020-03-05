@@ -48,7 +48,7 @@ def convergence_hp(
             mesh = UnitSquareMesh(nel_x, nel_y, quadrilateral=quadrilateral)
             current_num_cells = mesh.num_cells()
             num_cells = np.append(num_cells, current_num_cells)
-            current_mesh_size = 1.0 / n
+            current_mesh_size = mesh.cell_sizes.dat.data_ro.min()
             mesh_size = np.append(mesh_size, current_mesh_size)
 
             p_sol, v_sol, p_e, v_e = solver(mesh=mesh, degree=degree, **kwargs)
