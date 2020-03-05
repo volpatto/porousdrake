@@ -214,9 +214,9 @@ def lsh(
     a += delta_3 * inner(curl(alpha() * u), curl(alpha() * v)) * dx
 
     # Volumetric stabilizing terms
-    # a += stabilizing_mass_constant * (div(u) - f) * q * dx
-    a += -balance_constant * stabilizing_mass_constant * inner(u, grad(q)) * dx
-    L += balance_constant * stabilizing_mass_constant * f * q * dx
+    a += stabilizing_mass_constant * (div(u) - f) * q * dx
+    # a += -balance_constant * stabilizing_mass_constant * inner(u, grad(q)) * dx
+    # L += balance_constant * stabilizing_mass_constant * f * q * dx
 
     # Edge least-squares stabilizing term
     a += ls_lambda_constant * (lambda_h("+") - p("+")) * (mu_h("+") - q("+")) * dS
