@@ -30,13 +30,15 @@ def convergence_hp(
         "Degree": list(),
         "Cells": list(),
         "Mesh size": list(),
-        "l2-error p": list(),
-        "l2-error u": list(),
+        "L2-error p": list(),
+        "H1-error p": list(),
+        "L2-error u": list(),
         "Hdiv-error u": list(),
     }
     element_kind = "Quad" if quadrilateral else "Tri"
     for degree in range(min_degree, max_degree):
         p_errors = np.array([])
+        p_errors_h1 = np.array([])
         v_errors = np.array([])
         v_errors_hdiv = np.array([])
         num_cells = np.array([])
@@ -54,6 +56,9 @@ def convergence_hp(
             current_error_p = errornorm(p_sol, p_e, norm_type="L2")
             p_errors = np.append(p_errors, current_error_p)
 
+            current_error_p_h1 = errornorm(p_sol, p_e, norm_type="H1")
+            p_errors_h1 = np.append(p_errors_h1, current_error_p_h1)
+
             current_error_v = errornorm(v_sol, v_e, norm_type="L2")
             v_errors = np.append(v_errors, current_error_v)
 
@@ -64,8 +69,9 @@ def convergence_hp(
             computed_errors_dict["Degree"].append(degree)
             computed_errors_dict["Cells"].append(current_num_cells)
             computed_errors_dict["Mesh size"].append(current_mesh_size)
-            computed_errors_dict["l2-error p"].append(current_error_p)
-            computed_errors_dict["l2-error u"].append(current_error_v)
+            computed_errors_dict["L2-error p"].append(current_error_p)
+            computed_errors_dict["H1-error p"].append(current_error_p)
+            computed_errors_dict["L2-error u"].append(current_error_v)
             computed_errors_dict["Hdiv-error u"].append(current_error_v_hdiv)
 
         p_errors_log10 = np.log10(p_errors)

@@ -33,8 +33,8 @@ mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
 
 # Mesh options
 mesh_quad = [False, True]  # Triangles, Quads
-# mesh_parameters = [True, False]
-mesh_parameters = [True]
+mesh_parameters = [True, False]
+# mesh_parameters = [True]
 
 # Solver options
 solvers_options = {
@@ -76,7 +76,7 @@ n = [5, 10, 15, 20, 25, 30]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "lsh_lambda"
+    selected_solver = "lsh_full"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
