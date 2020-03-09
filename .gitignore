@@ -1,7 +1,7 @@
 # Outputs
 *.pvd
 *.vtu
-*.png
+#*.png
 *.csv
 *.pvsm
 *.eps
