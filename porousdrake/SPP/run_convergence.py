@@ -21,12 +21,12 @@ try:
 except ImportError:
     warning("Matplotlib not imported")
 
-single_run = False
-single_run_plot = False
+single_run = True
+single_run_plot = True
 single_run_write_results = False
 nx, ny = 10, 10
 Lx, Ly = 1.0, 1.0
-quadrilateral = False
+quadrilateral = True
 degree = 1
 last_degree = 4
 mesh = RectangleMesh(nx, ny, Lx, Ly, quadrilateral=quadrilateral)
@@ -61,10 +61,10 @@ solvers_options = {
     # "hmvh_div": sdhm,
     # "hmvh": sdhm,
     "lsh": lsh,
-    "lsh_mass": lsh,
-    "lsh_lambda": lsh,
-    "lsh_full": lsh,
-    # "dls": dls,
+    # "lsh_mass": lsh,
+    # "lsh_lambda": lsh,
+    # "lsh_full": lsh,
+    "dls": dls,
     # "clsq": clsq,
 }
 
@@ -77,7 +77,7 @@ n = [10, 15, 20, 25, 30, 35]
 if single_run:
 
     # Choosing the solver
-    selected_solver = "lsh_full"
+    selected_solver = "lsh"
     solver = solvers_options[selected_solver]
     solver_kwargs = parameters.solvers_args[selected_solver]
 
@@ -89,16 +89,20 @@ if single_run:
     if single_run_plot:
         PETSc.Sys.Print("*** Post-processing: plotting ***")
         plot(p_sol, shading="gouraud")
-        plt.show()
+        plt.savefig("p_sol.png")
+        # plt.show()
 
         plot(p_e, shading="gouraud")
-        plt.show()
+        plt.savefig("p_e.png")
+        # plt.show()
 
         plot(v_sol)
-        plt.show()
+        plt.savefig("v_sol.png")
+        # plt.show()
 
         plot(v_e)
-        plt.show()
+        plt.savefig("v_e.png")
+        # plt.show()
 
     if single_run_write_results:
         p_sol.rename("%s_p" % selected_solver)
