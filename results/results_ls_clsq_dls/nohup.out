@@ -1,0 +1,655 @@
+*******************************************
+
+*** Begin case: dls__tri_errors ***
+
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 1: p slope error 1.760489
+
+--------------------------------------
+Degree 1: v slope error 1.248117
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 2: p slope error 3.210072
+
+--------------------------------------
+Degree 2: v slope error 3.374666
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 3: p slope error 4.131985
+
+--------------------------------------
+Degree 3: v slope error 4.198818
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 4: p slope error 5.175740
+
+--------------------------------------
+Degree 4: v slope error 4.981508
+
+*** End case: dls__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: clsq__tri_errors ***
+
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 1: p slope error 1.775217
+
+--------------------------------------
+Degree 1: v slope error 1.858493
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 2: p slope error 3.085942
+
+--------------------------------------
+Degree 2: v slope error 2.879131
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 3: p slope error 4.094747
+
+--------------------------------------
+Degree 3: v slope error 4.047004
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 4: p slope error 4.941129
+
+--------------------------------------
+Degree 4: v slope error 4.955833
+
+*** End case: clsq__tri_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: dls__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 1: p slope error 1.950252
+
+--------------------------------------
+Degree 1: v slope error 2.148149
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 2: p slope error 3.178781
+
+--------------------------------------
+Degree 2: v slope error 3.516578
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 3: p slope error 4.088275
+
+--------------------------------------
+Degree 3: v slope error 3.762237
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 4: p slope error 4.904515
+
+--------------------------------------
+Degree 4: v slope error 4.612098
+
+*** End case: dls__quad_errors ***
+*******************************************
+
+*******************************************
+
+*** Begin case: clsq__quad_errors ***
+
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 1: p slope error 1.945240
+
+--------------------------------------
+Degree 1: v slope error 1.969397
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 2: p slope error 2.940337
+
+--------------------------------------
+Degree 2: v slope error 2.905673
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 3: p slope error 4.029006
+
+--------------------------------------
+Degree 3: v slope error 3.977331
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+UFL:WARNING Discontinuous Lagrange element requested on quadrilateral, creating DQ element.
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+firedrake:WARNING Degree of exact solution less than approximation degree
+
+--------------------------------------
+Degree 4: p slope error 4.967480
+
+--------------------------------------
+Degree 4: v slope error 4.979492
+
+*** End case: clsq__quad_errors ***
+*******************************************
